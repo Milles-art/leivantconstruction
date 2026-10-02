@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    [x-cloak] {
+        display: none !important;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-vant-black text-white antialiased;
+        font-family: 'Barlow', sans-serif;
+        background-image:
+            radial-gradient(circle at top left, rgba(212, 160, 23, 0.08), transparent 24rem),
+            radial-gradient(circle at 85% 12%, rgba(47, 133, 90, 0.07), transparent 22rem),
+            linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        background-size: 48px 48px;
+    }
+
+    h1, h2, h3, h4 {
+        @apply font-heading uppercase tracking-normal;
+    }
+}
+
+@layer components {
+    .vant-container {
+        @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+    }
+
+    .vant-card {
+        @apply rounded-lg border border-vant-line bg-vant-card transition duration-300 hover:border-vant-gold hover:shadow-gold;
+    }
+
+    .vant-button {
+        @apply inline-flex items-center justify-center rounded-md bg-vant-gold px-5 py-3 text-sm font-bold uppercase tracking-wide text-black transition hover:bg-vant-orange focus:outline-none focus:ring-2 focus:ring-vant-gold focus:ring-offset-2 focus:ring-offset-vant-black;
+    }
+
+    .vant-button-outline {
+        @apply inline-flex items-center justify-center rounded-md border border-vant-gold px-5 py-3 text-sm font-bold uppercase tracking-wide text-vant-gold transition hover:bg-vant-gold hover:text-black focus:outline-none focus:ring-2 focus:ring-vant-gold focus:ring-offset-2 focus:ring-offset-vant-black;
+    }
+
+    .vant-input {
+        @apply rounded-md border-vant-line bg-black/60 text-white placeholder-zinc-500 focus:border-vant-gold focus:ring-vant-gold;
+    }
+
+    .concrete-overlay {
+        background:
+            radial-gradient(circle at 20% 20%, rgba(212, 160, 23, 0.12), transparent 30%),
+            radial-gradient(circle at 80% 10%, rgba(37, 99, 235, 0.10), transparent 25%),
+            linear-gradient(135deg, rgba(232, 119, 34, 0.11), transparent 35%),
+            repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 12px);
+    }
+
+    .steel-band {
+        @apply border-y border-white/10 bg-vant-steel/70;
+    }
+
+    .light-industrial-band {
+        @apply bg-zinc-100 text-zinc-950;
+        background-image:
+            linear-gradient(rgba(10, 10, 10, 0.035) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(10, 10, 10, 0.035) 1px, transparent 1px);
+        background-size: 36px 36px;
+    }
+
+    body.vant-loading main {
+        opacity: .45;
+        pointer-events: none;
+        transition: opacity .18s ease;
+    }
+
+    body.vant-loading header::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        height: 2px;
+        background: linear-gradient(90deg, #D4A017, #E87722, #2F855A);
+        animation: vant-load 1s ease-in-out infinite;
+    }
+
+    @keyframes vant-load {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+    }
+
+    .section-label {
+        @apply mb-4 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.28em] text-vant-gold;
+    }
+
+    .section-label::before {
+        content: "";
+        @apply h-px w-10 bg-vant-gold;
+    }
+
+    .section-title {
+        @apply font-heading text-4xl font-black uppercase leading-none text-black sm:text-6xl;
+    }
+
+    .section-body {
+        @apply max-w-2xl text-sm font-semibold leading-7 text-zinc-700;
+    }
+
+    .vant-dark-panel {
+        @apply border border-vant-gold/25 bg-[#111111];
+    }
+
+    .vant-field {
+        @apply min-h-12 w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-sm font-medium text-black placeholder-zinc-500 outline-none transition focus:border-vant-gold focus:ring-vant-gold;
+    }
+
+    .vant-light-page {
+        @apply bg-zinc-50 text-black;
+    }
+
+    .shop-filter-card {
+        @apply rounded-lg border border-zinc-200 bg-white p-5 shadow-sm;
+    }
+
+    .shop-product-card {
+        @apply rounded-lg border border-zinc-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-vant-gold hover:shadow-xl;
+    }
+
+    .shop-product-image {
+        @apply border-b border-zinc-200 bg-white;
+    }
+
+    .breadcrumb-bar {
+        @apply py-6 text-xs font-medium uppercase tracking-[0.18em] text-[#888880];
+    }
+}

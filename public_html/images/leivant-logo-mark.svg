@@ -1,0 +1,54 @@
+<svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="lh-orange-depth" x1="20" y1="30" x2="60" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#EA580C"/>
+      <stop offset="100%" stop-color="#9A3412"/>
+    </linearGradient>
+    <linearGradient id="lh-orange-front" x1="40" y1="20" x2="110" y2="110" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F97316"/>
+      <stop offset="50%" stop-color="#EA580C"/>
+      <stop offset="100%" stop-color="#C2410C"/>
+    </linearGradient>
+    <linearGradient id="lh-gold-top-1" x1="60" y1="30" x2="110" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FDE047"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+    <linearGradient id="lh-gold-front-1" x1="60" y1="40" x2="110" y2="65" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="lh-gold-top-2" x1="60" y1="60" x2="110" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FDE047"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+    <linearGradient id="lh-gold-front-2" x1="60" y1="70" x2="110" y2="95" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="lh-gold-top-3" x1="60" y1="90" x2="110" y2="110" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FDE047"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+    <linearGradient id="lh-gold-front-3" x1="60" y1="100" x2="110" y2="125" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <filter id="lh-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="2" dy="5" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <g filter="url(#lh-shadow)">
+    <polygon points="20,40 44,26 44,114 20,128" fill="url(#lh-orange-depth)"/>
+    <polygon points="44,114 96,84 96,110 44,140" fill="url(#lh-orange-front)"/>
+    <polygon points="44,26 68,40 68,114 44,128" fill="url(#lh-orange-front)"/>
+    <polygon points="68,40 96,24 116,36 88,52" fill="url(#lh-gold-top-1)"/>
+    <polygon points="88,52 116,36 116,48 88,64" fill="url(#lh-gold-front-1)"/>
+    <polygon points="68,52 88,52 88,64 68,64" fill="url(#lh-gold-front-1)" opacity="0.85"/>
+    <polygon points="68,70 96,54 116,66 88,82" fill="url(#lh-gold-top-2)"/>
+    <polygon points="88,82 116,66 116,78 88,94" fill="url(#lh-gold-front-2)"/>
+    <polygon points="68,82 88,82 88,94 68,94" fill="url(#lh-gold-front-2)" opacity="0.85"/>
+    <polygon points="68,100 96,84 116,96 88,112" fill="url(#lh-gold-top-3)"/>
+    <polygon points="88,112 116,96 116,108 88,124" fill="url(#lh-gold-front-3)"/>
+    <polygon points="68,112 88,112 88,124 68,124" fill="url(#lh-gold-front-3)" opacity="0.85"/>
+  </g>
+</svg>

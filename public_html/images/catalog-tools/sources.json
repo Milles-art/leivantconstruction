@@ -1,0 +1,744 @@
+{
+  "articulated-hauler": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Articulated Hauler",
+    "original_file": "041-articulated-hauler.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "backhoe-loader": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Backhoe Loader",
+    "original_file": "036-backhoe-loader.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "belt-sander": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Belt Sander",
+    "original_file": "028-belt-sander.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "bench-grinder": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Bench Grinder",
+    "original_file": "031-bench-grinder.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "bull-float": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Bull Float",
+    "original_file": "015-bull-float.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "bulldozer": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Bulldozer",
+    "original_file": "035-bulldozer.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "bump-cutter": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Bump Cutter",
+    "original_file": "052-bump-cutter.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "caulk-gun": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Caulk Gun",
+    "original_file": "020-caulk-gun.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "caulk-sealant": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Caulk / Sealant",
+    "original_file": "104-caulk-sealant.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "cement-bags": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Cement Bags",
+    "original_file": "101-cement-bags.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "centrifugal-pump": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Centrifugal Pump",
+    "original_file": "097-centrifugal-pump.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "chain-block-chain-hoist": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Chain Block / Chain Hoist",
+    "original_file": "057-chain-hoist.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "chisel-set": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Chisel Set",
+    "original_file": "003-chisel-set.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "circular-saw": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Circular Saw",
+    "original_file": "024-circular-saw.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "claw-hammer": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Claw Hammer",
+    "original_file": "001-claw-hammer.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "compactor-road-roller": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Compactor / Road Roller",
+    "original_file": "043-road-roller.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "concrete-batch-plant": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Concrete Batch Plant",
+    "original_file": "047-concrete-batch-plant.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "concrete-buggy": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Concrete Buggy",
+    "original_file": "049-concrete-buggy.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "concrete-cutting-machine": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Concrete Cutting Machine",
+    "original_file": "048-concrete-cutting-machine.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "concrete-edger": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Concrete Edger",
+    "original_file": "053-concrete-edger.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "concrete-float": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Concrete Float",
+    "original_file": "014-concrete-float.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "concrete-groover": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Concrete Groover",
+    "original_file": "054-concrete-groover.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "concrete-hopper": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Concrete Hopper",
+    "original_file": "050-concrete-hopper.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "concrete-mixer-truck": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Concrete Mixer Truck",
+    "original_file": "045-concrete-mixer-truck.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "concrete-pump": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Concrete Pump",
+    "original_file": "046-concrete-pump.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "concrete-sealer-applicator": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Concrete Sealer & Applicator",
+    "original_file": "051-concrete-sealer-applicator.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "concrete-vibrator-38mm": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Concrete Vibrator 38mm",
+    "original_file": "029-concrete-vibrator.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "construction-calculator": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Construction Calculator",
+    "original_file": "073-construction-calculator.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "crawler-excavator": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Crawler Excavator",
+    "original_file": "033-crawler-excavator.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "digging-bar": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Digging Bar",
+    "original_file": "016-digging-bar.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "digital-measuring-tape": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Digital Measuring Tape",
+    "original_file": "071-digital-measuring-tape.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "digital-multimeter": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Digital Multimeter",
+    "original_file": "079-digital-multimeter.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "drill-rig": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Drill Rig",
+    "original_file": "063-drill-rig.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "dump-truck": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Dump Truck",
+    "original_file": "040-dump-truck.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "dust-mask-respirator": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Dust Mask / Respirator",
+    "original_file": "090-dust-mask.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "ear-muffs-earplugs": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Ear Muffs / Earplugs",
+    "original_file": "088-ear-muffs.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "earplugs": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Earplugs",
+    "original_file": "089-earplugs.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "electric-drill": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Electric Drill",
+    "original_file": "021-electric-drill.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "extension-reels-power-strips": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Extension Reels / Power Strips",
+    "original_file": "081-extension-reel.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "face-shield": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Face Shield",
+    "original_file": "087-face-shield.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "fire-extinguisher": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Fire Extinguisher",
+    "original_file": "094-fire-extinguisher.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "first-aid-kit": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "First Aid Kit",
+    "original_file": "093-first-aid-kit.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "forklift": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Forklift",
+    "original_file": "058-forklift.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "foundation-auger": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Foundation Auger",
+    "original_file": "067-foundation-auger.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "gps-survey-equipment": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "GPS Survey Equipment",
+    "original_file": "072-gps-survey-equipment.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "hacksaw": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Hacksaw",
+    "original_file": "010-hacksaw.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "hand-saw": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Hand Saw",
+    "original_file": "009-hand-saw.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "hand-truck-dolly": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Hand Truck / Dolly",
+    "original_file": "061-hand-truck.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "hawk-board": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Hawk Board",
+    "original_file": "013-hawk-board.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "heavy-duty-wheelbarrow": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Heavy Duty Wheelbarrow",
+    "original_file": "019-wheelbarrow.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "impact-driver": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Impact Driver",
+    "original_file": "022-impact-driver.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "jigsaw": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Jigsaw",
+    "original_file": "027-jigsaw.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "large-generator": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Large Generator",
+    "original_file": "075-large-generator.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "laser-level": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Laser Level",
+    "original_file": "068-laser-level.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "light-tower": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Light Tower",
+    "original_file": "076-light-tower.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "manlift-boom-lift": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Manlift / Boom Lift",
+    "original_file": "059-boom-lift.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "masonry-trowel": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Masonry Trowel",
+    "original_file": "011-masonry-trowel.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "mobile-crane": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Mobile Crane",
+    "original_file": "056-mobile-crane.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "motor-grader": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Motor Grader",
+    "original_file": "039-motor-grader.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "nail-gun": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Nail Gun",
+    "original_file": "032-nail-gun.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "nails-bolts-screws-assorted": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Nails, Bolts, Screws Assorted",
+    "original_file": "100-nails-bolts-screws.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "paint-sprayer": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Paint Sprayer",
+    "original_file": "103-paint-sprayer.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "pallet-jack": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Pallet Jack",
+    "original_file": "062-pallet-jack.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "pickaxe": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Pickaxe",
+    "original_file": "017-pickaxe.png",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "pile-boring-machine": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Pile Boring Machine",
+    "original_file": "064-pile-boring-machine.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "pile-driver": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Pile Driver",
+    "original_file": "065-pile-driver.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "plastering-trowel": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Plastering Trowel",
+    "original_file": "012-plastering-trowel.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "pliers-set": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Pliers Set",
+    "original_file": "007-pliers-set.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "portable-concrete-mixer-350l": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Portable Concrete Mixer 350L",
+    "original_file": "044-portable-concrete-mixer.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "portable-floodlight": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Portable Floodlight",
+    "original_file": "077-portable-floodlight.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "power-trowel": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Power Trowel",
+    "original_file": "030-power-trowel.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "professional-angle-grinder": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Professional Angle Grinder",
+    "original_file": "025-angle-grinder.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "reciprocating-saw": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Reciprocating Saw",
+    "original_file": "026-reciprocating-saw.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "reflective-safety-vest": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Reflective Safety Vest",
+    "original_file": "084-reflective-safety-vest.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "respirator": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Respirator",
+    "original_file": "091-respirator.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "rock-breaker": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Rock Breaker",
+    "original_file": "066-hydraulic-rock-breaker.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "rotary-hammer-drill": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Rotary Hammer Drill",
+    "original_file": "023-rotary-hammer.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "safety-barriers-barricades": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Safety Barriers / Barricades",
+    "original_file": "099-safety-barricades.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "safety-boots-steel-toe": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Safety Boots Steel Toe",
+    "original_file": "083-steel-toe-safety-boots.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "safety-gloves": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Safety Gloves",
+    "original_file": "085-safety-gloves.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "safety-goggles-face-shield": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Safety Goggles / Face Shield",
+    "original_file": "086-safety-goggles.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "safety-harness": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Safety Harness",
+    "original_file": "092-safety-harness.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "safety-helmet-hard-hat": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Safety Helmet / Hard Hat",
+    "original_file": "082-hard-hat.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "sandpaper-abrasives": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Sandpaper / Abrasives",
+    "original_file": "105-sandpaper-abrasives.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "scaffolding-system": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Scaffolding System",
+    "original_file": "098-scaffolding-system.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "scissor-lift": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Scissor Lift",
+    "original_file": "060-scissor-lift.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "screwdriver-set": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Screwdriver Set",
+    "original_file": "004-screwdriver-set.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "shovel-spade": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Shovel / Spade",
+    "original_file": "018-shovel.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "site-generator-5kva": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Portable Generator Small",
+    "original_file": "074-portable-generator.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "skid-steer-loader": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Skid Steer Loader",
+    "original_file": "038-skid-steer-loader.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "sledgehammer": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Sledgehammer",
+    "original_file": "002-sledgehammer.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "spirit-level": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Spirit Level",
+    "original_file": "006-spirit-level.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "submersible-pump": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Submersible Pump",
+    "original_file": "095-submersible-pump.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "tape-measure-30ft": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Tape Measure 30ft",
+    "original_file": "005-tape-measure.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "theodolite": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Theodolite",
+    "original_file": "070-theodolite.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "toolbox-tool-storage-cabinet": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Toolbox / Tool Storage Cabinet",
+    "original_file": "106-toolbox.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "total-station": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Total Station",
+    "original_file": "069-total-station.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "tower-crane": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Tower Crane",
+    "original_file": "055-tower-crane.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "trencher": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Trencher",
+    "original_file": "042-trencher.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "ups-system": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "UPS System",
+    "original_file": "078-ups-system.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "voltage-tester": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Voltage Tester",
+    "original_file": "080-voltage-tester.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "welding-machine-electrodes": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Welding Machine + Electrodes",
+    "original_file": "102-welding-machine-electrodes.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "wellpoint-system": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Wellpoint System",
+    "original_file": "096-wellpoint-system.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "wheel-loader": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Wheel Loader",
+    "original_file": "037-wheel-loader.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "wheeled-excavator": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Wheeled Excavator",
+    "original_file": "034-wheeled-excavator.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  },
+  "wrench-set": {
+    "source": "Downloads imgs construction_images.rar",
+    "license": "User-provided local product image archive",
+    "title": "Wrench Set",
+    "original_file": "008-wrench-set.jpg",
+    "archive_file": "C:/Users/Esrom Mussa/Downloads/imgs/construction_images.rar"
+  }
+}

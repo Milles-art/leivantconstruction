@@ -1,0 +1,711 @@
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <!-- Avoid indexing from search engines -->
+        <meta name="robots" content="noindex, nofollow" />
+
+        <title>cPanel - phpMyAdmin</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1">
+
+        <!-- Chrome, Firefox OS and Opera -->
+        <meta name="theme-color" content="#293a4a">
+
+        <!-- Mobile Chrome-->
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-status-bar-style" content="default">
+
+        <!-- iOS Safari -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <link rel="apple-touch-icon" href="../assets/brand/cP_orange.png">
+        <meta name="apple-mobile-web-app-title" content="phpMyAdmin">
+
+        <meta name="referrer" content="origin">
+
+        <!-- Add pre-loaded styles. This is used for styles that need to be loaded before the web component bundle loads. -->
+        <link rel="stylesheet" type="text/css" href="/cPanel_magic_revision_1777538974/frontend/jupiter/styles/preload_styles.min.css" id="preload-stylesheet"/>
+
+        
+        <link rel="icon" href="../assets/brand/favicon.ico" type="image/x-icon" />
+        
+
+        <!--
+            Load the font faces we need. These must be defined in the master template in order for our
+            global web components to have access to them. They cannot be defined in the Shadow DOM.
+        -->
+        <link rel="stylesheet" type="text/css" href="/cPanel_magic_revision_1727300848/frontend/jupiter/styles/fonts.min.css" id="custom-fonts-stylesheet" />
+
+        <link rel="stylesheet" type="text/css" href="/cPanel_magic_revision_1786353896/frontend/jupiter/assets/application_icons/sprites/icon_spritemap.css" />
+        <link rel="stylesheet" type="text/css" href="/cPanel_magic_revision_1777538975/frontend/jupiter/core/main_content/main_content.min.css" />        <link rel="stylesheet" type="text/css" href="/cPanel_magic_revision_1785884262/frontend/jupiter/core/main_content/main_content_spacing.min.css" />        <link rel="stylesheet" type="text/css" href="/cPanel_magic_revision_1777544860/frontend/jupiter/_assets/css/master-legacy-ltr.cmb.min.css" />
+        <!-- base overrides css file should go below the page specific styles.
+            These are overrides written in the past based on the assumption that
+            it gets loded last on every page.
+            NOTE: Do not move below the header JS or you delay the
+            download start time. These just need to be below the
+            last css in the header. -->
+        <link rel="stylesheet" type="text/css" href="../css/base_overrides.min.css" />
+        
+        <script>
+            (function(){
+                window.PAGE = {};
+                window.MASTER = {};
+                window.NVData = {};
+                window.thisTheme = "jupiter";
+            })();
+        </script>
+
+
+            <script type="text/javascript" src="/cPanel_magic_revision_1727300926/frontend/jupiter/_assets/js/master-legacy.cmb.min.js"></script>
+                
+            <script type="text/javascript" src="/cPanel_magic_revision_1777544784/cjt/cjt-min.js?locale=en&locale_optional=1&locale_revision=1785890946"></script>
+            <script>
+              CPANEL.validate.hide_validation_summary = true;
+            </script>
+        
+        <!-- Content Include point: GLOBAL HTML HEAD -->
+        
+        <!-- End: Content Include point -->
+    </head>
+    <body id="php_my_admin" class="cpanel yui-skin-sam cpanel_body" data-app-key="php_my_admin">
+        
+
+        <cp-ui-load-analytics
+            analytics-config="{&quot;debugMode&quot;:0,&quot;isUserAnalyticsRequiredByLeika&quot;:1,&quot;cpAnalyticsData&quot;:{&quot;team_user_roles&quot;:&quot;N/A&quot;,&quot;server_main_ip_is_private&quot;:0,&quot;server_main_ip&quot;:&quot;102.212.247.90&quot;,&quot;INITIAL_SERVER_ENV_TYPE&quot;:&quot;standard&quot;,&quot;analytics_distribution&quot;:&quot;ULC&quot;,&quot;product_interface&quot;:&quot;cPanel&quot;,&quot;product_locale&quot;:&quot;en&quot;,&quot;framework_js&quot;:&quot;YUI&quot;,&quot;INITIAL_SERVER_LICENSE_TYPE&quot;:&quot;0&quot;,&quot;UUID&quot;:&quot;d81a5066-19e4-49f5-b949-c341f13e995d&quot;,&quot;TRANSFERRED_OR_RESTORED&quot;:&quot;0&quot;,&quot;server_operating_system&quot;:&quot;CloudLinux v8.10.0&quot;,&quot;is_nat&quot;:0,&quot;product_feature_group&quot;:&quot;databases&quot;,&quot;company_id&quot;:null,&quot;product_feature&quot;:&quot;php_my_admin&quot;,&quot;framework_css&quot;:&quot;bootstrap3 + YUI&quot;,&quot;is_team_user&quot;:0,&quot;UUID_ADDED_AT_ACCOUNT_CREATION&quot;:&quot;1&quot;,&quot;ACCOUNT_AGE&quot;:85,&quot;product_version&quot;:&quot;136.0.32&quot;,&quot;server_current_license_kind&quot;:&quot;STANDARD&quot;,&quot;product_trial_status&quot;:&quot;false&quot;},&quot;isSandbox&quot;:0,&quot;loginUser&quot;:&quot;leivantc&quot;,&quot;canTrackUserAnalytics&quot;:0}"
+        >
+        </cp-ui-load-analytics>
+
+        
+
+
+<cp-root-variables
+    directory-prefix="../"
+    app-list="[{&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;email_accounts&quot;,&quot;searchText&quot;:&quot;email accounts mail pop imap smtp Email Accounts&quot;,&quot;name&quot;:&quot;Email Accounts&quot;,&quot;description&quot;:&quot;Create, manage, and delete email accounts.&quot;,&quot;url&quot;:&quot;email_accounts/index.html&quot;,&quot;category&quot;:&quot;Email&quot;},{&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;Forwarders&quot;,&quot;searchText&quot;:&quot;Forwarders forward&quot;,&quot;key&quot;:&quot;forwarders&quot;,&quot;description&quot;:&quot;Configure an email address to forward copies of incoming emails to another address.&quot;,&quot;url&quot;:&quot;mail/fwds.html&quot;,&quot;category&quot;:&quot;Email&quot;},{&quot;key&quot;:&quot;email_routing&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;MX Entry Email Routing dns&quot;,&quot;name&quot;:&quot;Email Routing&quot;,&quot;description&quot;:&quot;Configure how the system routes a domain’s incoming mail.&quot;,&quot;category&quot;:&quot;Email&quot;,&quot;url&quot;:&quot;mail/email_routing.html&quot;},{&quot;category&quot;:&quot;Email&quot;,&quot;url&quot;:&quot;mail/autores.html&quot;,&quot;key&quot;:&quot;autoresponders&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Autoresponders autoresponder auto responders&quot;,&quot;name&quot;:&quot;Autoresponders&quot;,&quot;description&quot;:&quot;Configure automatic email response messages.&quot;},{&quot;description&quot;:&quot;Set up a default email address.&quot;,&quot;searchText&quot;:&quot;Default Address&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;default_address&quot;,&quot;name&quot;:&quot;Default Address&quot;,&quot;category&quot;:&quot;Email&quot;,&quot;url&quot;:&quot;mail/def.html&quot;},{&quot;category&quot;:&quot;Email&quot;,&quot;url&quot;:&quot;mail/lists.html&quot;,&quot;description&quot;:&quot;Set up a single email address to send mail to multiple email addresses.&quot;,&quot;name&quot;:&quot;Mailing Lists&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Mailing Lists mailman&quot;,&quot;key&quot;:&quot;mailing_lists&quot;},{&quot;url&quot;:&quot;mail/route.html&quot;,&quot;category&quot;:&quot;Email&quot;,&quot;name&quot;:&quot;Track Delivery&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Track Delivery Email Trace email mail delivery report&quot;,&quot;key&quot;:&quot;track_delivery&quot;,&quot;description&quot;:&quot;Display reports about email message delivery attempts.&quot;},{&quot;category&quot;:&quot;Email&quot;,&quot;url&quot;:&quot;mail/filters/userfilters.html&quot;,&quot;description&quot;:&quot;Configure how your server filters all of the email that your domains’ email accounts receive.&quot;,&quot;key&quot;:&quot;global_email_filters&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Global Email Filters filter account level filtering&quot;,&quot;name&quot;:&quot;Global Email Filters&quot;},{&quot;description&quot;:&quot;Configure how your server filters a specific email account’s received mail.&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;User Filters Email user level Filtering filter Email Filters&quot;,&quot;name&quot;:&quot;Email Filters&quot;,&quot;key&quot;:&quot;email_filters&quot;,&quot;url&quot;:&quot;mail/filters/managefilters.html&quot;,&quot;category&quot;:&quot;Email&quot;},{&quot;category&quot;:&quot;Email&quot;,&quot;url&quot;:&quot;email_deliverability/&quot;,&quot;description&quot;:&quot;Identify problems with your mail-related DNS records for one or more of your domains.&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;email_deliverability&quot;,&quot;searchText&quot;:&quot;email Authentication Email Deliverability spf dmarc domain-keys authentication DKIM&quot;,&quot;name&quot;:&quot;Email Deliverability&quot;},{&quot;category&quot;:&quot;Email&quot;,&quot;url&quot;:&quot;mail/csvimport.html&quot;,&quot;description&quot;:&quot;Use a spreadsheet or comma-separated value text file to quickly create mailboxes or forwarders.&quot;,&quot;name&quot;:&quot;Address Importer&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Address Importer Import Addresses Forwarders Mail csv import xls import&quot;,&quot;key&quot;:&quot;address_importer&quot;},{&quot;category&quot;:&quot;Email&quot;,&quot;url&quot;:&quot;mail/spam/index.html&quot;,&quot;description&quot;:&quot;Configure the spam filter settings for your email account.&quot;,&quot;searchText&quot;:&quot;Filtering Spam Assassin spamassassin Apache SpamAssassin Spam Filters&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;Spam Filters&quot;,&quot;key&quot;:&quot;apache_spam_assassin&quot;},{&quot;category&quot;:&quot;Email&quot;,&quot;url&quot;:&quot;https://www.attracta.com/extlinks/emailmarketing&quot;,&quot;key&quot;:&quot;attracta_emailmarketing&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Email Marketing&quot;,&quot;name&quot;:&quot;Email Marketing&quot;,&quot;description&quot;:&quot;Email Marketing&quot;},{&quot;description&quot;:&quot;Create, manage, and delete GnuPG keys.&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Encryption gpg keys GnuPG Keys&quot;,&quot;key&quot;:&quot;encryption&quot;,&quot;name&quot;:&quot;Encryption&quot;,&quot;category&quot;:&quot;Email&quot;,&quot;url&quot;:&quot;gpg/index.html&quot;},{&quot;url&quot;:&quot;mail/boxtrapper.html&quot;,&quot;category&quot;:&quot;Email&quot;,&quot;description&quot;:&quot;Filter spam from your inbox through challenge-response verification.&quot;,&quot;searchText&quot;:&quot;BoxTrapper filter&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;boxtrapper&quot;,&quot;name&quot;:&quot;BoxTrapper&quot;},{&quot;url&quot;:&quot;mail/greylisting/index.html&quot;,&quot;category&quot;:&quot;Email&quot;,&quot;description&quot;:&quot;Enable or disable protection against unwanted email or spam.&quot;,&quot;key&quot;:&quot;greylisting&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Greylisting grey list spam Configure Greylisting&quot;,&quot;name&quot;:&quot;Configure Greylisting&quot;},{&quot;description&quot;:&quot;Manage your CalDAV (calendar) and CardDAV (contacts) accounts.&quot;,&quot;name&quot;:&quot;Calendars and Contacts Configuration&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;email calendar contact address book CalDAV CardDAV Calendars and Contacts Configuration&quot;,&quot;key&quot;:&quot;calendar_and_contacts&quot;,&quot;category&quot;:&quot;Email&quot;,&quot;url&quot;:&quot;mail/calendars_and_contacts/index.html&quot;},{&quot;url&quot;:&quot;manage-calendar-access/index.html&quot;,&quot;category&quot;:&quot;Email&quot;,&quot;description&quot;:&quot;Delegate access rights for a user’s calendar &amp;amp; contacts to other users.&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;Calendars and Contacts Sharing&quot;,&quot;searchText&quot;:&quot;calendar delegation Calendars and Contacts Sharing&quot;,&quot;key&quot;:&quot;manage_calendar_access&quot;},{&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;calendar_contact_management&quot;,&quot;searchText&quot;:&quot;calendar contact management address book addressbook Calendars and Contacts Management&quot;,&quot;name&quot;:&quot;Calendars and Contacts Management&quot;,&quot;description&quot;:&quot;Calendars and Contacts Management&quot;,&quot;url&quot;:&quot;calendar-contact-management/index.html&quot;,&quot;category&quot;:&quot;Email&quot;},{&quot;searchText&quot;:&quot;email accounts mail disk usage bytes mb size Email Disk Usage&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;email_disk_usage&quot;,&quot;name&quot;:&quot;Email Disk Usage&quot;,&quot;description&quot;:&quot;View your mailboxes and disk usage for each, and remove old or large messages.&quot;,&quot;category&quot;:&quot;Email&quot;,&quot;url&quot;:&quot;mail/manage_disk_usage/&quot;},{&quot;category&quot;:&quot;Billing &amp; Support&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;WHMCS_clientarea_announcements&quot;,&quot;name&quot;:&quot;News &amp; Announcements&quot;,&quot;description&quot;:&quot;News &amp; Announcements&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;integration/index.html?app=WHMCS_clientarea_announcements&quot;,&quot;searchText&quot;:&quot;News &amp; Announcements&quot;},{&quot;category&quot;:&quot;Billing &amp; Support&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;WHMCS_clientarea_billing_info&quot;,&quot;name&quot;:&quot;Manage Billing Information&quot;,&quot;description&quot;:&quot;Manage Billing Information&quot;,&quot;url&quot;:&quot;integration/index.html?app=WHMCS_clientarea_billing_info&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;searchText&quot;:&quot;Manage Billing Information&quot;},{&quot;url&quot;:&quot;integration/index.html?app=WHMCS_clientarea_downloads&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;searchText&quot;:&quot;Download Resources&quot;,&quot;category&quot;:&quot;Billing &amp; Support&quot;,&quot;description&quot;:&quot;Download Resources&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;Download Resources&quot;,&quot;key&quot;:&quot;WHMCS_clientarea_downloads&quot;},{&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;View Email History&quot;,&quot;key&quot;:&quot;WHMCS_clientarea_emails&quot;,&quot;description&quot;:&quot;View Email History&quot;,&quot;category&quot;:&quot;Billing &amp; Support&quot;,&quot;searchText&quot;:&quot;View Email History&quot;,&quot;url&quot;:&quot;integration/index.html?app=WHMCS_clientarea_emails&quot;,&quot;target&quot;:&quot;_blank&quot;},{&quot;description&quot;:&quot;View Invoice History&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;WHMCS_clientarea_invoices&quot;,&quot;name&quot;:&quot;View Invoice History&quot;,&quot;category&quot;:&quot;Billing &amp; Support&quot;,&quot;searchText&quot;:&quot;View Invoice History&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;integration/index.html?app=WHMCS_clientarea_invoices&quot;},{&quot;searchText&quot;:&quot;Search our Knowledgebase&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;integration/index.html?app=WHMCS_clientarea_knowledgebase&quot;,&quot;description&quot;:&quot;Search our Knowledgebase&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;WHMCS_clientarea_knowledgebase&quot;,&quot;name&quot;:&quot;Search our Knowledgebase&quot;,&quot;category&quot;:&quot;Billing &amp; Support&quot;},{&quot;url&quot;:&quot;integration/index.html?app=WHMCS_clientarea_network_status&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;searchText&quot;:&quot;Check Network Status&quot;,&quot;category&quot;:&quot;Billing &amp; Support&quot;,&quot;description&quot;:&quot;Check Network Status&quot;,&quot;name&quot;:&quot;Check Network Status&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;WHMCS_clientarea_network_status&quot;},{&quot;category&quot;:&quot;Billing &amp; Support&quot;,&quot;description&quot;:&quot;View Billing Information&quot;,&quot;key&quot;:&quot;WHMCS_clientarea_product_details&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;View Billing Information&quot;,&quot;url&quot;:&quot;integration/index.html?app=WHMCS_clientarea_product_details&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;searchText&quot;:&quot;View Billing Information&quot;},{&quot;name&quot;:&quot;Manage Profile&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;WHMCS_clientarea_profile&quot;,&quot;description&quot;:&quot;Manage Profile&quot;,&quot;category&quot;:&quot;Billing &amp; Support&quot;,&quot;searchText&quot;:&quot;Manage Profile&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;integration/index.html?app=WHMCS_clientarea_profile&quot;},{&quot;url&quot;:&quot;integration/index.html?app=WHMCS_clientarea_shopping_cart_domain_register&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;searchText&quot;:&quot;Register New Domain&quot;,&quot;category&quot;:&quot;Billing &amp; Support&quot;,&quot;description&quot;:&quot;Register New Domain&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;Register New Domain&quot;,&quot;key&quot;:&quot;WHMCS_clientarea_shopping_cart_domain_register&quot;},{&quot;category&quot;:&quot;Billing &amp; Support&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;Transfer a Domain&quot;,&quot;key&quot;:&quot;WHMCS_clientarea_shopping_cart_domain_transfer&quot;,&quot;description&quot;:&quot;Transfer a Domain&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;integration/index.html?app=WHMCS_clientarea_shopping_cart_domain_transfer&quot;,&quot;searchText&quot;:&quot;Transfer a Domain&quot;},{&quot;category&quot;:&quot;Billing &amp; Support&quot;,&quot;description&quot;:&quot;Open Ticket&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;WHMCS_clientarea_submit_ticket&quot;,&quot;name&quot;:&quot;Open Ticket&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;integration/index.html?app=WHMCS_clientarea_submit_ticket&quot;,&quot;searchText&quot;:&quot;Open Ticket&quot;},{&quot;url&quot;:&quot;integration/index.html?app=WHMCS_clientarea_tickets&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;searchText&quot;:&quot;View Support Tickets&quot;,&quot;category&quot;:&quot;Billing &amp; Support&quot;,&quot;key&quot;:&quot;WHMCS_clientarea_tickets&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;View Support Tickets&quot;,&quot;description&quot;:&quot;View Support Tickets&quot;},{&quot;target&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;integration/index.html?app=WHMCS_clientarea_upgrade&quot;,&quot;searchText&quot;:&quot;Upgrade/Downgrade&quot;,&quot;category&quot;:&quot;Billing &amp; Support&quot;,&quot;description&quot;:&quot;Upgrade/Downgrade&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;Upgrade/Downgrade&quot;,&quot;key&quot;:&quot;WHMCS_clientarea_upgrade&quot;},{&quot;url&quot;:&quot;filemanager/index.html&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;searchText&quot;:&quot;File Manager file-manager&quot;,&quot;category&quot;:&quot;Files&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;file_manager&quot;,&quot;name&quot;:&quot;File Manager&quot;,&quot;description&quot;:&quot;Manage and edit your files.&quot;},{&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;Images&quot;,&quot;searchText&quot;:&quot;image manager resize manager scaler thumbnailer format Images&quot;,&quot;key&quot;:&quot;images&quot;,&quot;description&quot;:&quot;Modify and manage images saved to your cPanel account.&quot;,&quot;category&quot;:&quot;Files&quot;,&quot;url&quot;:&quot;cpanelpro/images.html&quot;},{&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Directory Privacy passwordprotect password protect&quot;,&quot;key&quot;:&quot;directory_privacy&quot;,&quot;name&quot;:&quot;Directory Privacy&quot;,&quot;description&quot;:&quot;Protect specific directories in your files on your cPanel account.&quot;,&quot;url&quot;:&quot;htaccess/index.html&quot;,&quot;category&quot;:&quot;Files&quot;},{&quot;description&quot;:&quot;View information about your files, your directories, and how you use your disk space.&quot;,&quot;key&quot;:&quot;disk_usage&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Disk Usage disk space usage disk-usage&quot;,&quot;name&quot;:&quot;Disk Usage&quot;,&quot;category&quot;:&quot;Files&quot;,&quot;url&quot;:&quot;diskusage/index.html&quot;},{&quot;description&quot;:&quot;Manage files on multiple types of devices.&quot;,&quot;key&quot;:&quot;web_disk&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Web Disk webdav webdisk&quot;,&quot;name&quot;:&quot;Web Disk&quot;,&quot;url&quot;:&quot;webdav/accounts_webdav.html&quot;,&quot;category&quot;:&quot;Files&quot;},{&quot;description&quot;:&quot;Create, manage, and delete FTP accounts.&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;FTP Accounts ftp create&quot;,&quot;key&quot;:&quot;ftp_accounts&quot;,&quot;name&quot;:&quot;FTP Accounts&quot;,&quot;url&quot;:&quot;ftp/accounts.html&quot;,&quot;category&quot;:&quot;Files&quot;},{&quot;description&quot;:&quot;Download and store your website in a backup file.&quot;,&quot;searchText&quot;:&quot;Backup restore&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;backup&quot;,&quot;name&quot;:&quot;Backup&quot;,&quot;category&quot;:&quot;Files&quot;,&quot;url&quot;:&quot;backup/index.html&quot;},{&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Backup Wizard restore&quot;,&quot;key&quot;:&quot;backup_wizard&quot;,&quot;name&quot;:&quot;Backup Wizard&quot;,&quot;description&quot;:&quot;Back up all or part of your website, or restore it from the most recent backup file.&quot;,&quot;category&quot;:&quot;Files&quot;,&quot;url&quot;:&quot;backup/wizard.html&quot;},{&quot;category&quot;:&quot;Files&quot;,&quot;url&quot;:&quot;version_control/index.html&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Git version control vcs repositories repository repo master checkout check out branch clone remote source code commit head gitweb history log publish deployment build continuous integration Git™ Version Control&quot;,&quot;key&quot;:&quot;version_control&quot;,&quot;name&quot;:&quot;Git™ Version Control&quot;,&quot;description&quot;:&quot;Host Git™ repositories.&quot;},{&quot;description&quot;:&quot;AI Blog Post Generator&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;aicontent2&quot;,&quot;searchText&quot;:&quot;AI Blog Post Generator&quot;,&quot;name&quot;:&quot;AI Blog Post Generator&quot;,&quot;url&quot;:&quot;https://www.attracta.com/extlinks/copymatic&quot;,&quot;category&quot;:&quot;Files&quot;},{&quot;category&quot;:&quot;Files&quot;,&quot;url&quot;:&quot;jetbackup5/index.html&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;JetBackup 5&quot;,&quot;name&quot;:&quot;JetBackup 5&quot;,&quot;key&quot;:&quot;jb5&quot;,&quot;description&quot;:&quot;JetBackup 5&quot;},{&quot;description&quot;:&quot;Get In Google&quot;,&quot;name&quot;:&quot;Get In Google&quot;,&quot;url_is_absolute&quot;:1,&quot;searchText&quot;:&quot;Get In Google&quot;,&quot;key&quot;:&quot;attracta_getingoogle&quot;,&quot;category&quot;:&quot;SEO and Marketing Tools&quot;,&quot;url&quot;:&quot;/cpsess9936642561/frontend/paper_lantern/attracta/index.live.pl?id=31&quot;},{&quot;description&quot;:&quot;SEO Tools&quot;,&quot;name&quot;:&quot;SEO Tools&quot;,&quot;url_is_absolute&quot;:1,&quot;searchText&quot;:&quot;SEO Tools&quot;,&quot;key&quot;:&quot;attracta_seotools&quot;,&quot;url&quot;:&quot;/cpsess9936642561/frontend/paper_lantern/attracta/index.live.pl?id=32&quot;,&quot;category&quot;:&quot;SEO and Marketing Tools&quot;},{&quot;searchText&quot;:&quot;Increase Website Traffic&quot;,&quot;url_is_absolute&quot;:1,&quot;key&quot;:&quot;attracta_increasewebsitetraffic&quot;,&quot;name&quot;:&quot;Increase Website Traffic&quot;,&quot;description&quot;:&quot;Increase Website Traffic&quot;,&quot;category&quot;:&quot;SEO and Marketing Tools&quot;,&quot;url&quot;:&quot;/cpsess9936642561/frontend/paper_lantern/attracta/index.live.pl?id=33&quot;},{&quot;description&quot;:&quot;Link Building&quot;,&quot;searchText&quot;:&quot;Link Building&quot;,&quot;url_is_absolute&quot;:1,&quot;key&quot;:&quot;attracta_linkbuilding&quot;,&quot;name&quot;:&quot;Link Building&quot;,&quot;category&quot;:&quot;SEO and Marketing Tools&quot;,&quot;url&quot;:&quot;/cpsess9936642561/frontend/paper_lantern/attracta/index.live.pl?id=35&quot;},{&quot;searchText&quot;:&quot;SEO Optimized WordPress Themes&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;https://www.attracta.com/extlinks/wpthemes&quot;,&quot;description&quot;:&quot;SEO Optimized WordPress Themes&quot;,&quot;key&quot;:&quot;attracta_wpthemes&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;SEO Optimized WordPress Themes&quot;,&quot;category&quot;:&quot;SEO and Marketing Tools&quot;},{&quot;category&quot;:&quot;SEO and Marketing Tools&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;WordPress Social Media Optimization&quot;,&quot;key&quot;:&quot;attracta_socialmm2&quot;,&quot;description&quot;:&quot;WordPress Social Media Optimization&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;https://www.attracta.com/extlinks/wpsocial&quot;,&quot;searchText&quot;:&quot;WordPress Social Media Optimization&quot;},{&quot;target&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;https://www.attracta.com/extlinks/wpvisual&quot;,&quot;searchText&quot;:&quot;Drag &amp; Drop Visual Page Builder&quot;,&quot;category&quot;:&quot;SEO and Marketing Tools&quot;,&quot;description&quot;:&quot;Drag &amp; Drop Visual Page Builder&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;Drag &amp; Drop Visual Page Builder&quot;,&quot;key&quot;:&quot;attracta_wpvisual&quot;},{&quot;url&quot;:&quot;https://www.attracta.com/extlinks/emailmarketing&quot;,&quot;category&quot;:&quot;SEO and Marketing Tools&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;Free Email Marketing Tools&quot;,&quot;searchText&quot;:&quot;Free Email Marketing Tools&quot;,&quot;key&quot;:&quot;attracta_emailmarketing3&quot;,&quot;description&quot;:&quot;Free Email Marketing Tools&quot;},{&quot;category&quot;:&quot;SEO and Marketing Tools&quot;,&quot;url&quot;:&quot;https://www.attracta.com/extlinks/semrushfree&quot;,&quot;description&quot;:&quot;Google Rank Checker&quot;,&quot;key&quot;:&quot;rankcheck2&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Google Rank Checker&quot;,&quot;name&quot;:&quot;Google Rank Checker&quot;},{&quot;description&quot;:&quot;Free AI Site Tools&quot;,&quot;name&quot;:&quot;Free AI Site Tools&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Free AI Site Tools&quot;,&quot;key&quot;:&quot;aicontent3&quot;,&quot;category&quot;:&quot;SEO and Marketing Tools&quot;,&quot;url&quot;:&quot;https://www.attracta.com/extlinks/copymatic&quot;},{&quot;searchText&quot;:&quot;phpMyAdmin database db&quot;,&quot;url&quot;:&quot;sql/PhpMyAdmin.html&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;description&quot;:&quot;Manage databases with phpMyAdmin.&quot;,&quot;name&quot;:&quot;phpMyAdmin&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;php_my_admin&quot;,&quot;category&quot;:&quot;Databases&quot;},{&quot;url&quot;:&quot;sql/index.html&quot;,&quot;category&quot;:&quot;Databases&quot;,&quot;searchText&quot;:&quot;MySQL Databases db Manage My Databases&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;mysql_databases&quot;,&quot;name&quot;:&quot;Manage My Databases&quot;,&quot;description&quot;:&quot;Create, manage, and delete databases and database users.&quot;},{&quot;category&quot;:&quot;Databases&quot;,&quot;url&quot;:&quot;sql/wizard1.html&quot;,&quot;description&quot;:&quot;Guided setup of a database, database users, and user privileges.&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;MySQL Database Wizard mysql database db&quot;,&quot;name&quot;:&quot;Database Wizard&quot;,&quot;key&quot;:&quot;mysql_database_wizard&quot;},{&quot;name&quot;:&quot;Remote Database Access&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Remote MySQL db Remote Database Access&quot;,&quot;key&quot;:&quot;remote_mysql&quot;,&quot;description&quot;:&quot;Allow remote hosts (servers) to access databases hosted on this server.&quot;,&quot;category&quot;:&quot;Databases&quot;,&quot;url&quot;:&quot;sql/managehost.html&quot;},{&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;PostgreSQL Databases&quot;,&quot;searchText&quot;:&quot;PostgreSQL Databases postgres database postgresql db&quot;,&quot;key&quot;:&quot;postgresql_databases&quot;,&quot;description&quot;:&quot;Create, manage, and delete PostgreSQL® databases and database users.&quot;,&quot;category&quot;:&quot;Databases&quot;,&quot;url&quot;:&quot;psql/index.html&quot;},{&quot;description&quot;:&quot;Guided setup of a PostgreSQL® database, database users, and user privileges.&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;PostgreSQL Database Wizard postgres postgresql database db&quot;,&quot;name&quot;:&quot;PostgreSQL Database Wizard&quot;,&quot;key&quot;:&quot;postgresql_database_wizard&quot;,&quot;url&quot;:&quot;psql/wizard1.html&quot;,&quot;category&quot;:&quot;Databases&quot;},{&quot;searchText&quot;:&quot;phpPgAdmin database psql db&quot;,&quot;url&quot;:&quot;/cpsess9936642561/3rdparty/phpPgAdmin/index.php&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;name&quot;:&quot;phpPgAdmin&quot;,&quot;url_is_absolute&quot;:1,&quot;key&quot;:&quot;php_pg_admin&quot;,&quot;description&quot;:&quot;Manage PostgreSQL® databases.&quot;,&quot;category&quot;:&quot;Databases&quot;},{&quot;category&quot;:&quot;Domains&quot;,&quot;url&quot;:&quot;socialbee/index.html&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;Social Media Management&quot;,&quot;searchText&quot;:&quot;media management plugin socialbee social bee Social Media Management&quot;,&quot;key&quot;:&quot;cpanel-socialbee-plugin&quot;,&quot;description&quot;:&quot;Social Media Management&quot;},{&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;domains parked park aliases alias addon subdomain domain force https redirect Domains&quot;,&quot;name&quot;:&quot;Domains&quot;,&quot;key&quot;:&quot;domains&quot;,&quot;description&quot;:&quot;Create, manage, and delete multiple domains.&quot;,&quot;url&quot;:&quot;domains/index.html&quot;,&quot;category&quot;:&quot;Domains&quot;},{&quot;category&quot;:&quot;Domains&quot;,&quot;url&quot;:&quot;mime/redirect.html&quot;,&quot;searchText&quot;:&quot;Redirects rewrite modrewrite&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;redirects&quot;,&quot;name&quot;:&quot;Redirects&quot;,&quot;description&quot;:&quot;Send the visitors of a domain or particular page to a different URL.&quot;},{&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;zone_editor&quot;,&quot;searchText&quot;:&quot;zone editor advanced simple caa cname a aaaa txt dkim dmarc spf mx srv record dns dnssec Zone Editor&quot;,&quot;name&quot;:&quot;Zone Editor&quot;,&quot;description&quot;:&quot;Create, manage, and delete DNS zone records.&quot;,&quot;url&quot;:&quot;zone_editor/index.html&quot;,&quot;category&quot;:&quot;Domains&quot;},{&quot;url&quot;:&quot;dynamic-dns/index.html&quot;,&quot;category&quot;:&quot;Domains&quot;,&quot;description&quot;:&quot;Manage your dynamic DNS domains.&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;dynamic dns ddns ip subdomain  Dynamic DNS&quot;,&quot;key&quot;:&quot;dynamic_dns&quot;,&quot;name&quot;:&quot;Dynamic DNS&quot;},{&quot;url&quot;:&quot;stats/lastvisitors_landing.html&quot;,&quot;category&quot;:&quot;Metrics&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;latest visitors Visitors&quot;,&quot;name&quot;:&quot;Visitors&quot;,&quot;key&quot;:&quot;visitors&quot;,&quot;description&quot;:&quot;Display detailed information about recent visits to your website.&quot;},{&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Errors errorlog error log&quot;,&quot;name&quot;:&quot;Errors&quot;,&quot;key&quot;:&quot;errors&quot;,&quot;description&quot;:&quot;View the most recent entries in the Apache® error logs.&quot;,&quot;category&quot;:&quot;Metrics&quot;,&quot;url&quot;:&quot;stats/errlog.html&quot;},{&quot;category&quot;:&quot;Metrics&quot;,&quot;url&quot;:&quot;stats/bandwidth.html&quot;,&quot;description&quot;:&quot;View bandwidth usage graphs by protocol over multiple lengths of time.&quot;,&quot;searchText&quot;:&quot;Bandwidth bandmin transfer&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;Bandwidth&quot;,&quot;key&quot;:&quot;bandwidth&quot;},{&quot;name&quot;:&quot;Raw Access&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Raw Access logs raw logs rawlogs&quot;,&quot;key&quot;:&quot;raw_access&quot;,&quot;description&quot;:&quot;View the raw Apache® logs for your site’s visitors.&quot;,&quot;category&quot;:&quot;Metrics&quot;,&quot;url&quot;:&quot;raw/index.html&quot;},{&quot;category&quot;:&quot;Metrics&quot;,&quot;url&quot;:&quot;stats/awstats_landing.html&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;awstats&quot;,&quot;searchText&quot;:&quot;Awstats awstats&quot;,&quot;name&quot;:&quot;Awstats&quot;,&quot;description&quot;:&quot;View traffic statistics from the AWStats software.&quot;},{&quot;url&quot;:&quot;stats/analog_landing.html&quot;,&quot;category&quot;:&quot;Metrics&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Analog Stats&quot;,&quot;key&quot;:&quot;analog_stats&quot;,&quot;name&quot;:&quot;Analog Stats&quot;,&quot;description&quot;:&quot;View data from the Analog traffic statistics software.&quot;},{&quot;url&quot;:&quot;stats/webalizer_landing.html&quot;,&quot;category&quot;:&quot;Metrics&quot;,&quot;description&quot;:&quot;View traffic statistics from the Webalizer statistics program.&quot;,&quot;key&quot;:&quot;webalizer&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Webalizer stats&quot;,&quot;name&quot;:&quot;Webalizer&quot;},{&quot;name&quot;:&quot;Webalizer FTP&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Webalizer FTP stats ftp&quot;,&quot;key&quot;:&quot;webalizer_ftp&quot;,&quot;description&quot;:&quot;View FTP traffic statistics from the Webalizer statistics program.&quot;,&quot;url&quot;:&quot;stats/webalizerftp_landing.html&quot;,&quot;category&quot;:&quot;Metrics&quot;},{&quot;url&quot;:&quot;statmanager/index.html&quot;,&quot;category&quot;:&quot;Metrics&quot;,&quot;description&quot;:&quot;Select metrics programs to process your log files and provide traffic analysis for your cPanel account’s domains.&quot;,&quot;name&quot;:&quot;Metrics Editor&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Metrics Editor stats manager choose log programs&quot;,&quot;key&quot;:&quot;metrics_editor&quot;},{&quot;description&quot;:&quot;Google Rankings&quot;,&quot;searchText&quot;:&quot;Google Rankings&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;rankcheck&quot;,&quot;name&quot;:&quot;Google Rankings&quot;,&quot;url&quot;:&quot;https://www.attracta.com/extlinks/semrushfree&quot;,&quot;category&quot;:&quot;Metrics&quot;},{&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;lveresusage&quot;,&quot;searchText&quot;:&quot;Resource Usage&quot;,&quot;name&quot;:&quot;Resource Usage&quot;,&quot;description&quot;:&quot;Resource Usage&quot;,&quot;category&quot;:&quot;Metrics&quot;,&quot;url&quot;:&quot;resource_usage/resource_usage.live.pl&quot;},{&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;SSH access ssh/shell Access ssh secure shell sftp SSH Access&quot;,&quot;key&quot;:&quot;ssh_access&quot;,&quot;name&quot;:&quot;SSH Access&quot;,&quot;description&quot;:&quot;Manage your public and private SSH keys.&quot;,&quot;url&quot;:&quot;telnet/index.html&quot;,&quot;category&quot;:&quot;Security&quot;},{&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;IP Blocker ip deny manager&quot;,&quot;name&quot;:&quot;IP Blocker&quot;,&quot;key&quot;:&quot;ip_blocker&quot;,&quot;description&quot;:&quot;Block access to your website for one or more IP addresses or fully qualified domain names.&quot;,&quot;url&quot;:&quot;denyip/index.html&quot;,&quot;category&quot;:&quot;Security&quot;},{&quot;searchText&quot;:&quot;SSL/TLS certificates certificate key keys csr csrs install wizard status autossl https tls ssl security SSL/TLS Certificates&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;SSL/TLS Certificates&quot;,&quot;key&quot;:&quot;ssl_tls_unified&quot;,&quot;description&quot;:&quot;Manage certificates, signing requests, keys, installs, status, and purchases in one place.&quot;,&quot;url&quot;:&quot;security/tls_wizard/index.html&quot;,&quot;category&quot;:&quot;Security&quot;},{&quot;description&quot;:&quot;Prevent external sites and users from embedding your website’s content.&quot;,&quot;name&quot;:&quot;Hotlink Protection&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Hotlink Protection&quot;,&quot;key&quot;:&quot;hotlink_protection&quot;,&quot;url&quot;:&quot;mime/hotlink.html&quot;,&quot;category&quot;:&quot;Security&quot;},{&quot;category&quot;:&quot;Security&quot;,&quot;url&quot;:&quot;htaccess/leechprotect/leechprotect.html&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;Leech Protection&quot;,&quot;searchText&quot;:&quot;Leech Protection protect&quot;,&quot;key&quot;:&quot;leech_protection&quot;,&quot;description&quot;:&quot;Detect unusual levels of activity in password-restricted directories.&quot;},{&quot;description&quot;:&quot;Enable or disable ModSecurity® for your domains.&quot;,&quot;searchText&quot;:&quot;ModSecurity mod security mod_security&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;ModSecurity&quot;,&quot;key&quot;:&quot;mod_security&quot;,&quot;url&quot;:&quot;security/mod_security/index.html&quot;,&quot;category&quot;:&quot;Security&quot;},{&quot;category&quot;:&quot;Security&quot;,&quot;url&quot;:&quot;security/2fa/index.html&quot;,&quot;key&quot;:&quot;two_factor_authentication&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Two Factor Authentication 2fa tfa Two-Factor Authentication&quot;,&quot;name&quot;:&quot;Two-Factor Authentication&quot;,&quot;description&quot;:&quot;Configure a security measure that requires two forms of identification to log in.&quot;},{&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Imunify360&quot;,&quot;key&quot;:&quot;imunify360&quot;,&quot;name&quot;:&quot;Imunify360&quot;,&quot;description&quot;:&quot;Imunify360&quot;,&quot;url&quot;:&quot;imunify/imunify.live.pl&quot;,&quot;category&quot;:&quot;Security&quot;},{&quot;searchText&quot;:&quot;SitePad Website Builder&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;SitePad Website Builder&quot;,&quot;key&quot;:&quot;sitepad&quot;,&quot;description&quot;:&quot;SitePad Website Builder&quot;,&quot;category&quot;:&quot;Software&quot;,&quot;url&quot;:&quot;../../3rdparty/sitepad/index.live.php&quot;},{&quot;searchText&quot;:&quot;WordPress Manager by Softaculous&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;WordPress Manager by Softaculous&quot;,&quot;key&quot;:&quot;wp_softaculous&quot;,&quot;description&quot;:&quot;WordPress Manager by Softaculous&quot;,&quot;url&quot;:&quot;softaculous/index.live.php?act=wordpress&quot;,&quot;category&quot;:&quot;Software&quot;},{&quot;url&quot;:&quot;module_installers/index.html?lang=php-pear&quot;,&quot;category&quot;:&quot;Software&quot;,&quot;name&quot;:&quot;PHP PEAR Packages&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;PHP PEAR Packages&quot;,&quot;key&quot;:&quot;php_pear_packages&quot;,&quot;description&quot;:&quot;Search for and add PEAR packages to your website, or view your available PHP packages.&quot;},{&quot;description&quot;:&quot;Search for and install Perl modules from the CPAN repository.&quot;,&quot;name&quot;:&quot;Perl Modules&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Perl Modules&quot;,&quot;key&quot;:&quot;perl_modules&quot;,&quot;url&quot;:&quot;module_installers/index.html?lang=perl&quot;,&quot;category&quot;:&quot;Software&quot;},{&quot;url&quot;:&quot;passenger/index.html&quot;,&quot;category&quot;:&quot;Software&quot;,&quot;description&quot;:&quot;Deploy applications with the Phusion Passenger® application server.&quot;,&quot;key&quot;:&quot;application_manager&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;apps passenger ruby ror gems rails Application Manager&quot;,&quot;name&quot;:&quot;Application Manager&quot;},{&quot;category&quot;:&quot;Software&quot;,&quot;url&quot;:&quot;multiphp_manager/index.html&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;multiphp_manager&quot;,&quot;searchText&quot;:&quot;MultiPHP Manager&quot;,&quot;name&quot;:&quot;MultiPHP Manager&quot;,&quot;description&quot;:&quot;Manage your PHP configuration.&quot;},{&quot;description&quot;:&quot;Configure your website’s PHP settings.&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;MultiPHP INI Editor php config&quot;,&quot;key&quot;:&quot;multiphp_ini_editor&quot;,&quot;name&quot;:&quot;MultiPHP INI Editor&quot;,&quot;url&quot;:&quot;multiphp_ini_editor/index.html&quot;,&quot;category&quot;:&quot;Software&quot;},{&quot;description&quot;:&quot;WordPress Themes&quot;,&quot;key&quot;:&quot;attracta_wpthemes2&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;WordPress Themes&quot;,&quot;category&quot;:&quot;Software&quot;,&quot;searchText&quot;:&quot;WordPress Themes&quot;,&quot;target&quot;:&quot;_blank&quot;,&quot;url&quot;:&quot;https://www.attracta.com/extlinks/wpthemes&quot;},{&quot;url&quot;:&quot;softaculous/index.live.php&quot;,&quot;category&quot;:&quot;Software&quot;,&quot;description&quot;:&quot;Softaculous Apps Installer&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Softaculous Apps Installer&quot;,&quot;name&quot;:&quot;Softaculous Apps Installer&quot;,&quot;key&quot;:&quot;softaculous&quot;},{&quot;category&quot;:&quot;Software&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;Olitt AI Site Builder&quot;,&quot;key&quot;:&quot;olitt&quot;,&quot;description&quot;:&quot;Olitt AI Site Builder&quot;,&quot;target&quot;:&quot;olitt&quot;,&quot;url&quot;:&quot;olitt/index.html&quot;,&quot;searchText&quot;:&quot;Olitt AI Site Builder&quot;},{&quot;url&quot;:&quot;lveversion/nodejs-selector.html.tt&quot;,&quot;category&quot;:&quot;Software&quot;,&quot;description&quot;:&quot;Setup Node.js App&quot;,&quot;searchText&quot;:&quot;Setup Node.js App&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;Setup Node.js App&quot;,&quot;key&quot;:&quot;lvenodejssel&quot;},{&quot;description&quot;:&quot;Setup Python App&quot;,&quot;searchText&quot;:&quot;Setup Python App&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;Setup Python App&quot;,&quot;key&quot;:&quot;lvepythonsel&quot;,&quot;category&quot;:&quot;Software&quot;,&quot;url&quot;:&quot;lveversion/python-selector.html.tt&quot;},{&quot;description&quot;:&quot;Create, manage, and delete scheduled tasks.&quot;,&quot;searchText&quot;:&quot;Cron Jobs cronjob crontab edit&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;cron_jobs&quot;,&quot;name&quot;:&quot;Cron Jobs&quot;,&quot;url&quot;:&quot;cron/index.html&quot;,&quot;category&quot;:&quot;Advanced&quot;},{&quot;description&quot;:&quot;Perform traceroutes and domain lookups to diagnose network issues.&quot;,&quot;name&quot;:&quot;Track DNS&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Track DNS traceroute tracert dnslookup dig network tools&quot;,&quot;key&quot;:&quot;track_dns&quot;,&quot;url&quot;:&quot;net/index.html&quot;,&quot;category&quot;:&quot;Advanced&quot;},{&quot;description&quot;:&quot;Define how the server displays a specific directory’s index to a visitor, or to disable index display for a directory.&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;Indexes index manager&quot;,&quot;name&quot;:&quot;Indexes&quot;,&quot;key&quot;:&quot;indexes&quot;,&quot;url&quot;:&quot;indexmanager/index.html&quot;,&quot;category&quot;:&quot;Advanced&quot;},{&quot;searchText&quot;:&quot;Error Pages errorlog error_log error log&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;error_pages&quot;,&quot;name&quot;:&quot;Error Pages&quot;,&quot;description&quot;:&quot;Inform visitors about problems when they attempt to access your website.&quot;,&quot;url&quot;:&quot;err/index.html&quot;,&quot;category&quot;:&quot;Advanced&quot;},{&quot;description&quot;:&quot;Control how your website’s Apache® web server software manages certain file types and file extensions.&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;Apache Handlers&quot;,&quot;searchText&quot;:&quot;Apache Handlers apache handlers extension configure&quot;,&quot;key&quot;:&quot;apache_handlers&quot;,&quot;category&quot;:&quot;Advanced&quot;,&quot;url&quot;:&quot;mime/handle.html&quot;},{&quot;url&quot;:&quot;mime/mime.html&quot;,&quot;category&quot;:&quot;Advanced&quot;,&quot;description&quot;:&quot;Relay information to the visitor’s browser about how to handle file extensions.&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;MIME Types mimetype types&quot;,&quot;name&quot;:&quot;MIME Types&quot;,&quot;key&quot;:&quot;mime_types&quot;},{&quot;description&quot;:&quot;View and manage your preferred language, contact information, and account settings.&quot;,&quot;searchText&quot;:&quot;updatecontact update contact information primary email setlang change language account preferences consent privacy notification system position change password &amp; security  Account Preferences&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;account_preferences&quot;,&quot;name&quot;:&quot;Account Preferences&quot;,&quot;url&quot;:&quot;account-preferences/index.html&quot;,&quot;category&quot;:&quot;Preferences&quot;},{&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;Password &amp;amp; Security&quot;,&quot;searchText&quot;:&quot;password &amp; security change facebook external google secure cpanel Password &amp;amp; Security&quot;,&quot;key&quot;:&quot;change_password&quot;,&quot;description&quot;:&quot;Update your cPanel account’s password.&quot;,&quot;category&quot;:&quot;Preferences&quot;,&quot;url&quot;:&quot;passwd/index.html&quot;},{&quot;name&quot;:&quot;Change Language&quot;,&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;language setlang Change Language&quot;,&quot;key&quot;:&quot;change_language&quot;,&quot;description&quot;:&quot;Change your default language.&quot;,&quot;category&quot;:&quot;Preferences&quot;,&quot;url&quot;:&quot;setlang/index.html&quot;},{&quot;url_is_absolute&quot;:0,&quot;searchText&quot;:&quot;contact email Contact Information&quot;,&quot;key&quot;:&quot;contact_information&quot;,&quot;name&quot;:&quot;Contact Information&quot;,&quot;description&quot;:&quot;Set contact information and preferences.&quot;,&quot;category&quot;:&quot;Preferences&quot;,&quot;url&quot;:&quot;contact/index.html&quot;},{&quot;url&quot;:&quot;user_manager/index.html&quot;,&quot;category&quot;:&quot;Preferences&quot;,&quot;description&quot;:&quot;Manage the users who can access various systems on your cPanel account.&quot;,&quot;searchText&quot;:&quot;password change ftp email webdisk webdav service User Manager&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;user_manager&quot;,&quot;name&quot;:&quot;User Manager&quot;},{&quot;url&quot;:&quot;../../3rdparty/sitepad/index.live.php&quot;,&quot;category&quot;:&quot;SitePad Website Builder - Themes&quot;,&quot;searchText&quot;:&quot;SitePad Website Builder - Themes&quot;,&quot;url_is_absolute&quot;:0,&quot;name&quot;:&quot;SitePad Website Builder - Themes&quot;,&quot;key&quot;:&quot;sitepad_div_icons&quot;,&quot;description&quot;:&quot;SitePad Website Builder - Themes&quot;},{&quot;category&quot;:&quot;Softaculous Apps Installer&quot;,&quot;url&quot;:&quot;softaculous/index.live.php&quot;,&quot;url_is_absolute&quot;:0,&quot;key&quot;:&quot;soft_div_icons&quot;,&quot;searchText&quot;:&quot;Softaculous Apps Installer&quot;,&quot;name&quot;:&quot;Softaculous Apps Installer&quot;,&quot;description&quot;:&quot;Softaculous Apps Installer&quot;},{&quot;url&quot;:&quot;notifications/index.html.tt&quot;,&quot;searchText&quot;:&quot;Notifications&quot;,&quot;name&quot;:&quot;Notifications&quot;},{&quot;searchText&quot;:&quot;Home Main&quot;,&quot;name&quot;:&quot;Home&quot;,&quot;url&quot;:&quot;index.html&quot;}]"
+    main-menu-links="[{&quot;linkUrl&quot;:&quot;index.html&quot;,&quot;id&quot;:&quot;tools-main-menu&quot;,&quot;userText&quot;:&quot;Tools&quot;,&quot;iconSvg&quot;:&quot;\u003Csvg xmlns=\&quot;http://www.w3.org/2000/svg\&quot; viewBox=\&quot;0 0 24 24\&quot; width=\&quot;24\&quot; height=\&quot;24\&quot;&gt;\u003Cpath fill=\&quot;none\&quot; d=\&quot;M0 0h24v24H0z\&quot;/&gt;\u003Cpath fill=\&quot;var(--cp-tertiary-contrast)\&quot; d=\&quot;M5.33 3.271a3.5 3.5 0 0 1 4.254 4.963l10.709 10.71-1.414 1.414-10.71-10.71a3.502 3.502 0 0 1-4.962-4.255L5.444 7.63a1.5 1.5 0 1 0 2.121-2.121L5.329 3.27zm10.367 1.884l3.182-1.768 1.414 1.414-1.768 3.182-1.768.354-2.12 2.121-1.415-1.414 2.121-2.121.354-1.768zm-6.718 8.132l1.414 1.414-5.303 5.303a1 1 0 0 1-1.492-1.327l.078-.087 5.303-5.303z\&quot;/&gt;\u003C/svg&gt;&quot;},{&quot;iconSvg&quot;:&quot;\u003Csvg width=\&quot;24\&quot; height=\&quot;24\&quot; viewBox=\&quot;0 0 24 24\&quot; fill=\&quot;none\&quot; xmlns=\&quot;http://www.w3.org/2000/svg\&quot;&gt;\u003Cpath fill-rule=\&quot;evenodd\&quot; clip-rule=\&quot;evenodd\&quot; d=\&quot;M8.0099 9.48324C8.54556 7.1941 10.1122 6.00776 11.9942 6.00003L12.0128 6.00003C13.9132 6.00769 15.4798 7.19403 15.9786 9.48324C16.0712 9.73205 15.8489 9.99999 15.5894 9.99999H8.39906C8.13962 9.99999 7.9543 9.75119 8.0099 9.48324ZM13.8714 7.64609C13.3749 7.22907 12.7408 7.0019 12.0036 7C11.2783 7.00189 10.6473 7.22744 10.1459 7.64714C9.77447 7.95813 9.44432 8.40122 9.20504 8.99999H14.7962C14.5664 8.39945 14.2409 7.95645 13.8714 7.64609Z\&quot; fill=\&quot;white\&quot;/&gt;\u003Cpath d=\&quot;M14.9322 14.4657C15.1177 14.2603 14.8951 14 14.5983 14H9.40447C9.08913 14 8.88509 14.274 9.07058 14.4657C9.11727 14.515 9.16156 14.566 9.20517 14.6163C9.27116 14.6923 9.3356 14.7665 9.40447 14.8302C9.41669 14.8415 9.42904 14.8524 9.44157 14.863C9.47843 14.9106 9.52444 14.9448 9.57961 14.967C9.6355 14.9896 9.70078 15 9.77546 15H14.2273C14.2932 15 14.3592 14.9894 14.4178 14.9664C14.4747 14.9441 14.5247 14.9102 14.5612 14.863L14.5983 14.8239C14.7156 14.7 14.8315 14.5773 14.9322 14.4657Z\&quot; fill=\&quot;white\&quot;/&gt;\u003Cpath fill-rule=\&quot;evenodd\&quot; clip-rule=\&quot;evenodd\&quot; d=\&quot;M5.8809 15C7.511 15 9.1411 12.9665 9.9252 11.8045C10.1315 11.4693 9.88393 11 9.51252 11H5.90154C4.9111 11 4.02383 11.8268 4.00319 12.8994C3.94129 14.0614 4.78729 15 5.8809 15ZM5.00178 12.9526L5.00268 12.9357L5.00301 12.9187C5.01312 12.3929 5.45373 12 5.90154 12H8.54639C8.25187 12.3746 7.91012 12.764 7.54264 13.1026C6.8798 13.7134 6.30511 14 5.8809 14C5.41413 14 4.96743 13.5973 5.00178 12.9526Z\&quot; fill=\&quot;white\&quot;/&gt;\u003Cpath fill-rule=\&quot;evenodd\&quot; clip-rule=\&quot;evenodd\&quot; d=\&quot;M19.9968 12.8994C19.9762 11.8268 19.0895 11 18.0997 11H14.491L14.4673 11C14.0961 11 13.8724 11.4693 14.0786 11.8045C14.8622 12.9665 16.4913 15 18.1203 15C19.2132 15 20.0587 14.0614 19.9968 12.8994ZM15.457 12C15.7514 12.3747 16.093 12.7641 16.4603 13.1028C17.1228 13.7137 17.6969 14 18.1203 14C18.5858 14 19.0326 13.5979 18.9982 12.9526L18.9973 12.9356L18.997 12.9187C18.9869 12.3923 18.5463 12 18.0997 12H15.457Z\&quot; fill=\&quot;white\&quot;/&gt;\u003Cpath d=\&quot;M12.7292 16C13.0458 16 13.1465 16.4267 12.8634 16.5683L12.1342 16.9329C12.0497 16.9751 11.9503 16.9751 11.8659 16.9329L11.1367 16.5683C10.8535 16.4267 10.9543 16 11.2708 16H12.7292Z\&quot; fill=\&quot;white\&quot;/&gt;\u003Cpath d=\&quot;M11 12.3C11 12.1343 11.1343 12 11.3 12H12.7C12.8657 12 13 12.1343 13 12.3V12.7C13 12.8657 12.8657 13 12.7 13H11.3C11.1343 13 11 12.8657 11 12.7V12.3Z\&quot; fill=\&quot;white\&quot;/&gt;\u003Cpath fill-rule=\&quot;evenodd\&quot; clip-rule=\&quot;evenodd\&quot; d=\&quot;M18.6555 21.122L23.7686 12.378C24.0836 11.8293 24.0836 11.1524 23.7686 10.622L18.6555 1.87805C18.3406 1.32927 17.7663 1 17.1179 1H6.91026C6.28039 1 5.68757 1.32927 5.37263 1.87805L0.241024 10.622C-0.0739123 11.1707 -0.0739123 11.8476 0.241024 12.378L5.35411 21.122C5.66904 21.6707 6.26187 22 6.89174 22H17.1179C17.7478 22 18.3406 21.6707 18.6555 21.122ZM17.1179 2C17.4167 2 17.6558 2.1451 17.7882 2.37579L22.9054 11.1268L22.9087 11.1324C23.0333 11.3422 23.0423 11.6322 22.9029 11.8775L17.7923 20.6171L17.7882 20.6242C17.6587 20.8499 17.4041 21 17.1179 21H6.89174C6.60557 21 6.35101 20.8499 6.22146 20.6242L1.10429 11.8732L1.10091 11.8676C0.976443 11.6579 0.967313 11.3682 1.10643 11.1231L6.23512 2.38422L6.23996 2.37579C6.36951 2.15005 6.6241 2 6.91026 2H17.1179Z\&quot; fill=\&quot;white\&quot;/&gt;\u003C/svg&gt;&quot;,&quot;id&quot;:&quot;cpanel-socialbee-plugin-main-menu&quot;,&quot;linkUrl&quot;:&quot;socialbee/index.html&quot;,&quot;userText&quot;:&quot;Social Media Management&quot;},{&quot;iconSvg&quot;:&quot;\u003Csvg xmlns=\&quot;http://www.w3.org/2000/svg\&quot; xml:space=\&quot;preserve\&quot; width=\&quot;26\&quot; height=\&quot;26\&quot; version=\&quot;1.1\&quot; style=\&quot;shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd\&quot;\n\t\tviewBox=\&quot;0 0 1000 1000\&quot;&gt;\n\t\t \u003Cdefs&gt;\n\t\t  \u003Cstyle type=\&quot;text/css\&quot;&gt;\n\t\t   \u003C![CDATA[\n\t\t\t.fil0 {fill:#FFFFFF;fill-rule:nonzero}\n\t\t   ]]&gt;\n\t\t  \u003C/style&gt;\n\t\t \u003C/defs&gt;\n\t\t \u003Cg id=\&quot;Layer_x0020_1\&quot;&gt;\n\t\t  \u003Cmetadata id=\&quot;WP-Layer\&quot;/&gt;\n\t\t  \u003Cg id=\&quot;_2073308597760\&quot;&gt;\n\t\t   \u003Cpath class=\&quot;fil0\&quot; d=\&quot;M503 64.82c58.76,0 115.75,11.5 169.39,34.19 25.78,10.9 50.65,24.4 73.91,40.12 23.05,15.57 44.73,33.46 64.43,53.16 19.7,19.7 37.58,41.38 53.16,64.43 15.72,23.26 29.21,48.13 40.12,73.91 22.69,53.63 34.19,110.62 34.19,169.38 0,58.76 -11.5,115.75 -34.19,169.39 -10.9,25.78 -24.4,50.65 -40.12,73.91 -15.57,23.05 -33.46,44.73 -53.16,64.43 -19.7,19.7 -41.38,37.58 -64.43,53.16 -23.26,15.72 -48.13,29.21 -73.91,40.12 -53.63,22.69 -110.62,34.19 -169.39,34.19 -58.76,0 -115.75,-11.5 -169.38,-34.19 -25.78,-10.9 -50.65,-24.4 -73.91,-40.12 -23.05,-15.57 -44.73,-33.46 -64.43,-53.16 -19.7,-19.7 -37.58,-41.38 -53.16,-64.43 -15.72,-23.26 -29.21,-48.13 -40.12,-73.91 -22.69,-53.63 -34.19,-110.62 -34.19,-169.39 0,-58.76 11.5,-115.75 34.19,-169.38 10.9,-25.78 24.4,-50.65 40.12,-73.91 15.57,-23.05 33.46,-44.73 53.16,-64.43 19.7,-19.7 41.38,-37.58 64.43,-53.16 23.26,-15.72 48.13,-29.21 73.91,-40.12 53.63,-22.69 110.62,-34.19 169.38,-34.19zm0 -27.78l0 0c-255.69,0 -462.96,207.28 -462.96,462.96 0,255.69 207.28,462.96 462.96,462.96 255.69,0 462.96,-207.28 462.96,-462.96 0,-255.69 -207.28,-462.96 -462.96,-462.96z\&quot;/&gt;\n\t\t   \u003Cpath class=\&quot;fil0\&quot; d=\&quot;M117.2 499.99c0,152.7 88.74,284.68 217.44,347.21l-184.04 -504.21c-21.41,47.98 -33.41,101.07 -33.41,157.01zm646.25 -19.46l0 0c0,-47.69 -17.13,-80.71 -31.8,-106.4 -19.56,-31.79 -37.9,-58.69 -37.9,-90.49 0,-35.46 26.89,-68.47 64.79,-68.47 1.71,0 3.33,0.21 5,0.31 -68.64,-62.89 -160.09,-101.29 -260.53,-101.29 -134.79,0 -253.36,69.16 -322.35,173.89 9.06,0.29 17.59,0.47 24.83,0.47 40.34,0 102.83,-4.9 102.83,-4.9 20.79,-1.22 23.24,29.34 2.47,31.79 0,0 -20.91,2.45 -44.15,3.67l140.49 417.89 84.44 -253.21 -60.1 -164.69c-20.79,-1.22 -40.47,-3.67 -40.47,-3.67 -20.8,-1.23 -18.36,-33.01 2.45,-31.79 0,0 63.7,4.9 101.61,4.9 40.34,0 102.84,-4.9 102.84,-4.9 20.8,-1.22 23.24,29.34 2.46,31.79 0,0 -20.93,2.45 -44.15,3.67l139.42 414.71 39.8 -126.11c17.68,-55.11 28.05,-94.16 28.05,-127.17zm-253.67 53.2l0 0 -115.77 336.35c34.57,10.17 71.13,15.72 108.99,15.72 44.93,0 88.03,-7.75 128.12,-21.87 -1.03,-1.65 -1.98,-3.4 -2.77,-5.32l-118.58 -324.88zm331.78 -218.83l0 0c1.66,12.29 2.59,25.47 2.59,39.67 0,39.13 -7.33,83.14 -29.35,138.18l-117.83 340.69c114.7,-66.87 191.83,-191.13 191.83,-333.46 0,-67.08 -17.14,-130.13 -47.25,-185.08z\&quot;/&gt;\n\t\t  \u003C/g&gt;\n\t\t \u003C/g&gt;\n\t\t\u003C/svg&gt;&quot;,&quot;linkUrl&quot;:&quot;softaculous/index.live.php?act=wordpress&quot;,&quot;id&quot;:&quot;wp_softaculous-main-menu&quot;,&quot;userText&quot;:&quot;WordPress Manager by Softaculous&quot;}]"
+    app-name="cpanel"
+    primary-domain=""
+    app-search-results-limit="10"
+    company-id=""
+    cpanel-full-version="11.136.0.32"
+    cpanel-app-key="php_my_admin"
+    is-webpros-account="0"
+></cp-root-variables>
+
+<!-- skipnav link for screenreader users -->
+<a href="#content" class="sr-only visually-hidden-focusable">Skip to main content</a>
+
+<div id="page-overlay" class="page-overlay"></div>
+
+<div id="wrap" class="cp-layout-page">
+    <div id="glass-navbar-overlay"></div>
+    <a href="#content" class="sr-only visually-hidden-focusable">Skip to main content</a>
+    
+    
+
+    
+    <aside id="cp-main-menu-container" class="cp-layout-main-menu">
+        <cp-main-menu
+            logo-src="/cPanel_magic_revision_1727282564/frontend/jupiter/brand/cpanel-logo-white.svg"
+            logo-alt-text=""
+        ></cp-main-menu>
+    </aside>
+    
+
+    <div class="cp-layout-wrapper  cp-layout-wrapper--with-main-menu ">
+        <header class="cp-layout-header  cp-layout-header--with-main-menu ">
+            <!--  Single quotes needed to pass the props into the web component correctly. -->
+            <cp-header
+                focus-search="false"
+                integrations-info='{"billing_app_info":{"implements":"billing","url":"integration/index.html?app=WHMCS_clientarea_product_details","group":"whmcs","description":"View Billing Information","searchtext":"View Billing Information","base64_png_image":"iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAhFBMVEUAAAAlMjzt7e0lMjwlMjwlMjxNV18lMjwlMjwlMjwlMjzt7e0lMjx1fYOdoqbt7e0lMjwlMjzt7e0lMjzt7e0lMjwlMjy4u74lMjwyPkc+SVJweH6JkJWip6vIyszU1tfb29vc3Nze3t7h4eLi4uLl5eXm5ubn5+fq6urr6+vs7Ozt7e2vu8cdAAAAGHRSTlMAEBAgQFBQYHCAj4+fn5+fr7+/z8/f7+/6LN6mAAABPElEQVR4AZXT23KCMBSF4Q2eAcUAYtra1p5b9/u/X50lyUwxKzXr1u93si8QurxRLeX25Z2eV6d4bJPoH22V6C0pqCcF96TgHlsn+getE72SgnpSUE8K7k8fpGD+9fgeLLg/hgvuwwX34SLisZcfFLf7b8XKFI/FvH5de6Ue+7zyTcSjGPku594XCR5FisdOf700xI/mvaR6SfVSpnisvsE/7+fTzBebf/zb4R6/bqeuqKL+CRyrfBHzd/a8nQExvuDvwf/3mSxRrHxBvB4sApGZxSauWGt4wwFm1VtsKW51+AI7mpF4sR9cW/T2MokW3XxgmRQ+iBRdPvVsZbGdsAJeJuNgK6yAF2lHwUJoAS8Ld0PlXxQs4LHtBRqLzYQU3kvWQvoHkQJ+KArH+5kEV6o2zmOToj1rs8An9AtdWcJqFh+b+gAAAABJRU5ErkJggg==","onclick":"","height":48,"imgtype":"icon","type":"image","target":"_blank","plainitemdesc":"View Billing Information","file":"WHMCS_clientarea_product_details","subtype":"img","acontent":"target=\"_blank\"","itemorder":"1","itemdesc":"View Billing Information","width":48},"customer_service_app_info":"","support_app_info":{"implements":"support","url":"integration/index.html?app=WHMCS_clientarea_tickets","group":"whmcs","searchtext":"View Support Tickets","description":"View Support Tickets","base64_png_image":"iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAilBMVEUAAADt7e3Ozs7t7e3Ozs7g4ODt7e3t7e3t7e3Ozs7Ozs7t7e0lMjwyPkc+SVJLVV1XYWhcjihkbHNllDRweH6JkJWWm6CZwW+exHeip6ulvouuw5evs7a3yaO7vsHD167IyszI2rbJ1bzOzs7O3b7S28jU1tfW1tbY4s7d5dXh4eLk5+Ho6uXt7e37F3KlAAAADHRSTlMAEDBAYHCPn6/P7+8BnfPqAAAA+UlEQVR4AdXV206DQBDG8amHemApFXG1tq5bFZXRef/Xc7fdTryCb6Ix8X9DSOYXyLAJlJqdCdT5jPbNBWxeQIWCqgCB+22wvdUw8PhPQQiMA/aNSzUbEMSFK3UYqJ22gUAaXPgQ2nRdQqBzLR+epGD7nvscWyt/By/TZ4nzK7V7cDfIJIi7zQbJDYNMgtfdqlb48e7yqqLgIM3XLKX1lTYGvN7cA8A3LeNAwwEvXR0twOs5AsGNAeh3W1mAcIgCAu2HYP2U+4DBg2gIuO7FBPpeQKD9OaisYK7A+Nt9O3R6PBZpz6UTArPOk3WerPNknSfrPF1cHhHcF9/8CB/eH3crAAAAAElFTkSuQmCC","onclick":"","height":48,"imgtype":"icon","type":"image","plainitemdesc":"View Support Tickets","target":"_blank","file":"WHMCS_clientarea_tickets","acontent":"target=\"_blank\"","subtype":"img","itemdesc":"View Support Tickets","width":48,"itemorder":"1"},"upgrade_app_info":{"implements":"upgrade","url":"integration/index.html?app=WHMCS_clientarea_upgrade","group":"whmcs","searchtext":"Upgrade/Downgrade","description":"Upgrade/Downgrade","base64_png_image":"iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAw1BMVEUAAAANhr8Ym9glMjwYm9glMjwNhr8Ym9glMjwNhr8Ym9glMjwNhr8Ym9gYm9glMjwNhr8XYocYm9gNhr8Ym9gfR10lMjwNhr8Ym9giO0slMjwNhr8Ym9gbVHAlMjwYm9glMjwNhr8Qi8UYm9glMjwYm9glMjwNhr8Ym9glMjwYm9glMjwNhr8PgbcQi8USdqYTcZ4TkcwVbJYWZ44WhrsYm9gZXH4ZfKsbV3UcUm0eTGUfR10fZ4ohQlUiPUwkN0QlMjwzhEifAAAALHRSTlMAEBAQICAwMDBAQEBQUGBgcHBwgICAgI+Pj4+fn5+fr6+/v7+/z8/f39/v76ecmrsAAAGnSURBVHjanZPrQoJAEIUPZiFbkimpmUWEJKHdwy528f2fKgZXWZotWb8/zuyZM7s7K9DQGIwWGaNBA1VoULVktIuNHC5UJodG9cQGx75sfN7tXkyW8b8X2bnOa7rLZJAnV/iDPcdxTqji+8iRnOWO4yzaY+Wt8TTjiwoep2tmlH9RNG6Vuwe5/kj6vKiXHe7yMCh2sTpSfiX5XjU80cpMJh0LOQfjlfwpD1BwQ4b3VTY+oPZBIZP6Ni0xL/cILPQUVd1fPaWS9/Cg8JHx/FDihdbUBaSGmBsSs/oEoZkhNDd4ZgbP3NA0MzQh9MMQQj8+AZsvxmnqAz4FDBv85YZwm8gQLoZMhMbgYo2rM4Rs1FTp++5fWsgnhz799oE2N5BYIvJqqC/DOmrtqFBkE3is/2rUQqPyi/m2arB9PhChmVKUH45py01tzcVqw+w5aoDPDZqH6GNNnz2DztAuDG2tIWL/jTRxATfJgl9EIMKUEwOx9nsjqA8jinSrQxCewffGb8bh8xDVDWI7A6obsKUhrlofS8PlbUUupaE3rcipNFhBtfrAAvADzXlsJf/WC3oAAAAASUVORK5CYII=","onclick":"","height":48,"imgtype":"icon","type":"image","plainitemdesc":"Upgrade/Downgrade","target":"_blank","file":"WHMCS_clientarea_upgrade","subtype":"img","acontent":"target=\"_blank\"","itemorder":"1","itemdesc":"Upgrade/Downgrade","width":48}}'
+                logo-alt-text=""
+                logo-src="/cPanel_magic_revision_1727282564/frontend/jupiter/brand/cpanel-logo-orange.svg"
+            ></cp-header>
+
+            <!-- Content Include point: GLOBAL <html><body><header> content -->
+            
+            <!-- End: Content Include point -->
+
+            <!-- Content Include point: APP HEAD Include-->
+                
+            <!-- End: Content Include point -->
+        </header>
+
+        <script type="text/javascript">
+            (function() {
+                const header = document.querySelector('cp-header');
+                header.addEventListener('menuItemPress', event => {
+                    if(event.detail.id === "menu-reset-link") {
+                        reset_all_interface_settings('/cpsess9936642561')
+                    }
+                });
+            })();
+        </script>
+        
+        
+
+        <!-- Content Include point: APP specific include point after the global header includes. -->
+        
+        <!-- End: Content Include point -->
+
+        <!-- PAGE TEMPLATE'S CONTENT START -->
+        <div id="content" class="cp-layout-main-content  cp-layout-main-content--with-main-menu   cp-layout-main-content--with-header ">
+            <div class="container-lg">
+            
+            
+
+            <!-- Banner Section - now controlled via a plugin -->
+            
+            
+<!-- banner -->
+
+<!-- banner -->
+            
+
+            
+
+                            <h1 class="page-header">
+                    <div id="pageHeading" class="page-title-section">
+                        <span class="page-title">phpMyAdmin</span>
+                        
+                        
+                        
+                    </div>
+                </h1>
+                
+            
+
+            
+
+            
+<div class="body-content" id="divRedirect">
+    The system will redirect you in a moment.
+    
+    <meta http-equiv="refresh" content="0;url=/cpsess9936642561/3rdparty/phpMyAdmin/index.php" />
+</div>
+                        <!-- PAGE TEMPLATE'S CONTENT END -->
+            
+            </div>
+        </div>
+
+        
+
+        <footer class="cp-layout-footer" role="contentinfo">
+            <!-- Content Include point: APP Footer Include -->
+            
+            <!-- End: Content Include point -->
+
+            <!-- Content Include point: GLOBAL <html><body><footer> content -->
+            
+            <!-- End: Content Include point -->
+
+            <cp-footer
+                id="cp-footer"
+                directory-prefix="../"
+                version="134.0.29"
+                logo-src="/cPanel_magic_revision_1727282564/frontend/jupiter/brand/cpanel-logo-orange.svg"
+                doc-link="https://go.cpanel.net/cpaneldocsHome"
+            
+            >
+            </cp-footer>
+        </footer>
+        
+        <!-- Content Include point: GLOBAL <html><body> after <footer> content -->
+        
+        <!-- End: Content Include point -->
+    </div>
+</div>
+
+
+        
+        
+        <script>
+        window.LEXICON = window.LEXICON || {};
+        //-------------------------------------------------------------
+// CLDR Data for en
+//-------------------------------------------------------------
+(function(context) {
+    var locale = "en",
+        functions = {'get_plural_form':function(n){var category;var category_values=Array.prototype.slice.call(arguments,1);var has_extra_for_zero=0;var abs_n=Math.abs(n);var category_process_order=["zero","one","two","few","many","other"];var category_rules_lookup={"one":function(n){if(((n==1))){return'one';}return;}};for(i=0;i<category_process_order.length;i++){if(category_rules_lookup[category_process_order[i]]){category=category_rules_lookup[category_process_order[i]](abs_n);if(category)break;}}
+var categories=["one","other"];if(category_values.length===0){category_values=categories;}
+else{var cat_len=categories.length;var val_len=category_values.length;var cat_len_plus_one=cat_len+1;if(val_len===cat_len_plus_one){has_extra_for_zero++;}
+else if(cat_len!==val_len){if(window.console)console.warn('The number of given values ('+val_len+') does not match the number of categories ('+cat_len+').');}}
+if(category===undefined){var cat_idx=has_extra_for_zero&&abs_n!==0?-2:-1;var sliced=category_values.slice(cat_idx);return[sliced[0],has_extra_for_zero&&abs_n===0?1:0];}
+else{var return_value;GET_POSITION:while(1){var cat_pos_in_list;var index=-1;CATEGORY:for(i=0;i<categories.length;i++){index++;if(categories[i]===category){cat_pos_in_list=index;break CATEGORY;}}
+if(cat_pos_in_list===undefined&&category!=='other'){if(window.console)console.warn('The category ('+category+') is not used by this locale.');category='other';continue GET_POSITION;}
+else if(cat_pos_in_list===undefined){var cat_idx=has_extra_for_zero&&abs_n!==0?-2:-1;var sliced=category_values.slice(cat_idx);return_value=[sliced[0],has_extra_for_zero&&abs_n===0?1:0]
+break GET_POSITION;}
+else{if(has_extra_for_zero&&category==='other'){var cat_idx=has_extra_for_zero&&abs_n===0?-1:cat_pos_in_list;var sliced=category_values.slice(cat_idx);return_value=[sliced[0],has_extra_for_zero&&abs_n===0?1:0];break GET_POSITION;}
+else{return_value=[category_values[cat_pos_in_list],0];break GET_POSITION;}}
+break GET_POSITION;}
+return return_value;}}},
+        datetime_info = {"territory":null,"quarter_stand_alone_narrow":["1","2","3","4"],"time_formats":{"short":"h:mm a","medium":"h:mm:ss a","long":"h:mm:ss a z","full":"h:mm:ss a zzzz"},"era_narrow":["B","A"],"datetime_format_full":"EEEE, MMMM d, y h:mm:ss a zzzz","glibc_date_1_format":"%a %b %e %H:%M:%S %Z %Y","datetime_format_long":"MMMM d, y h:mm:ss a z","date_format_short":"M/d/yy","native_variant":null,"name":"English","language_id":"en","era_wide":["Before Christ","Anno Domini"],"variant_id":null,"date_format_medium":"MMM d, y","time_format_default":"h:mm:ss a","era_abbreviated":["BC","AD"],"datetime_format":"{1} {0}","month_format_wide":["January","February","March","April","May","June","July","August","September","October","November","December"],"quarter_format_abbreviated":["Q1","Q2","Q3","Q4"],"datetime_format_short":"M/d/yy h:mm a","glibc_datetime_format":"%a %b %e %H:%M:%S %Y","quarter_stand_alone_abbreviated":["Q1","Q2","Q3","Q4"],"script_id":null,"prefers_24_hour_time":0,"cldr_version":"1.7.1","day_format_wide":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"language":"English","month_format_narrow":["J","F","M","A","M","J","J","A","S","O","N","D"],"time_format_full":"h:mm:ss a zzzz","date_format_default":"MMM d, y","am_pm_abbreviated":["AM","PM"],"native_territory":null,"glibc_time_12_format":"%I:%M:%S %p","month_stand_alone_wide":["January","February","March","April","May","June","July","August","September","October","November","December"],"time_format_long":"h:mm:ss a z","day_stand_alone_wide":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"variant":null,"id":"en","available_formats":null,"quarter_stand_alone_wide":["1st quarter","2nd quarter","3rd quarter","4th quarter"],"time_format_medium":"h:mm:ss a","time_format_short":"h:mm a","date_format_full":"EEEE, MMMM d, y","territory_id":null,"first_day_of_week":"1","glibc_date_format":"%m/%d/%y","quarter_format_wide":["1st quarter","2nd quarter","3rd quarter","4th quarter"],"day_stand_alone_abbreviated":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],"month_stand_alone_narrow":["J","F","M","A","M","J","J","A","S","O","N","D"],"format_for":{"yQQQ":"QQQ y","yMMMEd":"EEE, MMM d, y","d":"d","y":"y","hms":"h:mm:ss a","MMMMd":"MMMM d","yMMMM":"MMMM y","ms":"mm:ss","M":"L","yM":"M/yyyy","MEd":"E, M/d","MMM":"LLL","Md":"M/d","yQ":"Q yyyy","yMEd":"EEE, M/d/yyyy","Hm":"H:mm","EEEd":"d EEE","Hms":"H:mm:ss","hm":"h:mm a","MMMEd":"E, MMM d","MMMMEd":"E, MMMM d","MMMd":"MMM d","yMMM":"MMM y"},"quarter_format_narrow":["1","2","3","4"],"date_formats":{"short":"M/d/yy","medium":"MMM d, y","long":"MMMM d, y","full":"EEEE, MMMM d, y"},"date_format_long":"MMMM d, y","month_stand_alone_abbreviated":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"native_language":"English","datetime_format_default":"MMM d, y h:mm:ss a","native_name":"English","day_format_narrow":["M","T","W","T","F","S","S"],"script":null,"default_time_format_length":"medium","glibc_time_format":"%H:%M:%S","native_script":null,"month_format_abbreviated":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"default_date_format_length":"medium","day_stand_alone_narrow":["M","T","W","T","F","S","S"],"day_format_abbreviated":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],"datetime_format_medium":"MMM d, y h:mm:ss a"},
+        misc_info = {"delimiters":{"quotation_start":"“","quotation_end":"”","alternate_quotation_start":"‘","alternate_quotation_end":"’"},"orientation":{"lines":"top-to-bottom","characters":"left-to-right"},"posix":{"nostr":"no:n","yesstr":"yes:y"},"plural_forms":{"category_list":["one","other"],"category_rules_function":null,"category_rules":{"one":"n is 1"},"category_rules_compiled":{"one":function (n) {if ( (( n == 1))) { return 'one'; } return;}}},"cldr_formats":{"territory":"Region: {0}","_decimal_format_decimal":".","language":"Language: {0}","percent":"#,##0%","locale":"{0} ({1})","_decimal_format_group":",","_percent_format_percent":"%","decimal":"#,##0.###","ellipsis":{"medial":"{0}…{1}","final":"{0}…","initial":"…{0}"},"list_or":{"end":"{0}, or {1}","middle":"{0}, {1}","start":"{0}, {1}","2":"{0} or {1}"},"list":{"middle":"{0}, {1}","2":"{0} and {1}","start":"{0}, {1}","end":"{0}, and {1}"}},"fallback":[],"characters":{"more_information":"?"}};
+
+    // Legacy cjt 1.0 support
+    if ( context.YAHOO ) {
+        context.YAHOO.util.Event.onDOMReady(function() {
+            var Locale = CPANEL.Locale.generateClassFromCldr(locale, functions, datetime_info, misc_info);
+            context.LOCALE = new Locale();
+        });
+    }
+
+    // Modern cjt 2.0 support
+    context.CJT2_loader = {
+        current_locale: locale,
+        CLDR: {}
+    };
+
+    var CLDR = {
+        locale: locale,
+        functions: functions,
+        datetime_info: datetime_info,
+        misc_info: misc_info
+    };
+
+    context.CJT2_loader.CLDR[locale] = CLDR;
+    context.CLDR = CLDR;
+
+})(window);
+//~~END-GENERATED~~
+        </script>
+
+        
+        <script type="text/javascript" src="/cPanel_magic_revision_1785894161/frontend/jupiter/core/web-components/dist/jupiter-web-components.cmb.min.js?locale=en&locale_optional=1&locale_revision=1785890946"></script>
+        
+
+        
+             
+
+
+<script>
+/**
+ * Helper method to extend any existing PAGE object with the standard props.
+ * Needed before we load dependencies so it's used in an IIFE here.
+ * @param  {Object} destination Object to extend
+ * @param  {Object} source      New methods and properties to add
+ * @return {Object}             Extended object. To make chaining easier.
+ */
+var PAGE = (function(destination, source) {
+    for (var k in source) {
+        if (source.hasOwnProperty(k)) {
+            destination[k] = source[k];
+        }
+    }
+    return destination;
+})(PAGE || {}, {
+    THEME_PATH : "\/frontend\/jupiter",
+    masterPath : "_assets",
+    IS_PROXY: false,
+    APP_NAME: "cpanel",
+    CJT2_ANGULAR_MODULE_NAME: "cjt2.cpanel",
+    CJT2_MODULES_DEPENDENCY_PATH: "cjt\/modules.cpanel",
+    IS_E2E: false,
+    APP_PATH: "sql",
+    MODE: "release",
+    CACHE_BUST: false,
+    OPTIMIZED: true,
+    currentLocale: "en",
+    MAGIC: "\/",
+    BUILDREVISION: "1785888839",
+    LOCALEREVISION: "1785890946"
+});
+
+/*
+# cpanel - share/libraries/cjt2/src/config.debug.js
+#                                                  Copyright 2022 cPanel, L.L.C.
+#                                                           All rights reserved.
+# copyright@cpanel.net                                         http://cpanel.net
+# This code is subject to the cPanel license. Unauthorized copying is prohibited
+*/
+
+/* WARNING -- removed: `PAGE: false` per cplint. No idea what this may impact! */
+/* global module: false, global: true  */
+/* exported require */
+
+/**
+ * Release Configuration
+ */
+
+(function() {
+    "use strict";
+
+    var require = (function() {
+
+        /**
+         * Trim trailing slashes to prevent // in paths.
+         * @param  {String} url Url to process.
+         * @return {String} Cleaned up url.
+         */
+        function trimTrailingSlash(url) {
+            if (url) {
+                return url.replace(/\/$/, "");
+            }
+            return url;
+        }
+
+        /**
+         * Trim leading slashes to prevent // in paths.
+         * @param  {String} url Url to process.
+         * @return {String} Cleaned up url.
+         */
+        function trimLeadingSlash(url) {
+            if (url) {
+                return url.replace(/^\//, "");
+            }
+            return url;
+        }
+
+        var preamble, root, libRoot, shareRoot,
+            isCjtBuild, includeApp,
+            currentLocale,
+            appPath, masterPath,
+            localeRevision,
+            appName;
+
+        var isBrowser = typeof (window) !== "undefined";
+        if (isBrowser) {
+
+            // Gets the session token from the url
+            var url = window.location.href.toString();
+            var parts = url.split("/");
+            var session = parts[3];
+            if (session.indexOf("cpsess") !== 0) {
+                session = "";
+            }
+
+            // Build the cleaned up paths
+            preamble = parts.slice(0, 6).join("/");
+
+            root = trimTrailingSlash(PAGE.THEME_PATH || "");
+            root = trimTrailingSlash(PAGE.MAGIC) + root;
+            root = trimTrailingSlash(root);
+
+            libRoot = root + "/libraries";
+            shareRoot = root + "/shared";
+            PAGE.APP_PATH = trimLeadingSlash(trimTrailingSlash(PAGE.APP_PATH));
+            isCjtBuild = false;
+            includeApp = true;
+            currentLocale = PAGE.currentLocale;
+            appPath = PAGE.APP_PATH;
+            masterPath = PAGE.masterPath;
+            localeRevision = PAGE.LOCALEREVISION;
+            appName = PAGE.APP_NAME;
+        } else {
+            preamble = global.BUILD_BASE;
+            root = global.BUILD_ROOT;
+            libRoot = global.BUILD_ROOT;
+            shareRoot = global.BUILD_ROOT + "/..";
+            isCjtBuild = global.BUILD_CJT;
+            includeApp = global.INCLUDE_APP;
+            currentLocale = "en";
+            appPath = "";
+            masterPath = "";
+            localeRevision = 0;
+            appName = global.APP_NAME;
+        }
+
+        var JAVASCRIPT_FILE_PATTERN = /\.js$/;
+        var INTERNAL_IGNORE_PATTERN = /^_@/;
+        var LIBRARY_IGNORE_PATTERN = /\/libraries\//;
+
+        /**
+         * Helper method that will flag if the file is in a legacy minified folder. Legacy
+         * minified files are generated by the cpanel minifier, not r.js.
+         *
+         * @method hasMinFile
+         * @private
+         * @param  {String}  url Url requested by requirejs.
+         * @return {Boolean}     true if the file should have a legacy .min file, false otherwise.
+         */
+        var hasMinFile = function(url) {
+            return !INTERNAL_IGNORE_PATTERN.test(url) && // Ignore require js internal urls.
+                !LIBRARY_IGNORE_PATTERN.test(url); // Ignore things in the library folder since they are statically mapped below
+        };
+
+        var isCombinedLocale = function(url) {
+            return (/\.cmb-.*\.js/).test(url);
+        };
+
+        /**
+         * Helper to apply the .min extension to the appropriate .js urls.
+         *
+         * @method applyDotMinToUrl
+         * @private
+         * @param  {String} url    Url require js build from the module name.
+         * @param  {String} module Module name passed to requirejs
+         * @return {String}        New url.
+         */
+        var applyDotMinToUrl = function(url, module) {
+            if (isCombinedLocale(url)) {
+                return url;
+            }
+            if (hasMinFile(url)) {
+                url = url.replace(JAVASCRIPT_FILE_PATTERN, ".min.js");
+                if (url.indexOf("locale=") === -1) {
+                    url += url.indexOf("?") > -1 ? "&" : "?";
+                    url += "locale_optional=1&locale=" + currentLocale + "&locale_revision=" + localeRevision;
+                }
+            }
+            return url;
+        };
+
+        /**
+         * Calculate the correct path for the application's cjt2 bundle
+         *
+         * @method calculateAppBundlePath
+         * @param {String} appName
+         * @return {String} library relative path to the bundle.
+         */
+        var calculateAppBundlePath = function(appName) {
+            switch (appName) {
+                case "cpanel":
+                    return "/cjt2-dist/cjt2.cpanel.cmb.min";
+                case "whostmgr":
+                    return "/cjt2-dist/cjt2.whm.cmb.min";
+                case "webmail":
+                    return "/cjt2-dist/cjt2.webmail.cmb.min";
+                case "unprotected":
+                    return "/cjt2-dist/cjt2.unprotected.cmb.min";
+                default:
+                    return "/cjt2-dist/cjt2.whm.cmb.min";
+            }
+        };
+
+        if (isBrowser && PAGE.BUILDREVISION) {
+            root = "/cPanel_magic_revision_" + PAGE.BUILDREVISION + root;
+            libRoot = "/cPanel_magic_revision_" + PAGE.BUILDREVISION + libRoot;
+            shareRoot = "/cPanel_magic_revision_" + PAGE.BUILDREVISION + shareRoot;
+        }
+
+        var paths = {
+            root: root,
+            lib: libRoot,
+            shared: shareRoot,
+
+            // Setup the common modules
+            cjtBuild: libRoot + calculateAppBundlePath(appName),
+            frameworksBuild: libRoot + "/cjt2-dist/frameworks.cmb",
+
+            // AMD Plugins
+            text: libRoot + "/requirejs/plugins/text-2.0.16/text.min",
+            locale: libRoot + "/cjt2-dist/plugins/locale",
+
+            // Application Support Libraries
+            bootstrap: libRoot + "/bootstrap/optimized/js/bootstrap.min",
+            jquery: libRoot + "/jquery/current/jquery.min",
+            lodash: libRoot + "/lodash/4.8.2/lodash.min",
+            "lz-string": libRoot + "/lz-string/1.5.0/lz-string.min",
+            moment: libRoot + "/moment/optimized/moment-with-locales.min",
+            qrcode: libRoot + "/qrcodejs/0.0.1/qrcode.min",
+
+            // Angular specific libraries
+            angular: libRoot + "/angularjs/1.4.4/angular.min",
+            ngRoute: libRoot + "/angularjs/1.4.4/angular-route.min",
+            ngAnimate: libRoot + "/angularjs/1.4.4/angular-animate.min",
+            ngSanitize: libRoot + "/angularjs/1.4.4/angular-sanitize.min",
+            ngAria: libRoot + "/angularjs/1.4.4/angular-aria.min",
+            uiBootstrap: libRoot + "/angular-ui-bootstrap/optimized/ui-bootstrap-tpls-1.2.5.min",
+            "angular-growl": libRoot + "/angular-growl-2/build/angular-growl.min",
+
+            // Other libraries
+            handlebars: libRoot + "/handlebars/handlebars.min",
+            "jquery-chosen": libRoot + "/chosen/1.5.1/chosen.jquery.min",
+            "angular-chosen": libRoot + "/angular-chosen/1.4.0/dist/angular-chosen.min",
+            "angular-ui-scroll": libRoot + "/angular-ui-scroll/1.6.1/dist/ui-scroll.min",
+            "angular-ui-scroll-grid": libRoot + "/angular-ui-scroll/1.6.1/dist/ui-scroll-grid.min",
+            "angular-ui-scroll-jqlite": libRoot + "/angular-ui-scroll/1.6.1/dist/ui-scroll-jqlite.min",
+            ace: libRoot + "/ace-editor/optimized/src-min-noconflict/ace",
+            "xterm": libRoot + "/xtermjs/xterm.min",
+            "xterm/addons/fit/fit": libRoot + "/xtermjs/addons/fit/fit.min",
+            punycode: libRoot + "/punycodejs/punycode.min",
+        };
+
+
+        // Application Paths
+        if (includeApp) {
+            paths["app"] = root + "/" + appPath;
+        }
+
+        if (!isCjtBuild) {
+            paths["cjt"] = libRoot + "/cjt2";
+        } else {
+            paths["cjt"] = "../src";
+        }
+
+        if (masterPath) {
+            paths["master"] = root + "/" + masterPath;
+        }
+
+
+        var config = {
+
+            // By default load any module IDs from js/lib
+            baseUrl: preamble,
+
+            // except, if the module ID starts with "app",
+            // load it from the js/app directory. paths
+            // config is relative to the baseUrl, and
+            // never includes a ".js" extension since
+            // the paths config could be for a directory.
+            paths: paths,
+
+            locale: {
+                currentLocale: currentLocale,
+                addMin: true,
+                revision: localeRevision
+            },
+
+            transformUrl: applyDotMinToUrl,
+
+            shim: {
+                "lodash": {
+                    exports: "_"
+                },
+                "angular": {
+                    exports: "angular",
+                    deps: ["jquery"]
+                },
+                "ngRoute": {
+                    deps: ["angular"]
+                },
+                "ngAnimate": {
+                    deps: ["angular"]
+                },
+                "ngSanitize": {
+                    deps: ["angular"]
+                },
+                "ngAria": {
+                    deps: ["angular"]
+                },
+                "uiBootstrap": {
+                    deps: ["angular"]
+                },
+                "angular-growl": {
+                    deps: ["angular"]
+                },
+                "bootstrap": {
+                    deps: ["jquery"]
+                },
+                "qrcode": {
+                    exports: "QRCode"
+                },
+                "lz-string": {
+                    exports: "LZString"
+                },
+                "jquery-chosen": {
+                    deps: ["jquery"]
+                },
+                "angular-chosen": {
+                    deps: ["angular", "jquery", "jquery-chosen"]
+                },
+                "angular-ui-scroll": {
+                    deps: ["angular", "jquery"]
+                },
+                "angular-ui-scroll-jqlite": {
+                    deps: ["angular"]
+                },
+                "angular-ui-scroll-grid": {
+                    deps: ["angular", "angular-ui-scroll"]
+                },
+                "handlebars": {
+                    exports: "Handlebars"
+                }
+            },
+
+            // disable requireJS timeout to allow for low bandwidth situations
+            waitSeconds: 0
+        };
+
+        return config;
+    })();
+
+
+    if (typeof (module) !== "undefined" && module.exports) {
+
+        // We are in the build environment, so export it via exports
+        module.exports.config = require;
+    } else {
+
+        // This is runtime so make it a global
+        window.require = require;
+    }
+})();
+// Polyfill for Internet Explorer:
+// https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
+(function() {
+
+    "use strict";
+
+    if ( typeof window.CustomEvent === "function" ) {
+        return false;
+    }
+
+    function CustomEvent( event, params ) {
+        params = params || { bubbles: false, cancelable: false, detail: undefined };
+        var evt = document.createEvent( "CustomEvent" );
+        evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+        return evt;
+    }
+
+    CustomEvent.prototype = window.Event.prototype;
+
+    window.CustomEvent = CustomEvent;
+})();
+
+
+    window.__cjt2__requirejsLoaded = function __cjt2__requirejsLoaded() { // eslint-disable-line camelcase
+        var event = new CustomEvent("library-loaded", {
+            detail: {
+                library: "requirejs"
+            }
+        });
+        window.dispatchEvent(event);
+    };
+</script>
+
+<script defer
+        
+        src="/cPanel_magic_revision_1755024904/frontend/jupiter/libraries/requirejs/optimized/require.min.js"
+        onload="window.__cjt2__requirejsLoaded();">
+</script>
+
+
+        
+        <script>
+            MASTER.applicationList      = [{"url_is_absolute":0,"key":"email_accounts","searchText":"email accounts mail pop imap smtp Email Accounts","name":"Email Accounts","description":"Create, manage, and delete email accounts.","url":"email_accounts/index.html","category":"Email"},{"url_is_absolute":0,"name":"Forwarders","searchText":"Forwarders forward","key":"forwarders","description":"Configure an email address to forward copies of incoming emails to another address.","url":"mail/fwds.html","category":"Email"},{"key":"email_routing","url_is_absolute":0,"searchText":"MX Entry Email Routing dns","name":"Email Routing","description":"Configure how the system routes a domain’s incoming mail.","category":"Email","url":"mail/email_routing.html"},{"category":"Email","url":"mail/autores.html","key":"autoresponders","url_is_absolute":0,"searchText":"Autoresponders autoresponder auto responders","name":"Autoresponders","description":"Configure automatic email response messages."},{"description":"Set up a default email address.","searchText":"Default Address","url_is_absolute":0,"key":"default_address","name":"Default Address","category":"Email","url":"mail/def.html"},{"category":"Email","url":"mail/lists.html","description":"Set up a single email address to send mail to multiple email addresses.","name":"Mailing Lists","url_is_absolute":0,"searchText":"Mailing Lists mailman","key":"mailing_lists"},{"url":"mail/route.html","category":"Email","name":"Track Delivery","url_is_absolute":0,"searchText":"Track Delivery Email Trace email mail delivery report","key":"track_delivery","description":"Display reports about email message delivery attempts."},{"category":"Email","url":"mail/filters/userfilters.html","description":"Configure how your server filters all of the email that your domains’ email accounts receive.","key":"global_email_filters","url_is_absolute":0,"searchText":"Global Email Filters filter account level filtering","name":"Global Email Filters"},{"description":"Configure how your server filters a specific email account’s received mail.","url_is_absolute":0,"searchText":"User Filters Email user level Filtering filter Email Filters","name":"Email Filters","key":"email_filters","url":"mail/filters/managefilters.html","category":"Email"},{"category":"Email","url":"email_deliverability/","description":"Identify problems with your mail-related DNS records for one or more of your domains.","url_is_absolute":0,"key":"email_deliverability","searchText":"email Authentication Email Deliverability spf dmarc domain-keys authentication DKIM","name":"Email Deliverability"},{"category":"Email","url":"mail/csvimport.html","description":"Use a spreadsheet or comma-separated value text file to quickly create mailboxes or forwarders.","name":"Address Importer","url_is_absolute":0,"searchText":"Address Importer Import Addresses Forwarders Mail csv import xls import","key":"address_importer"},{"category":"Email","url":"mail/spam/index.html","description":"Configure the spam filter settings for your email account.","searchText":"Filtering Spam Assassin spamassassin Apache SpamAssassin Spam Filters","url_is_absolute":0,"name":"Spam Filters","key":"apache_spam_assassin"},{"category":"Email","url":"https://www.attracta.com/extlinks/emailmarketing","key":"attracta_emailmarketing","url_is_absolute":0,"searchText":"Email Marketing","name":"Email Marketing","description":"Email Marketing"},{"description":"Create, manage, and delete GnuPG keys.","url_is_absolute":0,"searchText":"Encryption gpg keys GnuPG Keys","key":"encryption","name":"Encryption","category":"Email","url":"gpg/index.html"},{"url":"mail/boxtrapper.html","category":"Email","description":"Filter spam from your inbox through challenge-response verification.","searchText":"BoxTrapper filter","url_is_absolute":0,"key":"boxtrapper","name":"BoxTrapper"},{"url":"mail/greylisting/index.html","category":"Email","description":"Enable or disable protection against unwanted email or spam.","key":"greylisting","url_is_absolute":0,"searchText":"Greylisting grey list spam Configure Greylisting","name":"Configure Greylisting"},{"description":"Manage your CalDAV (calendar) and CardDAV (contacts) accounts.","name":"Calendars and Contacts Configuration","url_is_absolute":0,"searchText":"email calendar contact address book CalDAV CardDAV Calendars and Contacts Configuration","key":"calendar_and_contacts","category":"Email","url":"mail/calendars_and_contacts/index.html"},{"url":"manage-calendar-access/index.html","category":"Email","description":"Delegate access rights for a user’s calendar &amp; contacts to other users.","url_is_absolute":0,"name":"Calendars and Contacts Sharing","searchText":"calendar delegation Calendars and Contacts Sharing","key":"manage_calendar_access"},{"url_is_absolute":0,"key":"calendar_contact_management","searchText":"calendar contact management address book addressbook Calendars and Contacts Management","name":"Calendars and Contacts Management","description":"Calendars and Contacts Management","url":"calendar-contact-management/index.html","category":"Email"},{"searchText":"email accounts mail disk usage bytes mb size Email Disk Usage","url_is_absolute":0,"key":"email_disk_usage","name":"Email Disk Usage","description":"View your mailboxes and disk usage for each, and remove old or large messages.","category":"Email","url":"mail/manage_disk_usage/"},{"category":"Billing & Support","url_is_absolute":0,"key":"WHMCS_clientarea_announcements","name":"News & Announcements","description":"News & Announcements","target":"_blank","url":"integration/index.html?app=WHMCS_clientarea_announcements","searchText":"News & Announcements"},{"category":"Billing & Support","url_is_absolute":0,"key":"WHMCS_clientarea_billing_info","name":"Manage Billing Information","description":"Manage Billing Information","url":"integration/index.html?app=WHMCS_clientarea_billing_info","target":"_blank","searchText":"Manage Billing Information"},{"url":"integration/index.html?app=WHMCS_clientarea_downloads","target":"_blank","searchText":"Download Resources","category":"Billing & Support","description":"Download Resources","url_is_absolute":0,"name":"Download Resources","key":"WHMCS_clientarea_downloads"},{"url_is_absolute":0,"name":"View Email History","key":"WHMCS_clientarea_emails","description":"View Email History","category":"Billing & Support","searchText":"View Email History","url":"integration/index.html?app=WHMCS_clientarea_emails","target":"_blank"},{"description":"View Invoice History","url_is_absolute":0,"key":"WHMCS_clientarea_invoices","name":"View Invoice History","category":"Billing & Support","searchText":"View Invoice History","target":"_blank","url":"integration/index.html?app=WHMCS_clientarea_invoices"},{"searchText":"Search our Knowledgebase","target":"_blank","url":"integration/index.html?app=WHMCS_clientarea_knowledgebase","description":"Search our Knowledgebase","url_is_absolute":0,"key":"WHMCS_clientarea_knowledgebase","name":"Search our Knowledgebase","category":"Billing & Support"},{"url":"integration/index.html?app=WHMCS_clientarea_network_status","target":"_blank","searchText":"Check Network Status","category":"Billing & Support","description":"Check Network Status","name":"Check Network Status","url_is_absolute":0,"key":"WHMCS_clientarea_network_status"},{"category":"Billing & Support","description":"View Billing Information","key":"WHMCS_clientarea_product_details","url_is_absolute":0,"name":"View Billing Information","url":"integration/index.html?app=WHMCS_clientarea_product_details","target":"_blank","searchText":"View Billing Information"},{"name":"Manage Profile","url_is_absolute":0,"key":"WHMCS_clientarea_profile","description":"Manage Profile","category":"Billing & Support","searchText":"Manage Profile","target":"_blank","url":"integration/index.html?app=WHMCS_clientarea_profile"},{"url":"integration/index.html?app=WHMCS_clientarea_shopping_cart_domain_register","target":"_blank","searchText":"Register New Domain","category":"Billing & Support","description":"Register New Domain","url_is_absolute":0,"name":"Register New Domain","key":"WHMCS_clientarea_shopping_cart_domain_register"},{"category":"Billing & Support","url_is_absolute":0,"name":"Transfer a Domain","key":"WHMCS_clientarea_shopping_cart_domain_transfer","description":"Transfer a Domain","target":"_blank","url":"integration/index.html?app=WHMCS_clientarea_shopping_cart_domain_transfer","searchText":"Transfer a Domain"},{"category":"Billing & Support","description":"Open Ticket","url_is_absolute":0,"key":"WHMCS_clientarea_submit_ticket","name":"Open Ticket","target":"_blank","url":"integration/index.html?app=WHMCS_clientarea_submit_ticket","searchText":"Open Ticket"},{"url":"integration/index.html?app=WHMCS_clientarea_tickets","target":"_blank","searchText":"View Support Tickets","category":"Billing & Support","key":"WHMCS_clientarea_tickets","url_is_absolute":0,"name":"View Support Tickets","description":"View Support Tickets"},{"target":"_blank","url":"integration/index.html?app=WHMCS_clientarea_upgrade","searchText":"Upgrade/Downgrade","category":"Billing & Support","description":"Upgrade/Downgrade","url_is_absolute":0,"name":"Upgrade/Downgrade","key":"WHMCS_clientarea_upgrade"},{"url":"filemanager/index.html","target":"_blank","searchText":"File Manager file-manager","category":"Files","url_is_absolute":0,"key":"file_manager","name":"File Manager","description":"Manage and edit your files."},{"url_is_absolute":0,"name":"Images","searchText":"image manager resize manager scaler thumbnailer format Images","key":"images","description":"Modify and manage images saved to your cPanel account.","category":"Files","url":"cpanelpro/images.html"},{"url_is_absolute":0,"searchText":"Directory Privacy passwordprotect password protect","key":"directory_privacy","name":"Directory Privacy","description":"Protect specific directories in your files on your cPanel account.","url":"htaccess/index.html","category":"Files"},{"description":"View information about your files, your directories, and how you use your disk space.","key":"disk_usage","url_is_absolute":0,"searchText":"Disk Usage disk space usage disk-usage","name":"Disk Usage","category":"Files","url":"diskusage/index.html"},{"description":"Manage files on multiple types of devices.","key":"web_disk","url_is_absolute":0,"searchText":"Web Disk webdav webdisk","name":"Web Disk","url":"webdav/accounts_webdav.html","category":"Files"},{"description":"Create, manage, and delete FTP accounts.","url_is_absolute":0,"searchText":"FTP Accounts ftp create","key":"ftp_accounts","name":"FTP Accounts","url":"ftp/accounts.html","category":"Files"},{"description":"Download and store your website in a backup file.","searchText":"Backup restore","url_is_absolute":0,"key":"backup","name":"Backup","category":"Files","url":"backup/index.html"},{"url_is_absolute":0,"searchText":"Backup Wizard restore","key":"backup_wizard","name":"Backup Wizard","description":"Back up all or part of your website, or restore it from the most recent backup file.","category":"Files","url":"backup/wizard.html"},{"category":"Files","url":"version_control/index.html","url_is_absolute":0,"searchText":"Git version control vcs repositories repository repo master checkout check out branch clone remote source code commit head gitweb history log publish deployment build continuous integration Git™ Version Control","key":"version_control","name":"Git™ Version Control","description":"Host Git™ repositories."},{"description":"AI Blog Post Generator","url_is_absolute":0,"key":"aicontent2","searchText":"AI Blog Post Generator","name":"AI Blog Post Generator","url":"https://www.attracta.com/extlinks/copymatic","category":"Files"},{"category":"Files","url":"jetbackup5/index.html","url_is_absolute":0,"searchText":"JetBackup 5","name":"JetBackup 5","key":"jb5","description":"JetBackup 5"},{"description":"Get In Google","name":"Get In Google","url_is_absolute":1,"searchText":"Get In Google","key":"attracta_getingoogle","category":"SEO and Marketing Tools","url":"/cpsess9936642561/frontend/paper_lantern/attracta/index.live.pl?id=31"},{"description":"SEO Tools","name":"SEO Tools","url_is_absolute":1,"searchText":"SEO Tools","key":"attracta_seotools","url":"/cpsess9936642561/frontend/paper_lantern/attracta/index.live.pl?id=32","category":"SEO and Marketing Tools"},{"searchText":"Increase Website Traffic","url_is_absolute":1,"key":"attracta_increasewebsitetraffic","name":"Increase Website Traffic","description":"Increase Website Traffic","category":"SEO and Marketing Tools","url":"/cpsess9936642561/frontend/paper_lantern/attracta/index.live.pl?id=33"},{"description":"Link Building","searchText":"Link Building","url_is_absolute":1,"key":"attracta_linkbuilding","name":"Link Building","category":"SEO and Marketing Tools","url":"/cpsess9936642561/frontend/paper_lantern/attracta/index.live.pl?id=35"},{"searchText":"SEO Optimized WordPress Themes","target":"_blank","url":"https://www.attracta.com/extlinks/wpthemes","description":"SEO Optimized WordPress Themes","key":"attracta_wpthemes","url_is_absolute":0,"name":"SEO Optimized WordPress Themes","category":"SEO and Marketing Tools"},{"category":"SEO and Marketing Tools","url_is_absolute":0,"name":"WordPress Social Media Optimization","key":"attracta_socialmm2","description":"WordPress Social Media Optimization","target":"_blank","url":"https://www.attracta.com/extlinks/wpsocial","searchText":"WordPress Social Media Optimization"},{"target":"_blank","url":"https://www.attracta.com/extlinks/wpvisual","searchText":"Drag & Drop Visual Page Builder","category":"SEO and Marketing Tools","description":"Drag & Drop Visual Page Builder","url_is_absolute":0,"name":"Drag & Drop Visual Page Builder","key":"attracta_wpvisual"},{"url":"https://www.attracta.com/extlinks/emailmarketing","category":"SEO and Marketing Tools","url_is_absolute":0,"name":"Free Email Marketing Tools","searchText":"Free Email Marketing Tools","key":"attracta_emailmarketing3","description":"Free Email Marketing Tools"},{"category":"SEO and Marketing Tools","url":"https://www.attracta.com/extlinks/semrushfree","description":"Google Rank Checker","key":"rankcheck2","url_is_absolute":0,"searchText":"Google Rank Checker","name":"Google Rank Checker"},{"description":"Free AI Site Tools","name":"Free AI Site Tools","url_is_absolute":0,"searchText":"Free AI Site Tools","key":"aicontent3","category":"SEO and Marketing Tools","url":"https://www.attracta.com/extlinks/copymatic"},{"searchText":"phpMyAdmin database db","url":"sql/PhpMyAdmin.html","target":"_blank","description":"Manage databases with phpMyAdmin.","name":"phpMyAdmin","url_is_absolute":0,"key":"php_my_admin","category":"Databases"},{"url":"sql/index.html","category":"Databases","searchText":"MySQL Databases db Manage My Databases","url_is_absolute":0,"key":"mysql_databases","name":"Manage My Databases","description":"Create, manage, and delete databases and database users."},{"category":"Databases","url":"sql/wizard1.html","description":"Guided setup of a database, database users, and user privileges.","url_is_absolute":0,"searchText":"MySQL Database Wizard mysql database db","name":"Database Wizard","key":"mysql_database_wizard"},{"name":"Remote Database Access","url_is_absolute":0,"searchText":"Remote MySQL db Remote Database Access","key":"remote_mysql","description":"Allow remote hosts (servers) to access databases hosted on this server.","category":"Databases","url":"sql/managehost.html"},{"url_is_absolute":0,"name":"PostgreSQL Databases","searchText":"PostgreSQL Databases postgres database postgresql db","key":"postgresql_databases","description":"Create, manage, and delete PostgreSQL® databases and database users.","category":"Databases","url":"psql/index.html"},{"description":"Guided setup of a PostgreSQL® database, database users, and user privileges.","url_is_absolute":0,"searchText":"PostgreSQL Database Wizard postgres postgresql database db","name":"PostgreSQL Database Wizard","key":"postgresql_database_wizard","url":"psql/wizard1.html","category":"Databases"},{"searchText":"phpPgAdmin database psql db","url":"/cpsess9936642561/3rdparty/phpPgAdmin/index.php","target":"_blank","name":"phpPgAdmin","url_is_absolute":1,"key":"php_pg_admin","description":"Manage PostgreSQL® databases.","category":"Databases"},{"category":"Domains","url":"socialbee/index.html","url_is_absolute":0,"name":"Social Media Management","searchText":"media management plugin socialbee social bee Social Media Management","key":"cpanel-socialbee-plugin","description":"Social Media Management"},{"url_is_absolute":0,"searchText":"domains parked park aliases alias addon subdomain domain force https redirect Domains","name":"Domains","key":"domains","description":"Create, manage, and delete multiple domains.","url":"domains/index.html","category":"Domains"},{"category":"Domains","url":"mime/redirect.html","searchText":"Redirects rewrite modrewrite","url_is_absolute":0,"key":"redirects","name":"Redirects","description":"Send the visitors of a domain or particular page to a different URL."},{"url_is_absolute":0,"key":"zone_editor","searchText":"zone editor advanced simple caa cname a aaaa txt dkim dmarc spf mx srv record dns dnssec Zone Editor","name":"Zone Editor","description":"Create, manage, and delete DNS zone records.","url":"zone_editor/index.html","category":"Domains"},{"url":"dynamic-dns/index.html","category":"Domains","description":"Manage your dynamic DNS domains.","url_is_absolute":0,"searchText":"dynamic dns ddns ip subdomain  Dynamic DNS","key":"dynamic_dns","name":"Dynamic DNS"},{"url":"stats/lastvisitors_landing.html","category":"Metrics","url_is_absolute":0,"searchText":"latest visitors Visitors","name":"Visitors","key":"visitors","description":"Display detailed information about recent visits to your website."},{"url_is_absolute":0,"searchText":"Errors errorlog error log","name":"Errors","key":"errors","description":"View the most recent entries in the Apache® error logs.","category":"Metrics","url":"stats/errlog.html"},{"category":"Metrics","url":"stats/bandwidth.html","description":"View bandwidth usage graphs by protocol over multiple lengths of time.","searchText":"Bandwidth bandmin transfer","url_is_absolute":0,"name":"Bandwidth","key":"bandwidth"},{"name":"Raw Access","url_is_absolute":0,"searchText":"Raw Access logs raw logs rawlogs","key":"raw_access","description":"View the raw Apache® logs for your site’s visitors.","category":"Metrics","url":"raw/index.html"},{"category":"Metrics","url":"stats/awstats_landing.html","url_is_absolute":0,"key":"awstats","searchText":"Awstats awstats","name":"Awstats","description":"View traffic statistics from the AWStats software."},{"url":"stats/analog_landing.html","category":"Metrics","url_is_absolute":0,"searchText":"Analog Stats","key":"analog_stats","name":"Analog Stats","description":"View data from the Analog traffic statistics software."},{"url":"stats/webalizer_landing.html","category":"Metrics","description":"View traffic statistics from the Webalizer statistics program.","key":"webalizer","url_is_absolute":0,"searchText":"Webalizer stats","name":"Webalizer"},{"name":"Webalizer FTP","url_is_absolute":0,"searchText":"Webalizer FTP stats ftp","key":"webalizer_ftp","description":"View FTP traffic statistics from the Webalizer statistics program.","url":"stats/webalizerftp_landing.html","category":"Metrics"},{"url":"statmanager/index.html","category":"Metrics","description":"Select metrics programs to process your log files and provide traffic analysis for your cPanel account’s domains.","name":"Metrics Editor","url_is_absolute":0,"searchText":"Metrics Editor stats manager choose log programs","key":"metrics_editor"},{"description":"Google Rankings","searchText":"Google Rankings","url_is_absolute":0,"key":"rankcheck","name":"Google Rankings","url":"https://www.attracta.com/extlinks/semrushfree","category":"Metrics"},{"url_is_absolute":0,"key":"lveresusage","searchText":"Resource Usage","name":"Resource Usage","description":"Resource Usage","category":"Metrics","url":"resource_usage/resource_usage.live.pl"},{"url_is_absolute":0,"searchText":"SSH access ssh/shell Access ssh secure shell sftp SSH Access","key":"ssh_access","name":"SSH Access","description":"Manage your public and private SSH keys.","url":"telnet/index.html","category":"Security"},{"url_is_absolute":0,"searchText":"IP Blocker ip deny manager","name":"IP Blocker","key":"ip_blocker","description":"Block access to your website for one or more IP addresses or fully qualified domain names.","url":"denyip/index.html","category":"Security"},{"searchText":"SSL/TLS certificates certificate key keys csr csrs install wizard status autossl https tls ssl security SSL/TLS Certificates","url_is_absolute":0,"name":"SSL/TLS Certificates","key":"ssl_tls_unified","description":"Manage certificates, signing requests, keys, installs, status, and purchases in one place.","url":"security/tls_wizard/index.html","category":"Security"},{"description":"Prevent external sites and users from embedding your website’s content.","name":"Hotlink Protection","url_is_absolute":0,"searchText":"Hotlink Protection","key":"hotlink_protection","url":"mime/hotlink.html","category":"Security"},{"category":"Security","url":"htaccess/leechprotect/leechprotect.html","url_is_absolute":0,"name":"Leech Protection","searchText":"Leech Protection protect","key":"leech_protection","description":"Detect unusual levels of activity in password-restricted directories."},{"description":"Enable or disable ModSecurity® for your domains.","searchText":"ModSecurity mod security mod_security","url_is_absolute":0,"name":"ModSecurity","key":"mod_security","url":"security/mod_security/index.html","category":"Security"},{"category":"Security","url":"security/2fa/index.html","key":"two_factor_authentication","url_is_absolute":0,"searchText":"Two Factor Authentication 2fa tfa Two-Factor Authentication","name":"Two-Factor Authentication","description":"Configure a security measure that requires two forms of identification to log in."},{"url_is_absolute":0,"searchText":"Imunify360","key":"imunify360","name":"Imunify360","description":"Imunify360","url":"imunify/imunify.live.pl","category":"Security"},{"searchText":"SitePad Website Builder","url_is_absolute":0,"name":"SitePad Website Builder","key":"sitepad","description":"SitePad Website Builder","category":"Software","url":"../../3rdparty/sitepad/index.live.php"},{"searchText":"WordPress Manager by Softaculous","url_is_absolute":0,"name":"WordPress Manager by Softaculous","key":"wp_softaculous","description":"WordPress Manager by Softaculous","url":"softaculous/index.live.php?act=wordpress","category":"Software"},{"url":"module_installers/index.html?lang=php-pear","category":"Software","name":"PHP PEAR Packages","url_is_absolute":0,"searchText":"PHP PEAR Packages","key":"php_pear_packages","description":"Search for and add PEAR packages to your website, or view your available PHP packages."},{"description":"Search for and install Perl modules from the CPAN repository.","name":"Perl Modules","url_is_absolute":0,"searchText":"Perl Modules","key":"perl_modules","url":"module_installers/index.html?lang=perl","category":"Software"},{"url":"passenger/index.html","category":"Software","description":"Deploy applications with the Phusion Passenger® application server.","key":"application_manager","url_is_absolute":0,"searchText":"apps passenger ruby ror gems rails Application Manager","name":"Application Manager"},{"category":"Software","url":"multiphp_manager/index.html","url_is_absolute":0,"key":"multiphp_manager","searchText":"MultiPHP Manager","name":"MultiPHP Manager","description":"Manage your PHP configuration."},{"description":"Configure your website’s PHP settings.","url_is_absolute":0,"searchText":"MultiPHP INI Editor php config","key":"multiphp_ini_editor","name":"MultiPHP INI Editor","url":"multiphp_ini_editor/index.html","category":"Software"},{"description":"WordPress Themes","key":"attracta_wpthemes2","url_is_absolute":0,"name":"WordPress Themes","category":"Software","searchText":"WordPress Themes","target":"_blank","url":"https://www.attracta.com/extlinks/wpthemes"},{"url":"softaculous/index.live.php","category":"Software","description":"Softaculous Apps Installer","url_is_absolute":0,"searchText":"Softaculous Apps Installer","name":"Softaculous Apps Installer","key":"softaculous"},{"category":"Software","url_is_absolute":0,"name":"Olitt AI Site Builder","key":"olitt","description":"Olitt AI Site Builder","target":"olitt","url":"olitt/index.html","searchText":"Olitt AI Site Builder"},{"url":"lveversion/nodejs-selector.html.tt","category":"Software","description":"Setup Node.js App","searchText":"Setup Node.js App","url_is_absolute":0,"name":"Setup Node.js App","key":"lvenodejssel"},{"description":"Setup Python App","searchText":"Setup Python App","url_is_absolute":0,"name":"Setup Python App","key":"lvepythonsel","category":"Software","url":"lveversion/python-selector.html.tt"},{"description":"Create, manage, and delete scheduled tasks.","searchText":"Cron Jobs cronjob crontab edit","url_is_absolute":0,"key":"cron_jobs","name":"Cron Jobs","url":"cron/index.html","category":"Advanced"},{"description":"Perform traceroutes and domain lookups to diagnose network issues.","name":"Track DNS","url_is_absolute":0,"searchText":"Track DNS traceroute tracert dnslookup dig network tools","key":"track_dns","url":"net/index.html","category":"Advanced"},{"description":"Define how the server displays a specific directory’s index to a visitor, or to disable index display for a directory.","url_is_absolute":0,"searchText":"Indexes index manager","name":"Indexes","key":"indexes","url":"indexmanager/index.html","category":"Advanced"},{"searchText":"Error Pages errorlog error_log error log","url_is_absolute":0,"key":"error_pages","name":"Error Pages","description":"Inform visitors about problems when they attempt to access your website.","url":"err/index.html","category":"Advanced"},{"description":"Control how your website’s Apache® web server software manages certain file types and file extensions.","url_is_absolute":0,"name":"Apache Handlers","searchText":"Apache Handlers apache handlers extension configure","key":"apache_handlers","category":"Advanced","url":"mime/handle.html"},{"url":"mime/mime.html","category":"Advanced","description":"Relay information to the visitor’s browser about how to handle file extensions.","url_is_absolute":0,"searchText":"MIME Types mimetype types","name":"MIME Types","key":"mime_types"},{"description":"View and manage your preferred language, contact information, and account settings.","searchText":"updatecontact update contact information primary email setlang change language account preferences consent privacy notification system position change password & security  Account Preferences","url_is_absolute":0,"key":"account_preferences","name":"Account Preferences","url":"account-preferences/index.html","category":"Preferences"},{"url_is_absolute":0,"name":"Password &amp; Security","searchText":"password & security change facebook external google secure cpanel Password &amp; Security","key":"change_password","description":"Update your cPanel account’s password.","category":"Preferences","url":"passwd/index.html"},{"name":"Change Language","url_is_absolute":0,"searchText":"language setlang Change Language","key":"change_language","description":"Change your default language.","category":"Preferences","url":"setlang/index.html"},{"url_is_absolute":0,"searchText":"contact email Contact Information","key":"contact_information","name":"Contact Information","description":"Set contact information and preferences.","category":"Preferences","url":"contact/index.html"},{"url":"user_manager/index.html","category":"Preferences","description":"Manage the users who can access various systems on your cPanel account.","searchText":"password change ftp email webdisk webdav service User Manager","url_is_absolute":0,"key":"user_manager","name":"User Manager"},{"url":"../../3rdparty/sitepad/index.live.php","category":"SitePad Website Builder - Themes","searchText":"SitePad Website Builder - Themes","url_is_absolute":0,"name":"SitePad Website Builder - Themes","key":"sitepad_div_icons","description":"SitePad Website Builder - Themes"},{"category":"Softaculous Apps Installer","url":"softaculous/index.live.php","url_is_absolute":0,"key":"soft_div_icons","searchText":"Softaculous Apps Installer","name":"Softaculous Apps Installer","description":"Softaculous Apps Installer"},{"url":"notifications/index.html.tt","searchText":"Notifications","name":"Notifications"},{"searchText":"Home Main","name":"Home","url":"index.html"}];
+            MASTER.securityToken        = "\/cpsess9936642561";
+            MASTER.cpanelTheme          = "jupiter"
+            MASTER.footerLogo         = "cpanel-logo-orange.svg";
+            MASTER.debug                = false;
+            MASTER.focus_feature_search = false;
+        </script>
+
+        <script type="text/javascript" defer>
+            // Wait for require.js to load using the new event, then load the master bundle.
+            window.addEventListener("library-loaded", function(e){
+                if (e.detail.library.match(/requirejs/) ) {
+                    
+                        // master.cmb module is a bundled file with master.js its dependency cjt/util/locale.
+                        // Bundling it helps in making master totally independent of frameworks yet be able to
+                        // use the locale module.
+                        require(["master/master.cmb"], function() {
+                            require(["master"], function(MASTER){ MASTER(); });
+                        });
+                    
+                }
+            });
+        </script>
+
+        
+        
+        <script type="text/javascript" src="/cPanel_magic_revision_1727300926/frontend/jupiter/_assets/deferred/master.deferred.cmb.min.js" defer async></script>
+        
+        <script>
+            register_interfacecfg_nvdata('cp-welcome-panel_dismissed');
+        </script>
+    </body>
+</html>
+

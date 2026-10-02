@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Leivant construction tool placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="0.55" stop-color="#0a0a0a"/>
+      <stop offset="1" stop-color="#243447"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#D4A017"/>
+      <stop offset="1" stop-color="#E87722"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <path d="M0 680 280 420l180 120 260-300 480 440v120H0z" fill="#D4A017" opacity=".16"/>
+  <rect x="95" y="95" width="1010" height="610" rx="32" fill="#ffffff" opacity=".06" stroke="#D4A017" stroke-opacity=".45" stroke-width="3"/>
+  <g transform="translate(380 170)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M92 348 316 124" stroke="#D4A017" stroke-width="54"/>
+    <path d="M340 98 438 196" stroke="#E87722" stroke-width="54"/>
+    <path d="M306 130 388 48c40-40 106-40 146 0l24 24-114 114" stroke="#f8fafc" stroke-width="40"/>
+    <path d="M74 366 154 446" stroke="#f8fafc" stroke-width="40"/>
+  </g>
+  <text x="120" y="650" fill="#ffffff" font-family="Arial, sans-serif" font-size="36" font-weight="700">Leivant Tools &amp; Equipment</text>
+  <text x="120" y="696" fill="#D4A017" font-family="Arial, sans-serif" font-size="24" font-weight="700">Generic no-logo catalog image</text>
+</svg>

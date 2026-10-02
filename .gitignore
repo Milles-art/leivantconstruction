@@ -1,0 +1,33 @@
+# ── secrets: never commit ─────────────────────────────
+.env
+.env.*.backup
+login.json
+cpanel-cookies.txt
+ftp-mirror.ps1
+deploy/deploy-run.php
+
+# ── dumps, archives, local media ──────────────────────
+*.tar.gz
+*.sql
+*.zip
+!deploy/db-updates.sql
+backup-*/
+webp-originals-backup/
+
+# ── dependencies & generated ──────────────────────────
+leivant-app/vendor/
+leivant-app/node_modules/
+leivant-app/storage/logs/
+leivant-app/storage/framework/cache/
+leivant-app/storage/framework/sessions/
+leivant-app/storage/framework/views/
+leivant-app/public/
+public_html/storage/
+
+# ── nested mirrors / logs / OS ────────────────────────
+repositories/
+*.log
+error_log
+Thumbs.db
+Desktop.ini
+.DS_Store

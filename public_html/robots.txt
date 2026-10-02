@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /api/
+Disallow: /cart
+Disallow: /checkout
+Disallow: /orders/
+Disallow: /login
+Disallow: /register
+Sitemap: https://leivantconstruction.com/sitemap.xml
