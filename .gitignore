@@ -4,15 +4,14 @@
 login.json
 cpanel-cookies.txt
 ftp-mirror.ps1
-deploy/deploy-run.php
 
 # ── dumps, archives, local media ──────────────────────
 *.tar.gz
 *.sql
 *.zip
-!deploy/db-updates.sql
 backup-*/
 webp-originals-backup/
+deploy/
 
 # ── dependencies & generated ──────────────────────────
 leivant-app/vendor/
@@ -31,3 +30,10 @@ error_log
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+# ── backup-root clutter (not part of the Laravel project) ─
+/cpanel-backup-log.txt
+/phpmyadmin-page.html
+/pma-*.html
+/start-leivant.bat
+/package-lock.json
