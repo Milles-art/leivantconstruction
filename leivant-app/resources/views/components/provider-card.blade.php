@@ -27,29 +27,20 @@
     };
 @endphp
 
-<article class="pv">
+<article class="hv-photo-card" style="min-height:460px;">
     <img src="{{ asset('images/site/'.$image) }}" alt="{{ $imageAlt }}" loading="lazy" decoding="async">
-
-    <div class="pv-body">
-        <div class="pv-meta">
-            <span class="cm-tag">{{ $provider['category'] }}</span>
-            <strong class="pv-rate">{{ number_format((float) $provider['rating'], 1) }}</strong>
-        </div>
-        <div>
-            <h3>{{ $provider['name'] }}</h3>
-            <p class="pv-sum">{{ $provider['summary'] }}</p>
-        </div>
-
-        <div class="pv-facts">
-            <span>{{ $provider['region'] }}</span>
-            @if (! empty($provider['location']))
-                <span>{{ $provider['location'] }}</span>
-            @endif
-            <span>{{ $provider['jobs'] }} jobs</span>
-            <span>{{ ($provider['is_verified'] ?? false) ? 'Verified' : 'Leivant Review' }}</span>
-            <span>{{ $provider['response'] ?? 'Connection by request' }}</span>
-        </div>
-
-        <a href="{{ config('app.company.whatsapp') }}?text={{ urlencode('Hello Leivant, connect me directly with '.$provider['name'].' in '.$provider['region']) }}" class="pv-act">Send Request</a>
+    <span class="hv-pill" style="align-self:flex-start;">{{ $provider['category'] }}</span>
+    <h3 class="hv-photo-card__title" style="margin-top:16px;">{{ $provider['name'] }}</h3>
+    <p class="hv-photo-card__text">{{ $provider['summary'] }}</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+        <span class="hv-pill">★ {{ number_format((float) $provider['rating'], 1) }}</span>
+        <span class="hv-pill">{{ $provider['region'] }}</span>
+        @if (! empty($provider['location']))
+            <span class="hv-pill">{{ $provider['location'] }}</span>
+        @endif
+        <span class="hv-pill">{{ $provider['jobs'] }} jobs</span>
+        <span class="hv-pill">{{ ($provider['is_verified'] ?? false) ? 'Verified' : 'Leivant Review' }}</span>
+        <span class="hv-pill">{{ $provider['response'] ?? 'Connection by request' }}</span>
     </div>
+    <a href="{{ config('app.company.whatsapp') }}?text={{ urlencode('Hello Leivant, connect me directly with '.$provider['name'].' in '.$provider['region']) }}" class="hv-btn" style="margin-top:20px;align-self:flex-start;">Send request</a>
 </article>

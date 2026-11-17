@@ -21,6 +21,7 @@ leivant-app/storage/framework/cache/
 leivant-app/storage/framework/sessions/
 leivant-app/storage/framework/views/
 leivant-app/public/
+leivant-app/public
 public_html/storage/
 
 # ── nested mirrors / logs / OS ────────────────────────

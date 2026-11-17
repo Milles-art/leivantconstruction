@@ -1,810 +1,111 @@
-@extends('layouts.seo')
-
-@section('title', 'Leivant Construction Solutions | Dar es Salaam, Tanzania')
-@section('canonical', route('home'))
-@section('meta_description', 'Leivant Construction Solutions plans, builds, renovates, and supervises construction projects across Tanzania. BRELA 626936. Kipawa, Dar es Salaam to Zanzibar.')
-@section('og_image', asset('leivant-webp/20260523_141609.jpg.webp'))
-
-@section('content')
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap">
-
-<style>
-/* =========================================================
-   LEIVANT HOME
-   Type: Barlow Condensed (site-signage headings) + Barlow (text)
-   Palette: site ink, concrete, paper, safety amber
-   ========================================================= */
-.home-v2,
-.home-v2 * { box-sizing: border-box; }
-
-.home-v2 {
-    --ink: #151816;
-    --ink-2: #1f2421;
-    --paper: #fbfaf7;
-    --concrete: #eeebe4;
-    --concrete-2: #e2ddd1;
-    --line: rgba(21, 24, 22, .14);
-    --muted: #5d655f;
-    --amber: #c7922e;
-    --amber-deep: #8f6417;
-    --amber-light: #e7bd62;
-
-    --display: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
-    --text: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
-
-    --pad: clamp(18px, 3.2vw, 56px);
-    --max: none;
-    --radius: 4px;
-
-    width: 100%;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--text);
-    overflow-x: clip;
-}
-
-.home-v2 img,
-.home-v2 video,
-.home-v2 iframe { max-width: 100%; }
-
-.home-v2 a { color: inherit; }
-
-.home-v2 :focus-visible {
-    outline: 3px solid var(--amber);
-    outline-offset: 3px;
-}
-
-/* ---------- shared layout ---------- */
-.home-v2 .ed-wrap {
-    width: 100%;
-    max-width: none;
-    margin-inline: 0;
-    padding-inline: var(--pad);
-}
-
-.home-v2 .ed-section { padding: clamp(72px, 9vw, 128px) 0; }
-.home-v2 .ed-section + .ed-section { border-top: 1px solid var(--line); }
-.home-v2 .ed-concrete { background: var(--concrete); }
-
-.home-v2 .ed-h2 {
-    max-width: 30ch;
-    margin: 0 0 22px;
-    font: 700 clamp(40px, 5.4vw, 76px)/.95 var(--display);
-    letter-spacing: -.01em;
-}
-
-.home-v2 .ed-lead {
-    max-width: 85ch;
-    color: var(--muted);
-    font-size: 18px;
-    line-height: 1.7;
-}
-.home-v2 .ed-lead p { margin: 0 0 16px; }
-.home-v2 .ed-lead p:last-child { margin-bottom: 0; }
-
-.home-v2 .ed-head {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 24px clamp(32px, 6vw, 96px);
-    align-items: end;
-    margin-bottom: clamp(36px, 5vw, 64px);
-}
-.home-v2 .ed-head .ed-h2 { margin: 0; }
-.home-v2 .ed-head .ed-lead { margin: 0; }
-
-/* text link with amber rule */
-.home-v2 .ed-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font: 600 15px/1.2 var(--text);
-    text-decoration: none;
-    padding: 6px 0;
-}
-.home-v2 .ed-link::after {
-    content: "";
-    width: 28px;
-    height: 2px;
-    background: var(--amber);
-    transition: width .2s ease;
-}
-.home-v2 .ed-link:hover::after { width: 48px; }
-.home-v2 .ed-more { margin: 36px 0 0; }
-
-/* buttons */
-.home-v2 .ed-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 56px;
-    padding: 0 28px;
-    border-radius: var(--radius);
-    font: 600 16px/1 var(--text);
-    text-decoration: none;
-    transition: background .2s ease, border-color .2s ease, color .2s ease;
-}
-.home-v2 .ed-btn-solid { background: var(--amber); border: 1px solid var(--amber); color: #15130c; }
-.home-v2 .ed-btn-solid:hover { background: var(--amber-light); border-color: var(--amber-light); }
-.home-v2 .ed-btn-ghost { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.45); color: #fff; }
-.home-v2 .ed-btn-ghost:hover { background: rgba(255,255,255,.16); }
-.home-v2 .ed-btn-dark { background: var(--ink); border: 1px solid var(--ink); color: #fff; }
-.home-v2 .ed-btn-dark:hover { background: var(--ink-2); }
-
-/* ---------- HERO ---------- */
-.home-v2 .ed-hero {
-    position: relative;
-    isolation: isolate;
-    display: flex;
-    align-items: flex-end;
-    min-height: clamp(660px, 92vh, 900px);
-    background: #111;
-    color: #fff;
-}
-.home-v2 .ed-hero picture,
-.home-v2 .ed-hero picture img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-}
-.home-v2 .ed-hero picture { z-index: -2; }
-.home-v2 .ed-hero picture img {
-    object-fit: cover;
-    object-position: center 48%;
-    filter: saturate(.85) contrast(1.05);
-}
-.home-v2 .ed-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background:
-        linear-gradient(90deg, rgba(10,13,11,.9) 0%, rgba(10,13,11,.6) 46%, rgba(10,13,11,.12) 85%),
-        linear-gradient(0deg, rgba(10,13,11,.88) 0%, transparent 52%);
-}
-.home-v2 .ed-hero-inner { width: 100%; padding-top: 150px; }
-
-.home-v2 .ed-hero-reg {
-    margin: 0 0 22px;
-    color: var(--amber-light);
-    font: 600 16px/1.3 var(--text);
-}
-
-.home-v2 .ed-hero h1 {
-    max-width: 20ch;
-    margin: 0;
-    font: 700 clamp(60px, 9.4vw, 138px)/.88 var(--display);
-    letter-spacing: -.015em;
-}
-.home-v2 .ed-hero h1 span {
-    display: block;
-    max-width: 40ch;
-    margin-top: 22px;
-    color: rgba(255,255,255,.78);
-    font: 500 clamp(26px, 3vw, 42px)/1.08 var(--display);
-    letter-spacing: 0;
-}
-
-.home-v2 .ed-hero .ed-lead {
-    max-width: 75ch;
-    margin: 28px 0 0;
-    color: rgba(255,255,255,.84);
-    font-size: 19px;
-}
-
-.home-v2 .ed-hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-
-/* The memorable element: the project lifecycle as a site programme line */
-.home-v2 .ed-stages {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0;
-    margin: clamp(48px, 7vw, 88px) 0 0;
-    padding: 0 0 clamp(28px, 4vw, 48px);
-}
-.home-v2 .ed-stages li {
-    position: relative;
-    padding: 26px 24px 0 0;
-    border-top: 2px solid rgba(255,255,255,.28);
-}
-.home-v2 .ed-stages li::before {
-    content: "";
-    position: absolute;
-    top: -8px;
-    left: 0;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--amber);
-    box-shadow: 0 0 0 4px rgba(199,146,46,.28);
-}
-.home-v2 .ed-stages li:last-child { border-top-color: var(--amber); }
-.home-v2 .ed-stages b {
-    display: block;
-    margin-bottom: 6px;
-    font: 700 24px/1.05 var(--display);
-}
-.home-v2 .ed-stages span {
-    display: block;
-    max-width: 26ch;
-    color: rgba(255,255,255,.7);
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-/* ---------- ABOUT ---------- */
-.home-v2 .ed-about-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.5fr) minmax(320px, .5fr);
-    gap: clamp(40px, 6vw, 96px);
-    align-items: start;
-}
-.home-v2 .ed-about-grid .ed-h2 { max-width: 24ch; }
-.home-v2 .ed-facts {
-    list-style: none;
-    margin: 8px 0 0;
-    padding: 0;
-    border-top: 2px solid var(--ink);
-}
-.home-v2 .ed-facts li {
-    padding: 22px 0;
-    border-bottom: 1px solid var(--line);
-}
-.home-v2 .ed-facts strong {
-    display: block;
-    font: 700 40px/1 var(--display);
-}
-.home-v2 .ed-facts span {
-    display: block;
-    margin-top: 6px;
-    color: var(--muted);
-    font-size: 15px;
-    line-height: 1.4;
-}
-
-/* ---------- SERVICES ---------- */
-.home-v2 .ed-service-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-    min-width: 0;
-}
-.home-v2 .ed-service {
-    display: grid;
-    grid-template-columns: 42% 58%;
-    min-width: 0;
-    min-height: 340px;
-    overflow: hidden;
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-}
-.home-v2 .ed-service-media { position: relative; min-height: 100%; overflow: hidden; }
-.home-v2 .ed-service-media img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    object-fit: cover;
-    transition: transform .6s ease;
-}
-.home-v2 .ed-service:hover .ed-service-media img { transform: scale(1.04); }
-.home-v2 .ed-service-body { display: flex; flex-direction: column; min-width: 0; padding: 30px 28px; }
-.home-v2 .ed-service-body h3 { margin: 0 0 12px; font: 700 32px/1 var(--display); }
-.home-v2 .ed-service-body p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.65; }
-.home-v2 .ed-service-body .ed-link { margin-top: auto; padding-top: 22px; }
-
-/* ---------- WHY ---------- */
-.home-v2 .ed-why { background: var(--ink); color: #fff; }
-.home-v2 .ed-why .ed-h2 { max-width: 30ch; color: #fff; }
-.home-v2 .ed-why-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0 clamp(24px, 3vw, 44px);
-    margin-top: clamp(40px, 6vw, 72px);
-}
-.home-v2 .ed-why-grid article { min-width: 0; padding-top: 24px; border-top: 3px solid var(--amber); }
-.home-v2 .ed-why-grid h3 { margin: 0 0 12px; font: 700 28px/1 var(--display); }
-.home-v2 .ed-why-grid p { margin: 0; color: rgba(255,255,255,.72); font-size: 16px; line-height: 1.65; }
-
-/* ---------- PROJECTS ---------- */
-.home-v2 .ed-project-grid {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr 1fr;
-    gap: 16px;
-    min-width: 0;
-}
-.home-v2 .ed-project {
-    position: relative;
-    min-width: 0;
-    min-height: 480px;
-    overflow: hidden;
-    background: #171a18;
-    border-radius: var(--radius);
-    color: #fff;
-    text-decoration: none;
-}
-.home-v2 .ed-project img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    object-fit: cover;
-    transition: transform .6s ease;
-}
-.home-v2 .ed-project:hover img { transform: scale(1.04); }
-.home-v2 .ed-project::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 38%, rgba(8,10,9,.9));
-}
-.home-v2 .ed-project-cap { position: absolute; right: 22px; bottom: 22px; left: 22px; z-index: 1; }
-.home-v2 .ed-project-cap span { display: block; margin-bottom: 6px; color: var(--amber-light); font: 600 15px/1.2 var(--text); }
-.home-v2 .ed-project-cap strong { display: block; font: 700 28px/1.02 var(--display); }
-
-/* site diary */
-.home-v2 .ed-diary { margin-top: clamp(72px, 9vw, 120px); padding-top: clamp(48px, 6vw, 80px); border-top: 2px solid var(--ink); }
-.home-v2 .ed-diary-rail {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(280px, 24%);
-    gap: 14px;
-    margin-top: 36px;
-    padding-bottom: 12px;
-    overflow-x: auto;
-    scroll-snap-type: x proximity;
-    overscroll-behavior-inline: contain;
-    scrollbar-width: thin;
-}
-.home-v2 .ed-diary-rail figure { margin: 0; min-width: 0; scroll-snap-align: start; }
-.home-v2 .ed-diary-rail img {
-    display: block;
-    width: 100%;
-    max-width: none;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: var(--radius);
-}
-.home-v2 .ed-diary-rail figcaption { padding-top: 10px; color: var(--muted); font-size: 15px; font-weight: 500; }
-
-/* ---------- LIVE CATALOGUE / PROVIDERS ---------- */
-.home-v2 #home-product-grid,
-.home-v2 #home-provider-grid { margin-top: 8px; }
-.home-v2 .product-grid-compact { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; min-width: 0; }
-.home-v2 .provider-grid-compact { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; min-width: 0; }
-.home-v2 .product-grid-compact > *,
-.home-v2 .provider-grid-compact > * { min-width: 0; }
-/* ---------- product card ---------- */
-.home-v2 .pc { display: flex; flex-direction: column; min-width: 0; background: transparent; border: 0; cursor: pointer; }
-.home-v2 .pc-img { overflow: hidden; aspect-ratio: 4 / 3; background: var(--concrete-2); border-radius: var(--radius); }
-.home-v2 .pc-img img { display: block; width: 100%; height: 100%; max-width: none; object-fit: cover; transition: transform .5s ease; }
-.home-v2 .pc:hover .pc-img img { transform: scale(1.04); }
-.home-v2 .pc-body { display: flex; flex: 1; flex-direction: column; gap: 4px; padding: 14px 0 0; }
-.home-v2 .pc-body h3 { margin: 0; font: 600 17px/1.3 var(--text); }
-.home-v2 .pc-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 6px; margin-top: auto; padding: 0; border: 0; }
-.home-v2 .pc-price strong { font: 600 16px/1.4 var(--text); }
-.home-v2 .pc-price span { color: var(--muted); font-size: 14px; }
-.home-v2 .pc-body form { margin: 10px 0 0; }
-.home-v2 .pc-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 44px;
-    margin-top: 10px;
-    padding: 0 16px;
-    background: transparent;
-    border: 1px solid var(--ink);
-    border-radius: var(--radius);
-    color: var(--ink);
-    font: 600 15px/1 var(--text);
-    text-decoration: none;
-    cursor: pointer;
-    transition: background .2s ease, color .2s ease;
-}
-.home-v2 .pc-body form .pc-btn { margin-top: 0; }
-.home-v2 .pc-btn:hover { background: var(--ink); color: #fff; }
-.home-v2 .pc-btn[disabled] { opacity: .7; cursor: wait; }
-.home-v2 .pc:focus-visible { outline: 3px solid var(--amber); outline-offset: 6px; }
-
-.home-v2 #home-catalogue-count { color: var(--muted); font-size: 15px; }
-.home-v2 .loading {
-    grid-column: 1 / -1;
-    display: grid;
-    place-items: center;
-    min-height: 120px;
-    margin: 0;
-    padding: 20px;
-    border: 1px dashed var(--line);
-    border-radius: var(--radius);
-    color: var(--muted);
-    font-size: 15px;
-}
-
-/* ---------- TRUST ---------- */
-.home-v2 .ed-trust-grid {
-    display: grid;
-    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
-    gap: clamp(36px, 7vw, 110px);
-    align-items: start;
-}
-.home-v2 .ed-trust { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
-.home-v2 .ed-trust li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--line); }
-.home-v2 .ed-trust .tick {
-    display: grid;
-    place-items: center;
-    width: 28px;
-    height: 28px;
-    margin-top: 2px;
-    border-radius: 50%;
-    background: var(--amber);
-    color: #15130c;
-    font-size: 14px;
-    font-weight: 800;
-}
-.home-v2 .ed-trust strong { display: block; margin-bottom: 4px; font: 700 26px/1.05 var(--display); }
-.home-v2 .ed-trust p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.55; }
-
-/* ---------- CTA ---------- */
-.home-v2 .ed-cta { background: var(--concrete); }
-.home-v2 .ed-cta-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr);
-    gap: clamp(36px, 6vw, 96px);
-    align-items: center;
-}
-.home-v2 .ed-cta h2 { max-width: 22ch; margin: 0 0 20px; font: 700 clamp(46px, 6vw, 88px)/.92 var(--display); letter-spacing: -.01em; }
-.home-v2 .ed-cta .ed-lead { margin: 0; }
-.home-v2 .ed-cta-note { margin: 18px 0 28px; font-weight: 600; max-width: 70ch; line-height: 1.5; }
-.home-v2 .ed-contact-card { background: var(--ink); color: #fff; border-radius: var(--radius); padding: clamp(24px, 3vw, 40px); }
-.home-v2 .ed-contact-card p { margin: 0 0 6px; color: rgba(255,255,255,.7); font-size: 15px; }
-.home-v2 .ed-contact-phone { display: block; margin-bottom: 22px; font: 700 clamp(36px, 4vw, 52px)/1 var(--display); text-decoration: none; }
-.home-v2 .ed-contact-phone:hover { color: var(--amber-light); }
-.home-v2 .ed-contact-row { display: grid; gap: 10px; }
-.home-v2 .ed-contact-row a {
-    display: flex;
-    align-items: center;
-    min-height: 50px;
-    padding: 0 16px;
-    border: 1px solid rgba(255,255,255,.28);
-    border-radius: var(--radius);
-    font-size: 15px;
-    font-weight: 500;
-    text-decoration: none;
-    overflow-wrap: anywhere;
-}
-.home-v2 .ed-contact-row a:hover { border-color: var(--amber); background: rgba(255,255,255,.07); }
-
-/* ---------- mobile call bar ---------- */
-.home-v2 .ed-dock { display: none; }
-
-/* ---------- responsive ---------- */
-@media (max-width: 1100px) {
-    .home-v2 .ed-project-grid { grid-template-columns: 1fr 1fr; }
-    .home-v2 .ed-project:first-child { grid-column: 1 / -1; min-height: 420px; }
-    .home-v2 .product-grid-compact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .home-v2 .ed-diary-rail { grid-auto-columns: minmax(260px, 42%); }
-}
-
-@media (max-width: 980px) {
-    .home-v2 .ed-head,
-    .home-v2 .ed-about-grid,
-    .home-v2 .ed-trust-grid,
-    .home-v2 .ed-cta-grid { grid-template-columns: 1fr; }
-    .home-v2 .ed-head { align-items: start; }
-    .home-v2 .ed-service-grid { grid-template-columns: 1fr; }
-    .home-v2 .ed-why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 40px; }
-    .home-v2 .provider-grid-compact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .home-v2 .ed-stages { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 28px; }
-    .home-v2 .ed-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; }
-}
-
-@media (max-width: 680px) {
-    .home-v2 { padding-bottom: 68px; }
-    .home-v2 .ed-hero { min-height: 0; }
-    .home-v2 .ed-hero-inner { padding-top: 110px; }
-    .home-v2 .ed-hero h1 { font-size: clamp(56px, 17vw, 84px); }
-    .home-v2 .ed-hero .ed-lead { font-size: 17px; }
-    .home-v2 .ed-hero-cta .ed-btn { width: 100%; }
-    .home-v2 .ed-stages { margin-top: 44px; }
-    .home-v2 .ed-service { grid-template-columns: 1fr; min-height: 0; }
-    .home-v2 .ed-service-media { height: 240px; min-height: 0; }
-    .home-v2 .ed-service-body { padding: 24px 20px; }
-    .home-v2 .ed-why-grid { grid-template-columns: 1fr; }
-    .home-v2 .ed-project-grid { grid-template-columns: 1fr; }
-    .home-v2 .ed-project,
-    .home-v2 .ed-project:first-child { grid-column: auto; min-height: 360px; }
-    .home-v2 .product-grid-compact,
-    .home-v2 .provider-grid-compact { grid-template-columns: 1fr; }
-    .home-v2 .ed-diary-rail { grid-auto-columns: 78%; }
-    .home-v2 .ed-facts { grid-template-columns: 1fr; }
-
-    .home-v2 .ed-dock {
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 50;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-        padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
-        background: rgba(21,24,22,.96);
-        border-top: 1px solid rgba(255,255,255,.14);
-    }
-    .home-v2 .ed-dock a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 48px;
-        border-radius: var(--radius);
-        font: 600 16px/1 var(--text);
-        text-decoration: none;
-    }
-    .home-v2 .ed-dock .call { background: var(--amber); color: #15130c; }
-    .home-v2 .ed-dock .wa { background: #166534; color: #fff; }
-}
-
-@media (max-width: 420px) {
-    .home-v2 .ed-stages { grid-template-columns: 1fr; }
-    .home-v2 .ed-h2 { font-size: 40px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .home-v2 *,
-    .home-v2 *::before,
-    .home-v2 *::after {
-        scroll-behavior: auto !important;
-        transition: none !important;
-        animation: none !important;
-    }
-}
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link rel="preload" as="image" href="/hercules-img/2048/file_il9nSPdYiflywplFEMSxBVuh" fetchPriority="high"/><link rel="stylesheet" href="/hercules-home/fonts.css" data-precedence="default"/><link rel="stylesheet" href="/assets/index-qp3lYcAc.css" data-precedence="default"/><title>Leivant Construction Solutions | Dar es Salaam, Tanzania</title><meta name="description" content="Leivant Construction Solutions plans, builds, renovates, and supervises construction projects across Tanzania. BRELA 626936."/><meta property="og:title" content="Leivant Construction Solutions | Dar es Salaam, Tanzania"/><meta property="og:description" content="Leivant Construction Solutions plans, builds, renovates, and supervises construction projects across Tanzania. BRELA 626936."/><meta property="og:image" content="/hercules-img/2048/file_il9nSPdYiflywplFEMSxBVuh"/><meta name="theme-color" content="#151816"/><link rel="modulepreload" href="/assets/index--nCihyMW.js" fetchPriority="low"/><link rel="modulepreload" href="/assets/rolldown-runtime-WkwZ5CU-.js" fetchPriority="low"/><link rel="modulepreload" href="/assets/routes-BxtvN5vd.js" fetchPriority="low"/><link rel="icon" href="/favicon.ico"/><script type="module" async fetchpriority="low" src="/_hercules/i.128m0g0qvu.js"></script><style>
+header.fixed.inset-x-0 > div:first-child { height: 84px !important; }
+header.fixed.inset-x-0 nav a { letter-spacing: .1em; }
 </style>
-
-
-<div class="home-v2">
-
-    {{-- HERO --}}
-    <section class="ed-hero" aria-label="Introduction">
-        <picture aria-hidden="true">
-            <source media="(max-width: 760px)" srcset="{{ asset('leivant-webp/hero-mobile-800.webp') }}">
-            <img src="{{ asset('leivant-webp/hero-1400.webp') }}" alt="" width="1400" height="1050" fetchpriority="high" decoding="async">
-        </picture>
-        <div class="ed-wrap ed-hero-inner">
-            <p class="ed-hero-reg" data-reveal>Dar es Salaam, Tanzania &middot; BRELA 626936</p>
-            <h1 data-reveal>One team. Every stage. <span>Your construction project planned, built, and delivered.</span></h1>
-            <p class="ed-lead" data-reveal>
-                Leivant manages the full lifecycle of construction projects across Tanzania — brief and BOQ review, materials, labour, equipment, and supervised site delivery, all under one roof.
-            </p>
-            <div class="ed-hero-cta" data-reveal>
-                <a href="{{ route('contact.index') }}" class="ed-btn ed-btn-solid">Start a project brief</a>
-                <a href="{{ route('services.index') }}" class="ed-btn ed-btn-ghost">View our services</a>
-            </div>
-
-            <ol class="ed-stages" aria-label="How a Leivant project runs" data-reveal>
-                <li><b>Brief &amp; drawings</b><span>We review your brief, drawings, and site conditions.</span></li>
-                <li><b>BOQ &amp; costing</b><span>Quantities and costs are agreed before ground breaks.</span></li>
-                <li><b>Materials &amp; labour</b><span>Supply, crews, and equipment scheduled to your timeline.</span></li>
-                <li><b>Supervised build</b><span>Our team supervises on site through to client handover.</span></li>
-            </ol>
-        </div>
-    </section>
-
-    {{-- ABOUT --}}
-    <section class="ed-section" aria-label="About Leivant">
-        <div class="ed-wrap ed-about-grid">
-            <div data-reveal>
-                <h2 class="ed-h2">Built to deliver, not just advise.</h2>
-                <div class="ed-lead">
-                    <p>Leivant Construction Solutions is a registered Tanzanian construction company with over a decade of active site experience. We work across residential, commercial, and renovation projects — coordinating every moving part so our clients don't have to chase multiple contractors, suppliers, and supervisors separately.</p>
-                    <p>When you work with Leivant, you get one point of contact for drawings review, cost estimation, material sourcing, equipment logistics, site labour, and construction supervision. We don't subcontract your project and disappear — we stay accountable from brief to handover.</p>
-                    <p>Our team operates from Kipawa, Dar es Salaam, with active projects across Tanzania including Kinyerezi and the coast of Zanzibar.</p>
-                </div>
-            </div>
-            <ul class="ed-facts" data-reveal>
-                <li><strong>End-to-end</strong><span>Brief, build, handover — one team</span></li>
-                <li><strong>BRELA 626936</strong><span>Registered and legally operating</span></li>
-                <li><strong>Multi-region</strong><span>Dar es Salaam, Zanzibar &amp; beyond</span></li>
-            </ul>
-        </div>
-    </section>
-
-    {{-- SERVICES --}}
-    <section class="ed-section ed-concrete" aria-label="Services">
-        <div class="ed-wrap">
-            <div class="ed-head" data-reveal>
-                <h2 class="ed-h2">Services that cover the whole project, not parts of it.</h2>
-                <p class="ed-lead">Most construction problems don't come from bad builders — they come from gaps between builders, suppliers, and supervisors. Leivant closes those gaps. Every service is connected, coordinated, and managed by the same team handling your project from day one.</p>
-            </div>
-            <div class="ed-service-grid">
-                @foreach ([
-                    ['House construction', 'We plan, supervise, and deliver residential construction projects — new builds, floor extensions, structural renovations, and finishing work. Our site team manages labour scheduling, quality checks, and progress reporting so you know exactly where your build stands at every stage.', 'house-construction-tanzania', 'leivant-webp/20260608_162620.jpg.webp'],
-                    ['BOQ & estimation', 'Before any project breaks ground, the numbers need to be right. Leivant prepares detailed Bills of Quantities, material schedules, and site-specific cost estimates — helping clients and developers understand the real cost of their build before committing funds or signing contracts.', 'boq-preparation-tanzania', 'leivant-webp/20260523_141830.jpg.webp'],
-                    ['Equipment rental', 'We supply and coordinate construction machinery for active sites — excavators, concrete mixers, compactors, and supporting equipment. Every rental is assessed against site access conditions, project phase, and duration to avoid downtime and over-cost.', 'construction-equipment-rental', 'leivant-webp/20260608_162631.jpg.webp'],
-                    ['Materials supply', 'Cement, steel reinforcement, building blocks, roofing sheets, tiles, and finishing materials — sourced, scheduled, and delivered to site. We coordinate materials against your build timeline so work isn\'t held up waiting for stock.', 'building-materials-supply', 'leivant-webp/20260523_142200.jpg.webp'],
-                ] as [$title, $body, $slug, $image])
-                    <article class="ed-service" data-reveal>
-                        <div class="ed-service-media">
-                            <img src="{{ asset($image) }}" alt="{{ $title }}" loading="lazy" decoding="async">
-                        </div>
-                        <div class="ed-service-body">
-                            <h3>{{ $title }}</h3>
-                            <p>{{ $body }}</p>
-                            <a class="ed-link" href="{{ route('services.show', $slug) }}" aria-label="Learn more about {{ $title }}">Learn more</a>
-                        </div>
-                    </article>
-                @endforeach
-            </div>
-            <p class="ed-more" data-reveal><a class="ed-link" href="{{ route('services.index') }}">Browse all services</a></p>
-        </div>
-    </section>
-
-    {{-- WHY LEIVANT --}}
-    <section class="ed-section ed-why" aria-label="Why Leivant">
-        <div class="ed-wrap">
-            <h2 class="ed-h2" data-reveal>Construction is complex. Working with Leivant shouldn't be.</h2>
-            <div class="ed-why-grid">
-                @foreach ([
-                    ['One team accountable', 'You deal with one team — not a chain of subcontractors pointing fingers at each other. Leivant takes responsibility for the full project scope and keeps you informed at every stage.'],
-                    ['Honest costs upfront', 'We don\'t win jobs with low quotes and inflate later. Our BOQ and estimation work is done carefully before any work starts — so there are no surprises mid-build when it\'s too late to change course.'],
-                    ['Supervised on site', 'Your project doesn\'t just get handed to a crew and forgotten. Leivant\'s team supervises site work directly — checking quality, managing pace, and catching problems before they become costly.'],
-                    ['Built for Tanzania', 'We work with local suppliers, understand local logistics, and know what builds actually require in Dar es Salaam, the coast, and upcountry — from road access challenges to seasonal material availability.'],
-                ] as [$title, $body])
-                    <article data-reveal>
-                        <h3>{{ $title }}</h3>
-                        <p>{{ $body }}</p>
-                    </article>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    {{-- PROJECTS + SITE DIARY --}}
-    <section class="ed-section" aria-label="Projects">
-        <div class="ed-wrap">
-            <div class="ed-head" data-reveal>
-                <h2 class="ed-h2">Real projects. Real sites. Documented from ground to finish.</h2>
-                <div class="ed-lead">
-                    <p>Below are four recent builds — a residential development in Kinyerezi, Dar es Salaam, a coastal construction project in Zanzibar, an active structural site in Dodoma, and a completed commercial complex. All managed end-to-end by the Leivant team, from early planning and material sourcing through supervised finishing and client handover.</p>
-                    <p>Every project is site-photographed and documented. Clients deserve to see real work — not stock images and generic promises.</p>
-                </div>
-            </div>
-            <div class="ed-project-grid">
-                <a class="ed-project" href="{{ route('projects.index') }}" data-reveal>
-                    <img src="{{ asset('leivant-webp/20260523_141609.jpg.webp') }}" alt="Kinyerezi residential construction by Leivant" loading="lazy" decoding="async">
-                    <div class="ed-project-cap"><span>Kinyerezi, Dar es Salaam</span><strong>Residential new build, supervised site delivery</strong></div>
-                </a>
-                <a class="ed-project" href="{{ route('projects.index') }}" data-reveal>
-                    <img src="{{ asset('leivant-webp/20260523_142319.jpg.webp') }}" alt="Zanzibar coastal construction by Leivant" loading="lazy" decoding="async">
-                    <div class="ed-project-cap"><span>Zanzibar</span><strong>Coastal construction, materials coordination and finishing</strong></div>
-                </a>
-                <a class="ed-project" href="{{ route('projects.index') }}#dodoma" data-reveal>
-                    <img src="{{ asset('leivant-webp/dodoma-progress-hero.webp') }}" alt="Dodoma structural site supervised by Leivant" loading="lazy" decoding="async">
-                    <div class="ed-project-cap"><span>Dodoma · Active site</span><strong>Slab formwork and steel fixing under supervision</strong></div>
-                </a>
-                <a class="ed-project" href="{{ route('projects.index') }}#mapacha" data-reveal>
-                    <img src="{{ asset('leivant-webp/mapacha-complex-hero.webp') }}" alt="Mapacha wa 3 Complex delivered by Leivant in Dar es Salaam" loading="lazy" decoding="async">
-                    <div class="ed-project-cap"><span>Dar es Salaam · Delivered</span><strong>Commercial complex, handed over complete</strong></div>
-                </a>
-            </div>
-            <p class="ed-more" data-reveal><a class="ed-link" href="{{ route('projects.index') }}">View full project gallery</a></p>
-
-            <div class="ed-diary">
-                <div class="ed-head" data-reveal>
-                    <h2 class="ed-h2">Dodoma: slab week, photographed from the deck.</h2>
-                    <p class="ed-lead">Formwork panels down, reinforcement going in, stair cores propped — our engineers walked every panel before the pour. This is what supervised delivery looks like.</p>
-                </div>
-                <div class="ed-diary-rail" tabindex="0" aria-label="Dodoma site photos, scroll sideways" data-reveal>
-                    <figure>
-                        <img src="{{ asset('leivant-webp/dodoma-progress-01.webp') }}" alt="Leivant supervisor checking slab reinforcement in Dodoma" loading="lazy" decoding="async">
-                        <figcaption>Steel check</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="{{ asset('leivant-webp/dodoma-progress-02.webp') }}" alt="Staircase formwork and propping in Dodoma" loading="lazy" decoding="async">
-                        <figcaption>Stair core</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="{{ asset('leivant-webp/dodoma-progress-03.webp') }}" alt="Rebar fixing close-up on the Dodoma slab" loading="lazy" decoding="async">
-                        <figcaption>Rebar detail</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="{{ asset('leivant-webp/dodoma-progress-04.webp') }}" alt="Formwork deck ready for concrete in Dodoma" loading="lazy" decoding="async">
-                        <figcaption>Deck ready for the pour</figcaption>
-                    </figure>
-                </div>
-                <p class="ed-more" data-reveal><a class="ed-link" href="{{ route('projects.index') }}">See the full Dodoma build</a></p>
-            </div>
-        </div>
-    </section>
-
-    {{-- RESOURCES (live catalogue) --}}
-    <section class="ed-section ed-concrete" aria-label="Resources">
-        <div class="ed-wrap">
-            <div class="ed-head" data-reveal>
-                <h2 class="ed-h2">Materials and equipment for your active project.</h2>
-                <div class="ed-lead">
-                    <p>The catalogue covers building materials, site equipment, and project supplies needed from foundation work through finishing. Browse it to build a request list, or contact us if you already know what you need. We check availability, site logistics, and delivery timing before confirming any supply order.</p>
-                    <p id="home-catalogue-count" aria-live="polite"></p>
-                </div>
-            </div>
-            <div class="product-grid product-grid-compact" id="home-product-grid">
-                <p class="loading">Loading catalogue…</p>
-            </div>
-            <p class="ed-more" data-reveal><a class="ed-link" href="{{ route('products.index') }}">Full catalogue</a></p>
-        </div>
-    </section>
-
-    {{-- PROVIDERS (live) --}}
-    <section class="ed-section" aria-label="Providers">
-        <div class="ed-wrap">
-            <div class="ed-head" data-reveal>
-                <h2 class="ed-h2">Verified trade and site partners when you need extra capacity.</h2>
-                <p class="ed-lead">Leivant coordinates vetted suppliers, trades, and equipment partners across Tanzania, listed live from our provider directory.</p>
-            </div>
-            <div class="provider-grid-compact" id="home-provider-grid">
-                <p class="loading">Loading providers…</p>
-            </div>
-            <p class="ed-more" data-reveal><a class="ed-link" href="{{ route('discovery.index') }}">All providers</a></p>
-        </div>
-    </section>
-
-    {{-- TRUST --}}
-    <section class="ed-section ed-concrete" aria-label="Trust">
-        <div class="ed-wrap ed-trust-grid">
-            <h2 class="ed-h2" data-reveal>Why Tanzanian clients trust Leivant with their builds.</h2>
-            <ul class="ed-trust">
-                @foreach ([
-                    ['BRELA registered business', 'No. 626936. Formally registered and legally operating in Tanzania.'],
-                    ['Over a decade on site', 'Operating continuously across Dar es Salaam, Zanzibar, and beyond.'],
-                    ['No middlemen', 'Leivant\'s own team handles your project. Not outsourced to unknown subcontractors.'],
-                    ['Transparent cost planning', 'BOQ and estimation work is done before any commitment. You know the numbers before ground breaks.'],
-                    ['Direct communication', 'Call, WhatsApp, or email. You reach the team handling your project — not a call centre.'],
-                ] as [$title, $body])
-                    <li data-reveal>
-                        <span class="tick" aria-hidden="true">✓</span>
-                        <div>
-                            <strong>{{ $title }}</strong>
-                            <p>{{ $body }}</p>
-                        </div>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-    </section>
-
-    {{-- CLOSING CTA --}}
-    <section class="ed-section ed-cta" aria-label="Contact">
-        <div class="ed-wrap ed-cta-grid" data-reveal>
-            <div>
-                <h2>Ready to start? Send us your project brief.</h2>
-                <p class="ed-lead">Planning a new residential build, extending an existing structure, or need materials and equipment coordinated for an active site? Start with a brief. Our team will review it and come back with a practical construction route specific to your project.</p>
-                <p class="ed-cta-note">No obligation. No generic sales pitch. Just a clear, honest response from a team that knows Tanzanian sites.</p>
-                <a href="{{ route('contact.index') }}" class="ed-btn ed-btn-dark">Send your project brief</a>
-            </div>
-            <div class="ed-contact-card">
-                <p>Prefer to talk? Call us directly.</p>
-                <a class="ed-contact-phone" href="tel:+255717970799">0717 970 799</a>
-                <div class="ed-contact-row">
-                    <a href="https://wa.me/255717970799" target="_blank" rel="noopener">Message on WhatsApp</a>
-                    <a href="mailto:info@leivantconstruction.com">info@leivantconstruction.com</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- MOBILE CALL BAR --}}
-    <nav class="ed-dock" aria-label="Quick contact">
-        <a class="call" href="tel:+255717970799">Call us</a>
-        <a class="wa" href="https://wa.me/255717970799" target="_blank" rel="noopener">WhatsApp</a>
-    </nav>
-
-</div>
-
-@endsection
+</head><body><section aria-label="Notifications alt+T" tabindex="-1" aria-live="polite" aria-relevant="additions text" aria-atomic="false" data-react-aria-top-layer="true"></section><!--$--><div class="min-h-screen overflow-x-clip"><header class="fixed inset-x-0 top-0 z-50 transition-colors duration-300 bg-transparent text-white" style="transform:translateY(-20px)"><div class="mx-auto flex h-18 max-w-7xl items-center justify-between gap-6 px-5 md:px-8"><a class="group flex cursor-pointer items-center gap-2.5 active" href="/" data-status="active" aria-current="page" target="_self"><img src="/images/leivant-logo-mark.svg" alt="Leivant" class="size-12 object-contain transition-transform group-hover:-rotate-6"><span class="leading-none"><span class="block font-display text-2xl font-bold tracking-wide uppercase">Leivant</span><span class="block font-mono text-[10px] tracking-[0.2em] uppercase opacity-70">Construction Solutions</span></span></a><nav class="hidden items-center gap-8 lg:flex"><a href="/" class="group relative cursor-pointer py-2 text-sm font-semibold tracking-wide uppercase" target="_self">Home<span class="absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full"></span></a><a href="/services" class="group relative cursor-pointer py-2 text-sm font-semibold tracking-wide uppercase" target="_self">Services<span class="absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full"></span></a><a href="/projects" class="group relative cursor-pointer py-2 text-sm font-semibold tracking-wide uppercase" target="_self">Projects<span class="absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full"></span></a><a href="/products" class="group relative cursor-pointer py-2 text-sm font-semibold tracking-wide uppercase" target="_self">Resources<span class="absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full"></span></a><a href="/discovery" class="group relative cursor-pointer py-2 text-sm font-semibold tracking-wide uppercase" target="_self">Providers<span class="absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full"></span></a><a href="/about" class="group relative cursor-pointer py-2 text-sm font-semibold tracking-wide uppercase" target="_self">About<span class="absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full"></span></a><a href="/contact" class="group relative cursor-pointer py-2 text-sm font-semibold tracking-wide uppercase" target="_self">Contact<span class="absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full"></span></a></nav><div class="flex items-center gap-2"><a href="tel:+255717970799" role="button" tabindex="0" data-slot="button" class="group/button shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding text-sm whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 bg-primary text-primary-foreground hover:bg-primary/80 h-9 gap-1.5 px-2.5 in-data-[slot=button-group]:rounded-md has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 hidden font-semibold sm:inline-flex"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>0717 970 799</a><button type="button" tabindex="0" data-slot="sheet-trigger" aria-label="Open menu" data-base-ui-click-trigger="" id="base-ui-_R_7rcmcq_" aria-haspopup="dialog" aria-expanded="false" class="group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50 size-9 lg:hidden"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg></button></div></div><div aria-hidden="true" class="absolute inset-x-0 bottom-0 h-0.5 origin-left bg-primary" style="transform:scaleX(0)"></div></header><main><section class="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-[#0f1211] text-white"><div class="absolute inset-0 -z-20" style="transform:none"><div class="absolute inset-0"><div class="absolute inset-0" style="transform:scale(1.06)"><img src="/hercules-img/2048/file_il9nSPdYiflywplFEMSxBVuh" alt="Leivant tower rising over Dar es Salaam" aria-hidden="false" fetchPriority="high" class="absolute inset-0 size-full object-cover" style="opacity:1"/><img src="/hercules-img/2048/file_wtNR5dOrc9288g4HVdjqFCjQ" alt="" aria-hidden="true" fetchPriority="low" class="absolute inset-0 size-full object-cover" style="opacity:0"/><img src="/hercules-img/2048/file_IS2BvTEG0Gp67RIMGoQiQeCV" alt="" aria-hidden="true" fetchPriority="low" class="absolute inset-0 size-full object-cover" style="opacity:0"/><img src="/hercules-img/2048/file_iVYZc9ZogG7OWKCK33ycE53P" alt="" aria-hidden="true" fetchPriority="low" class="absolute inset-0 size-full object-cover" style="opacity:0"/><button type="button" aria-label="View floor 103" class="group absolute left-1/2 z-10 hidden cursor-pointer items-center md:flex" style="top:16%;opacity:0;transform:translateX(-8px) translateY(-50%) scale(0.4)"><span class="relative grid size-4 place-items-center"><span class="absolute inset-0 rounded-full bg-[#e7bd62]"></span><span class="size-2.5 rounded-full bg-[#e7bd62] ring-2 ring-black/40"></span></span><span class="ml-2 bg-black/60 px-2 py-0.5 font-mono text-[11px] text-white opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">L<!-- -->103</span></button><button type="button" aria-label="View floor 88" class="group absolute left-1/2 z-10 hidden cursor-pointer items-center md:flex" style="top:26%;opacity:0;transform:translateX(-8px) translateY(-50%) scale(0.4)"><span class="relative grid size-4 place-items-center"><span class="absolute inset-0 rounded-full bg-[#e7bd62]"></span><span class="size-2.5 rounded-full bg-[#e7bd62] ring-2 ring-black/40"></span></span><span class="ml-2 bg-black/60 px-2 py-0.5 font-mono text-[11px] text-white opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">L<!-- -->88</span></button><button type="button" aria-label="View floor 64" class="group absolute left-1/2 z-10 hidden cursor-pointer items-center md:flex" style="top:42%;opacity:0;transform:translateX(-8px) translateY(-50%) scale(0.4)"><span class="relative grid size-4 place-items-center"><span class="absolute inset-0 rounded-full bg-[#e7bd62]"></span><span class="size-2.5 rounded-full bg-[#e7bd62] ring-2 ring-black/40"></span></span><span class="ml-2 bg-black/60 px-2 py-0.5 font-mono text-[11px] text-white opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">L<!-- -->64</span></button><button type="button" aria-label="View floor 40" class="group absolute left-1/2 z-10 hidden cursor-pointer items-center md:flex" style="top:57.99999999999999%;opacity:0;transform:translateX(-8px) translateY(-50%) scale(0.4)"><span class="relative grid size-4 place-items-center"><span class="absolute inset-0 rounded-full bg-[#e7bd62]"></span><span class="size-2.5 rounded-full bg-[#e7bd62] ring-2 ring-black/40"></span></span><span class="ml-2 bg-black/60 px-2 py-0.5 font-mono text-[11px] text-white opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">L<!-- -->40</span></button><button type="button" aria-label="View floor 18" class="group absolute left-1/2 z-10 hidden cursor-pointer items-center md:flex" style="top:74%;opacity:0;transform:translateX(-8px) translateY(-50%) scale(0.4)"><span class="relative grid size-4 place-items-center"><span class="absolute inset-0 rounded-full bg-[#e7bd62]"></span><span class="size-2.5 rounded-full bg-[#e7bd62] ring-2 ring-black/40"></span></span><span class="ml-2 bg-black/60 px-2 py-0.5 font-mono text-[11px] text-white opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">L<!-- -->18</span></button></div></div><div aria-hidden="true" class="absolute -inset-x-1/4 bottom-0 h-1/2 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.35),transparent_65%)] blur-2xl"></div><div aria-hidden="true" class="absolute -inset-x-1/4 bottom-0 h-1/2 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.35),transparent_65%)] blur-2xl"></div></div><div class="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(10,12,11,0.85)_0%,rgba(10,12,11,0.35)_40%,transparent_65%)]"></div><div class="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(0deg,rgba(10,12,11,0.95)_0%,transparent_35%),linear-gradient(180deg,rgba(10,12,11,0.6)_0%,transparent_20%)]"></div><div class="pointer-events-none mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between gap-8 px-5 pt-28 pb-8 md:px-8"><div class="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between"><div class="pointer-events-auto max-w-2xl"><p class="mb-5 flex items-center gap-3 font-mono text-xs font-semibold tracking-[0.2em] text-[#e7bd62] uppercase" style="transform:translateX(-30px)"><span class="h-px w-10 bg-[#e7bd62]"></span>Dar es Salaam · <!-- -->BRELA 626936</p><h1 class="font-display text-[clamp(3.5rem,9vw,8rem)] leading-[0.86] font-bold tracking-tight uppercase"><span class="block overflow-hidden pb-1"><span class="block" style="transform:translateY(60%) rotate(2deg)">We build</span></span><span class="block overflow-hidden pb-1"><span class="block text-[#e7bd62]" style="transform:translateY(60%) rotate(2deg)">what rises.</span></span></h1><p class="mt-6 max-w-lg text-lg leading-relaxed text-white/85" style="transform:translateY(20px)">From the first drawing to the top floor. Leivant plans, supplies, and supervises construction across Tanzania with one team accountable for every level.</p><div class="mt-8 flex flex-wrap gap-3" style="transform:translateY(20px)"><a href="/contact" role="button" tabindex="0" data-slot="button" class="group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 bg-primary text-primary-foreground hover:bg-primary/80 gap-1.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 group h-14 px-7 text-base font-semibold" target="_self">Start a project brief<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a><a href="https://wa.me/255717970799" target="_blank" rel="noopener" role="button" tabindex="0" data-slot="button" class="group/button inline-flex shrink-0 items-center justify-center rounded-md bg-clip-padding whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50 gap-1.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 h-14 border border-white/40 bg-black/20 px-7 text-base font-semibold text-white backdrop-blur hover:bg-white/15 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path></svg>WhatsApp us</a></div></div><div class="pointer-events-auto"><div class="w-full border border-white/15 bg-black/35 p-4 backdrop-blur-xl lg:w-72" style="transform:translateX(30px)"><div class="mb-3 flex items-center justify-between font-mono text-[11px] tracking-[0.2em] text-white/60 uppercase"><span>Choose your floor</span></div><ul class="flex gap-2 overflow-x-auto [scrollbar-width:none] lg:flex-col lg:overflow-visible lg:pb-0"><li class="shrink-0"><button type="button" class="group relative flex w-full cursor-pointer items-center gap-3 overflow-hidden border px-3 py-2.5 text-left transition-colors border-white/10 text-white hover:border-white/40"><span class="font-display text-3xl leading-none font-bold tabular-nums">103</span><span class="min-w-0 leading-tight"><span class="block text-sm font-semibold whitespace-nowrap">Penthouse terrace</span><span class="hidden text-xs lg:block text-white/55">Glass-edge infinity pool, 420 m² deck</span></span></button></li><li class="shrink-0"><button type="button" class="group relative flex w-full cursor-pointer items-center gap-3 overflow-hidden border px-3 py-2.5 text-left transition-colors border-white/10 text-white hover:border-white/40"><span class="font-display text-3xl leading-none font-bold tabular-nums">88</span><span class="min-w-0 leading-tight"><span class="block text-sm font-semibold whitespace-nowrap">Sky lounge</span><span class="hidden text-xs lg:block text-white/55">Double-height glazing, 360° views</span></span></button></li><li class="shrink-0"><button type="button" class="group relative flex w-full cursor-pointer items-center gap-3 overflow-hidden border px-3 py-2.5 text-left transition-colors border-white/10 text-white hover:border-white/40"><span class="font-display text-3xl leading-none font-bold tabular-nums">64</span><span class="min-w-0 leading-tight"><span class="block text-sm font-semibold whitespace-nowrap">Residences</span><span class="hidden text-xs lg:block text-white/55">3 &amp; 4 bedroom apartments</span></span></button></li><li class="shrink-0"><button type="button" class="group relative flex w-full cursor-pointer items-center gap-3 overflow-hidden border px-3 py-2.5 text-left transition-colors border-white/10 text-white hover:border-white/40"><span class="font-display text-3xl leading-none font-bold tabular-nums">40</span><span class="min-w-0 leading-tight"><span class="block text-sm font-semibold whitespace-nowrap">Office floors</span><span class="hidden text-xs lg:block text-white/55">Column-free 1,200 m² plates</span></span></button></li><li class="shrink-0"><button type="button" class="group relative flex w-full cursor-pointer items-center gap-3 overflow-hidden border px-3 py-2.5 text-left transition-colors border-white/10 text-white hover:border-white/40"><span class="font-display text-3xl leading-none font-bold tabular-nums">18</span><span class="min-w-0 leading-tight"><span class="block text-sm font-semibold whitespace-nowrap">Podium &amp; retail</span><span class="hidden text-xs lg:block text-white/55">Lobby, retail, 6 parking levels</span></span></button></li></ul></div></div></div><div class="pointer-events-auto flex flex-col-reverse gap-4 md:flex-row md:items-end md:justify-between"><div class="flex w-fit flex-wrap gap-1 border border-white/15 bg-black/35 p-1 backdrop-blur-xl" style="transform:translateY(30px)"><button type="button" class="relative flex cursor-pointer items-center gap-2 px-3 py-2 text-sm font-semibold transition-colors text-[#151816]"><span class="absolute inset-0 -z-10 bg-white"></span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun size-4" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>Sunset</button><button type="button" class="relative flex cursor-pointer items-center gap-2 px-3 py-2 text-sm font-semibold transition-colors text-white/80 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon size-4" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"></path></svg>Night</button><button type="button" class="relative flex cursor-pointer items-center gap-2 px-3 py-2 text-sm font-semibold transition-colors text-white/80 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sunrise size-4" aria-hidden="true"><path d="M12 2v8"></path><path d="m4.93 10.93 1.41 1.41"></path><path d="M2 18h2"></path><path d="M20 18h2"></path><path d="m19.07 10.93-1.41 1.41"></path><path d="M22 22H2"></path><path d="m8 6 4-4 4 4"></path><path d="M16 18a4 4 0 0 0-8 0"></path></svg>Sunrise</button><button type="button" class="relative flex cursor-pointer items-center gap-2 px-3 py-2 text-sm font-semibold transition-colors text-white/80 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud size-4" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>Above clouds</button></div></div></div></section><section id="about" class="relative py-28 md:py-40"><div class="mx-auto max-w-6xl px-5 md:px-8"><p class="mb-5 flex items-center gap-3 font-mono text-xs font-semibold tracking-[0.2em] text-primary uppercase"><span class="h-px w-10 bg-primary"></span>Who we are</p><p class="font-display text-[clamp(2rem,4.6vw,4.2rem)] leading-[1.02] font-semibold uppercase"><span class="inline-block pr-[0.25em]" style="opacity:0.15">Most</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">builds</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">fail</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">in</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">the</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">gaps</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">between</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">drawings,</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">suppliers,</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">crews,</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">and</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">supervisors.</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">Leivant</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">closes</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">those</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">gaps.</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">One</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">registered</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">Tanzanian</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">team</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">carries</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">your</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">project</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">from</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">the</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">first</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">sketch</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">to</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">the</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">final</span><span class="inline-block pr-[0.25em]" style="opacity:0.15">key.</span></p><div class="mt-20 grid grid-cols-2 border-t lg:grid-cols-4"><div class="border-b py-8 pr-4 lg:border-b-0"><p class="font-display text-5xl font-bold text-primary tabular-nums md:text-6xl"><span>10+</span></p><p class="mt-2 text-sm text-muted-foreground">Years on active sites</p></div><div class="border-b py-8 pr-4 lg:border-b-0"><p class="font-display text-5xl font-bold text-primary tabular-nums md:text-6xl"><span>4</span></p><p class="mt-2 text-sm text-muted-foreground">Stages, one accountable team</p></div><div class="border-b py-8 pr-4 lg:border-b-0"><p class="font-display text-5xl font-bold text-primary tabular-nums md:text-6xl"><span>3</span></p><p class="mt-2 text-sm text-muted-foreground">Regions: Dar, Zanzibar, Dodoma</p></div><div class="border-b py-8 pr-4 lg:border-b-0"><p class="font-display text-5xl font-bold text-primary tabular-nums md:text-6xl"><span>626936</span></p><p class="mt-2 text-sm text-muted-foreground">BRELA registration number</p></div></div></div></section><section id="process" class="relative h-[420vh] bg-black"><div class="sticky top-0 h-[100svh] overflow-hidden"><img src="/hercules-img/2048/file_tsBijzLzGGVagOnTbHbFN3RW" alt="Tower construction stage 1" loading="lazy" class="absolute inset-0 size-full object-cover" style="opacity:1;transform:scale(1.12)"/><img src="/hercules-img/2048/file_BCuCIp2U88PwyzUDVIj02O48" alt="Tower construction stage 2" loading="lazy" class="absolute inset-0 size-full object-cover" style="opacity:0;transform:scale(1.12)"/><img src="/hercules-img/2048/file_5HzXa2ik1Nlhj3Bf867NMSqf" alt="Tower construction stage 3" loading="lazy" class="absolute inset-0 size-full object-cover" style="opacity:0;transform:scale(1.12)"/><img src="/hercules-img/2048/file_il9nSPdYiflywplFEMSxBVuh" alt="Tower construction stage 4" loading="lazy" class="absolute inset-0 size-full object-cover" style="opacity:0;transform:scale(1.12)"/><div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,10,9,0.92)_0%,rgba(8,10,9,0.55)_38%,transparent_70%)]"></div><div class="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,10,9,0.9)_0%,transparent_30%)]"></div><div class="relative mx-auto flex h-full max-w-7xl flex-col justify-center px-5 md:px-8"><p class="mb-5 flex items-center gap-3 font-mono text-xs font-semibold tracking-[0.2em] uppercase text-[#e7bd62]"><span class="h-px w-10 bg-primary"></span>How a Leivant build rises</p><div class="flex items-end gap-4"><span class="font-display text-[clamp(5rem,16vw,13rem)] leading-[0.8] font-bold text-white tabular-nums">000</span><span class="pb-3 font-mono text-xs tracking-[0.2em] text-white/60 uppercase">Floors<br/>topped</span></div><div class="mt-8 h-48 max-w-lg md:h-44"><div style="opacity:0;transform:translateY(24px)"><p class="font-mono text-xs tracking-[0.2em] text-[#e7bd62] uppercase">Stage <!-- -->01<!-- --> / 0<!-- -->4</p><h2 class="mt-2 font-display text-5xl font-bold text-white uppercase md:text-6xl">Groundwork</h2><p class="mt-3 text-lg leading-relaxed text-white/80">Brief, drawings, and BOQ agreed before ground breaks. Excavation, foundations, and the core rise under our supervision.</p></div></div></div><div class="absolute inset-x-5 bottom-8 mx-auto max-w-7xl md:inset-x-8"><div class="grid grid-cols-4 gap-3"><div class="font-mono text-[11px] tracking-widest uppercase"><span class="transition-colors text-white">01<!-- --> <span class="hidden sm:inline">Groundwork</span></span></div><div class="font-mono text-[11px] tracking-widest uppercase"><span class="transition-colors text-white/35">02<!-- --> <span class="hidden sm:inline">Structure</span></span></div><div class="font-mono text-[11px] tracking-widest uppercase"><span class="transition-colors text-white/35">03<!-- --> <span class="hidden sm:inline">Envelope</span></span></div><div class="font-mono text-[11px] tracking-widest uppercase"><span class="transition-colors text-white/35">04<!-- --> <span class="hidden sm:inline">Handover</span></span></div></div><div class="mt-2 h-0.5 bg-white/15"><div class="h-full origin-left bg-[#e7bd62]" style="transform:scaleX(0)"></div></div></div></div></section><section id="services" class="relative h-[300vh]"><div class="sticky top-0 flex h-[100svh] flex-col justify-center overflow-hidden"><div class="mx-auto mb-10 flex w-full max-w-7xl flex-wrap items-end justify-between gap-4 px-5 md:px-8"><div><p class="mb-5 flex items-center gap-3 font-mono text-xs font-semibold tracking-[0.2em] text-primary uppercase"><span class="h-px w-10 bg-primary"></span>Services</p><h2 class="font-display text-[clamp(2.6rem,6vw,5.5rem)] leading-[0.9] font-bold uppercase">The whole project.<br/><span class="text-primary">Not parts of it.</span></h2></div><p class="max-w-sm text-muted-foreground">Every service connected and managed by the same team from day one.</p></div><div class="flex gap-5 pl-5 md:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]" style="transform:none"><a href="/contact" class="group relative block h-[62vh] w-[82vw] shrink-0 cursor-pointer overflow-hidden bg-card sm:w-[440px]" target="_self"><img src="/hercules-img/1000/file_cuVJD7pn6v3jvb2jdvnnYJtr" alt="House construction" loading="lazy" class="absolute inset-0 size-full object-cover"/><div class="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,10,9,0.95)_0%,rgba(8,10,9,0.2)_55%,transparent_100%)]"></div><span class="absolute top-5 left-5 font-display text-7xl font-bold text-white/25">01</span><span class="absolute top-5 right-5 grid size-12 place-items-center rounded-full border border-white/30 text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span><div class="absolute inset-x-0 bottom-0 p-7 text-white"><h3 class="font-display text-4xl font-bold uppercase">House construction</h3><p class="mt-3 leading-relaxed text-white/75">New builds, floor extensions, structural renovations, and finishing work. Our site team manages labour, quality checks, and progress reporting so you always know where your build stands.</p></div></a><a href="/contact" class="group relative block h-[62vh] w-[82vw] shrink-0 cursor-pointer overflow-hidden bg-card sm:w-[440px]" target="_self"><img src="/hercules-img/1000/file_yTiHZADACPY8x8MxtUl5Hnrj" alt="BOQ &amp; estimation" loading="lazy" class="absolute inset-0 size-full object-cover"/><div class="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,10,9,0.95)_0%,rgba(8,10,9,0.2)_55%,transparent_100%)]"></div><span class="absolute top-5 left-5 font-display text-7xl font-bold text-white/25">02</span><span class="absolute top-5 right-5 grid size-12 place-items-center rounded-full border border-white/30 text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span><div class="absolute inset-x-0 bottom-0 p-7 text-white"><h3 class="font-display text-4xl font-bold uppercase">BOQ &amp; estimation</h3><p class="mt-3 leading-relaxed text-white/75">Detailed Bills of Quantities, material schedules, and site-specific cost estimates, so you understand the real cost of your build before committing funds.</p></div></a><a href="/contact" class="group relative block h-[62vh] w-[82vw] shrink-0 cursor-pointer overflow-hidden bg-card sm:w-[440px]" target="_self"><img src="/hercules-img/1000/file_I9Uqkchf8tG2l5oX0UghP2et" alt="Equipment rental" loading="lazy" class="absolute inset-0 size-full object-cover"/><div class="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,10,9,0.95)_0%,rgba(8,10,9,0.2)_55%,transparent_100%)]"></div><span class="absolute top-5 left-5 font-display text-7xl font-bold text-white/25">03</span><span class="absolute top-5 right-5 grid size-12 place-items-center rounded-full border border-white/30 text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span><div class="absolute inset-x-0 bottom-0 p-7 text-white"><h3 class="font-display text-4xl font-bold uppercase">Equipment rental</h3><p class="mt-3 leading-relaxed text-white/75">Excavators, concrete mixers, compactors, and supporting machinery, each matched to site access, project phase, and duration to avoid downtime.</p></div></a><a href="/contact" class="group relative block h-[62vh] w-[82vw] shrink-0 cursor-pointer overflow-hidden bg-card sm:w-[440px]" target="_self"><img src="/hercules-img/1000/file_zN7jgZGIlin4VfPcwEU2DFub" alt="Materials supply" loading="lazy" class="absolute inset-0 size-full object-cover"/><div class="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,10,9,0.95)_0%,rgba(8,10,9,0.2)_55%,transparent_100%)]"></div><span class="absolute top-5 left-5 font-display text-7xl font-bold text-white/25">04</span><span class="absolute top-5 right-5 grid size-12 place-items-center rounded-full border border-white/30 text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span><div class="absolute inset-x-0 bottom-0 p-7 text-white"><h3 class="font-display text-4xl font-bold uppercase">Materials supply</h3><p class="mt-3 leading-relaxed text-white/75">Cement, steel, blocks, roofing, tiles, and finishes, sourced, scheduled, and delivered to site against your build timeline.</p></div></a><div class="flex h-[62vh] w-[82vw] shrink-0 flex-col justify-end border border-primary/40 p-8 sm:w-[440px]"><p class="font-display text-5xl leading-none font-bold uppercase">Need it all? <span class="text-primary">That&#x27;s the point.</span></p><a href="/contact" class="mt-6 inline-flex cursor-pointer items-center gap-2 font-semibold tracking-wide text-primary uppercase" target="_self">Send a brief <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-4" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a></div></div></div></section><div class="relative overflow-hidden border-y py-6"><div class="flex w-max gap-12"><span class="flex items-center gap-12 font-display text-4xl font-bold whitespace-nowrap uppercase md:text-6xl"><span class="text-foreground">House construction</span><span class="size-3 rotate-45 bg-primary"></span></span><span class="flex items-center gap-12 font-display text-4xl font-bold whitespace-nowrap uppercase md:text-6xl"><span class="text-transparent [-webkit-text-stroke:1px_var(--muted-foreground)]">BOQ &amp; estimation</span><span class="size-3 rotate-45 bg-primary"></span></span><span class="flex items-center gap-12 font-display text-4xl font-bold whitespace-nowrap uppercase md:text-6xl"><span class="text-foreground">Equipment rental</span><span class="size-3 rotate-45 bg-primary"></span></span><span class="flex items-center gap-12 font-display text-4xl font-bold whitespace-nowrap uppercase md:text-6xl"><span class="text-transparent [-webkit-text-stroke:1px_var(--muted-foreground)]">Materials supply</span><span class="size-3 rotate-45 bg-primary"></span></span><span class="flex items-center gap-12 font-display text-4xl font-bold whitespace-nowrap uppercase md:text-6xl"><span class="text-foreground">Site supervision</span><span class="size-3 rotate-45 bg-primary"></span></span><span class="flex items-center gap-12 font-display text-4xl font-bold whitespace-nowrap uppercase md:text-6xl"><span class="text-transparent [-webkit-text-stroke:1px_var(--muted-foreground)]">Renovations</span><span class="size-3 rotate-45 bg-primary"></span></span><span class="flex items-center gap-12 font-display text-4xl font-bold whitespace-nowrap uppercase md:text-6xl"><span class="text-foreground">Floor extensions</span><span class="size-3 rotate-45 bg-primary"></span></span><span class="flex items-center gap-12 font-display text-4xl font-bold whitespace-nowrap uppercase md:text-6xl"><span class="text-transparent [-webkit-text-stroke:1px_var(--muted-foreground)]">Finishing works</span><span class="size-3 rotate-45 bg-primary"></span></span><span class="flex items-center gap-12 font-display text-4xl font-bold whitespace-nowrap uppercase md:text-6xl"><span class="text-foreground">House construction</span><span class="size-3 rotate-45 bg-primary"></span></span><span class="flex items-center gap-12 font-display text-4xl font-bold whitespace-nowrap uppercase md:text-6xl"><span class="text-transparent [-webkit-text-stroke:1px_var(--muted-foreground)]">BOQ &amp; estimation</span><span class="size-3 rotate-45 bg-primary"></span></span><span class="flex items-center gap-12 font-display text-4xl font-bold whitespace-nowrap uppercase md:text-6xl"><span class="text-foreground">Equipment rental</span><span class="size-3 rotate-45 bg-primary"></span></span><span class="flex items-center gap-12 font-display text-4xl font-bold whitespace-nowrap uppercase md:text-6xl"><span class="text-transparent [-webkit-text-stroke:1px_var(--muted-foreground)]">Materials supply</span><span class="size-3 rotate-45 bg-primary"></span></span><span class="flex items-center gap-12 font-display text-4xl font-bold whitespace-nowrap uppercase md:text-6xl"><span class="text-foreground">Site supervision</span><span class="size-3 rotate-45 bg-primary"></span></span><span class="flex items-center gap-12 font-display text-4xl font-bold whitespace-nowrap uppercase md:text-6xl"><span class="text-transparent [-webkit-text-stroke:1px_var(--muted-foreground)]">Renovations</span><span class="size-3 rotate-45 bg-primary"></span></span><span class="flex items-center gap-12 font-display text-4xl font-bold whitespace-nowrap uppercase md:text-6xl"><span class="text-foreground">Floor extensions</span><span class="size-3 rotate-45 bg-primary"></span></span><span class="flex items-center gap-12 font-display text-4xl font-bold whitespace-nowrap uppercase md:text-6xl"><span class="text-transparent [-webkit-text-stroke:1px_var(--muted-foreground)]">Finishing works</span><span class="size-3 rotate-45 bg-primary"></span></span></div></div><section id="projects" class="py-28 md:py-40"><div class="mx-auto max-w-7xl px-5 md:px-8"><div class="mb-14 flex flex-wrap items-end justify-between gap-6"><div class="" style="opacity:0;transform:translateY(40px)"><p class="mb-5 flex items-center gap-3 font-mono text-xs font-semibold tracking-[0.2em] text-primary uppercase"><span class="h-px w-10 bg-primary"></span>Selected projects</p><h2 class="font-display text-[clamp(2.6rem,6vw,5.5rem)] leading-[0.9] font-bold uppercase">Ground to finish.<br/><span class="text-primary">Across Tanzania.</span></h2></div><div class="" style="opacity:0;transform:translateY(40px)"><p class="max-w-sm text-muted-foreground">Residential builds, coastal work, active structural sites, and a completed commercial complex.</p></div></div><div class="grid auto-rows-[260px] gap-4 md:grid-cols-3 md:auto-rows-[240px]"><figure class="group relative overflow-hidden bg-card md:col-span-2 md:row-span-2" style="clip-path:inset(18% 18% 18% 18%);opacity:0"><img src="/hercules-img/1400/file_cuVJD7pn6v3jvb2jdvnnYJtr" alt="Residential new build, supervised site delivery, Kinyerezi, Dar es Salaam" loading="lazy" class="absolute inset-0 size-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"/><div class="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,10,9,0.92)_0%,transparent_60%)] transition-opacity group-hover:opacity-90"></div><span class="absolute top-4 left-4 flex items-center gap-2 bg-black/50 px-2.5 py-1 font-mono text-[11px] tracking-widest text-[#e7bd62] uppercase backdrop-blur"><span class="size-1.5 rounded-full bg-[#e7bd62]"></span>Delivered</span><figcaption class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 text-white"><div><p class="mb-2 flex items-center gap-1.5 font-mono text-xs tracking-wider text-white/70 uppercase"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin size-3.5" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Kinyerezi, Dar es Salaam</p><p class="font-display text-2xl leading-tight font-bold uppercase md:text-3xl">Residential new build, supervised site delivery</p></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-6 shrink-0 translate-y-2 text-[#e7bd62] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></figcaption></figure><figure class="group relative overflow-hidden bg-card md:row-span-2" style="clip-path:inset(18% 18% 18% 18%);opacity:0"><img src="/hercules-img/1400/file_4lBmvysZVD1991biT5a9hnDJ" alt="Coastal construction, materials coordination and finishing, Zanzibar" loading="lazy" class="absolute inset-0 size-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"/><div class="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,10,9,0.92)_0%,transparent_60%)] transition-opacity group-hover:opacity-90"></div><span class="absolute top-4 left-4 flex items-center gap-2 bg-black/50 px-2.5 py-1 font-mono text-[11px] tracking-widest text-[#e7bd62] uppercase backdrop-blur"><span class="size-1.5 rounded-full bg-[#e7bd62]"></span>Delivered</span><figcaption class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 text-white"><div><p class="mb-2 flex items-center gap-1.5 font-mono text-xs tracking-wider text-white/70 uppercase"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin size-3.5" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Zanzibar</p><p class="font-display text-2xl leading-tight font-bold uppercase md:text-3xl">Coastal construction, materials coordination and finishing</p></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-6 shrink-0 translate-y-2 text-[#e7bd62] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></figcaption></figure><figure class="group relative overflow-hidden bg-card" style="clip-path:inset(18% 18% 18% 18%);opacity:0"><img src="/hercules-img/1400/file_lNYgRU4gJdjEMGrk6yCBT81R" alt="Slab formwork and steel fixing under supervision, Dodoma" loading="lazy" class="absolute inset-0 size-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"/><div class="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,10,9,0.92)_0%,transparent_60%)] transition-opacity group-hover:opacity-90"></div><span class="absolute top-4 left-4 flex items-center gap-2 bg-black/50 px-2.5 py-1 font-mono text-[11px] tracking-widest text-[#e7bd62] uppercase backdrop-blur"><span class="size-1.5 rounded-full animate-pulse bg-green-400"></span>Active site</span><figcaption class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 text-white"><div><p class="mb-2 flex items-center gap-1.5 font-mono text-xs tracking-wider text-white/70 uppercase"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin size-3.5" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Dodoma</p><p class="font-display text-2xl leading-tight font-bold uppercase md:text-3xl">Slab formwork and steel fixing under supervision</p></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-6 shrink-0 translate-y-2 text-[#e7bd62] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></figcaption></figure><figure class="group relative overflow-hidden bg-card md:col-span-2" style="clip-path:inset(18% 18% 18% 18%);opacity:0"><img src="/hercules-img/1400/file_b4IEzl1apSm6zFB2dzljY6aV" alt="Mapacha wa 3 Complex, handed over complete, Dar es Salaam" loading="lazy" class="absolute inset-0 size-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"/><div class="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,10,9,0.92)_0%,transparent_60%)] transition-opacity group-hover:opacity-90"></div><span class="absolute top-4 left-4 flex items-center gap-2 bg-black/50 px-2.5 py-1 font-mono text-[11px] tracking-widest text-[#e7bd62] uppercase backdrop-blur"><span class="size-1.5 rounded-full bg-[#e7bd62]"></span>Delivered</span><figcaption class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 text-white"><div><p class="mb-2 flex items-center gap-1.5 font-mono text-xs tracking-wider text-white/70 uppercase"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin size-3.5" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Dar es Salaam</p><p class="font-display text-2xl leading-tight font-bold uppercase md:text-3xl">Mapacha wa 3 Complex, handed over complete</p></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right size-6 shrink-0 translate-y-2 text-[#e7bd62] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></figcaption></figure></div></div></section><section class="bg-card py-28 md:py-40"><div class="mx-auto grid max-w-7xl gap-14 px-5 md:px-8 lg:grid-cols-[0.9fr_1.1fr]"><div class="relative h-[520px] overflow-hidden lg:sticky lg:top-24 lg:h-[calc(100svh-8rem)]"><img src="/hercules-img/1200/file_rd6BhEO2lBYjXIqHqGWCUdDw" alt="Leivant site engineer reviewing drawings on site" loading="lazy" class="absolute inset-0 h-[124%] w-full -translate-y-[12%] object-cover" style="transform:translateY(-12%)"/><div class="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,10,9,0.85)_0%,transparent_45%)]"></div><div class="absolute inset-x-0 bottom-0 p-7 text-white"><p class="font-mono text-xs tracking-[0.2em] text-[#e7bd62] uppercase">Kipawa, Dar es Salaam, Tanzania</p><p class="mt-2 font-display text-3xl font-bold uppercase">Our people. Our sites. Our responsibility.</p></div></div><div><div class="" style="opacity:0;transform:translateY(40px)"><p class="mb-5 flex items-center gap-3 font-mono text-xs font-semibold tracking-[0.2em] text-primary uppercase"><span class="h-px w-10 bg-primary"></span>Why Leivant</p><h2 class="font-display text-[clamp(2.6rem,5.5vw,5rem)] leading-[0.9] font-bold uppercase">Built to deliver,<br/><span class="text-primary">not just advise.</span></h2></div><div class="mt-12 grid gap-px bg-border sm:grid-cols-2"><div class="bg-card" style="opacity:0;transform:translateY(40px)"><div class="group h-full p-7 transition-colors hover:bg-secondary"><p class="font-mono text-xs text-primary">01</p><h3 class="mt-3 font-display text-2xl font-bold uppercase">One team accountable</h3><p class="mt-2 leading-relaxed text-muted-foreground">You deal with one team, not a chain of subcontractors pointing fingers. Leivant takes responsibility for the full scope.</p></div></div><div class="bg-card" style="opacity:0;transform:translateY(40px)"><div class="group h-full p-7 transition-colors hover:bg-secondary"><p class="font-mono text-xs text-primary">02</p><h3 class="mt-3 font-display text-2xl font-bold uppercase">Honest costs upfront</h3><p class="mt-2 leading-relaxed text-muted-foreground">We don&#x27;t win jobs with low quotes and inflate later. Estimation is done carefully before any work starts.</p></div></div><div class="bg-card" style="opacity:0;transform:translateY(40px)"><div class="group h-full p-7 transition-colors hover:bg-secondary"><p class="font-mono text-xs text-primary">03</p><h3 class="mt-3 font-display text-2xl font-bold uppercase">Supervised on site</h3><p class="mt-2 leading-relaxed text-muted-foreground">Our team supervises site work directly, checking quality, managing pace, and catching problems early.</p></div></div><div class="bg-card" style="opacity:0;transform:translateY(40px)"><div class="group h-full p-7 transition-colors hover:bg-secondary"><p class="font-mono text-xs text-primary">04</p><h3 class="mt-3 font-display text-2xl font-bold uppercase">Built for Tanzania</h3><p class="mt-2 leading-relaxed text-muted-foreground">Local suppliers, local logistics, and real knowledge of Dar es Salaam, the coast, and upcountry sites.</p></div></div></div><ul class="mt-12 space-y-4"><div class="" style="opacity:0;transform:translateY(40px)"><li class="flex gap-4"><span class="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check size-4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><span class="font-semibold">BRELA registered business<!-- -->.</span> <span class="text-muted-foreground">No. 626936. Formally registered and legally operating in Tanzania.</span></p></li></div><div class="" style="opacity:0;transform:translateY(40px)"><li class="flex gap-4"><span class="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check size-4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><span class="font-semibold">Over a decade on site<!-- -->.</span> <span class="text-muted-foreground">Operating continuously across Dar es Salaam, Zanzibar, and beyond.</span></p></li></div><div class="" style="opacity:0;transform:translateY(40px)"><li class="flex gap-4"><span class="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check size-4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><span class="font-semibold">No middlemen<!-- -->.</span> <span class="text-muted-foreground">Leivant&#x27;s own team handles your project, not unknown subcontractors.</span></p></li></div><div class="" style="opacity:0;transform:translateY(40px)"><li class="flex gap-4"><span class="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check size-4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><span class="font-semibold">Transparent cost planning<!-- -->.</span> <span class="text-muted-foreground">You know the numbers before ground breaks.</span></p></li></div><div class="" style="opacity:0;transform:translateY(40px)"><li class="flex gap-4"><span class="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check size-4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><span class="font-semibold">Direct communication<!-- -->.</span> <span class="text-muted-foreground">Call, WhatsApp, or email the team handling your project.</span></p></li></div></ul></div></div></section><section id="contact" class="relative isolate overflow-hidden py-28 text-white md:py-40"><img src="/hercules-img/2048/file_wtNR5dOrc9288g4HVdjqFCjQ" alt="" aria-hidden="true" loading="lazy" class="absolute inset-0 -z-20 size-full object-cover" style="transform:scale(1.25)"/><div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(8,10,9,0.94)_0%,rgba(8,10,9,0.7)_50%,rgba(8,10,9,0.4)_100%)]"></div><div class="mx-auto grid max-w-7xl gap-14 px-5 md:px-8 lg:grid-cols-[1.3fr_1fr] lg:items-end"><div class="" style="opacity:0;transform:translateY(40px)"><p class="mb-5 font-mono text-xs font-semibold tracking-[0.2em] text-[#e7bd62] uppercase">Start your build</p><h2 class="font-display text-[clamp(3rem,8vw,7.5rem)] leading-[0.85] font-bold uppercase">Ready to<br/><span class="text-[#e7bd62]">break ground?</span></h2><p class="mt-8 max-w-xl text-lg leading-relaxed text-white/80">New build, extension, or materials for an active site: send us your brief and our team comes back with a practical construction route. No obligation, no generic sales pitch.</p><a href="https://wa.me/255717970799" target="_blank" rel="noopener" role="button" tabindex="0" data-slot="button" class="group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 bg-primary text-primary-foreground hover:bg-primary/80 gap-1.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 group mt-10 h-14 px-8 text-base font-semibold">Send your project brief<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a></div><div class="space-y-3"><div class="" style="opacity:0;transform:translateY(40px)"><a href="tel:+255717970799" rel="noopener" class="group flex cursor-pointer items-center gap-5 border border-white/15 bg-black/40 p-5 backdrop-blur-xl transition-all hover:translate-x-2 hover:border-[#e7bd62]"><span class="grid size-12 shrink-0 place-items-center bg-[#e7bd62] text-[#151816]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone size-5" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg></span><span class="min-w-0"><span class="block font-mono text-xs tracking-widest text-white/60 uppercase">Call</span><span class="block truncate font-display text-2xl font-bold">0717 970 799</span></span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-auto size-5 shrink-0 text-[#e7bd62] transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a></div><div class="" style="opacity:0;transform:translateY(40px)"><a href="https://wa.me/255717970799" target="_blank" rel="noopener" class="group flex cursor-pointer items-center gap-5 border border-white/15 bg-black/40 p-5 backdrop-blur-xl transition-all hover:translate-x-2 hover:border-[#e7bd62]"><span class="grid size-12 shrink-0 place-items-center bg-[#e7bd62] text-[#151816]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle size-5" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path></svg></span><span class="min-w-0"><span class="block font-mono text-xs tracking-widest text-white/60 uppercase">WhatsApp</span><span class="block truncate font-display text-2xl font-bold">Message the site team</span></span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-auto size-5 shrink-0 text-[#e7bd62] transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a></div><div class="" style="opacity:0;transform:translateY(40px)"><a href="mailto:info@leivantconstruction.com" rel="noopener" class="group flex cursor-pointer items-center gap-5 border border-white/15 bg-black/40 p-5 backdrop-blur-xl transition-all hover:translate-x-2 hover:border-[#e7bd62]"><span class="grid size-12 shrink-0 place-items-center bg-[#e7bd62] text-[#151816]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail size-5" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg></span><span class="min-w-0"><span class="block font-mono text-xs tracking-widest text-white/60 uppercase">Email</span><span class="block truncate font-display text-2xl font-bold">info@leivantconstruction.com</span></span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-auto size-5 shrink-0 text-[#e7bd62] transition-transform group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a></div></div></div></section></main><footer class="overflow-hidden border-t bg-background text-muted-foreground"><div class="mx-auto grid max-w-7xl gap-12 px-5 pt-20 pb-10 md:grid-cols-[1.5fr_1fr_1fr] md:px-8"><div class="space-y-4"><p class="max-w-sm text-lg leading-relaxed text-foreground">Construction planning, building, and site delivery across Tanzania. One team, from brief to handover.</p><p class="font-mono text-xs tracking-widest text-primary uppercase">BRELA 626936</p><img src="/images/leivant-logo-mark.svg" alt="Leivant" style="margin-top:22px;width:56px;height:56px;object-fit:contain"></div><div><p class="mb-4 font-mono text-xs tracking-widest uppercase">Explore</p><ul class="space-y-2"><li><a href="/" class="cursor-pointer text-foreground transition-colors hover:text-primary" target="_self">Home</a></li><li><a href="/services" class="cursor-pointer text-foreground transition-colors hover:text-primary" target="_self">Services</a></li><li><a href="/projects" class="cursor-pointer text-foreground transition-colors hover:text-primary" target="_self">Projects</a></li><li><a href="/products" class="cursor-pointer text-foreground transition-colors hover:text-primary" target="_self">Resources</a></li><li><a href="/discovery" class="cursor-pointer text-foreground transition-colors hover:text-primary" target="_self">Providers</a></li><li><a href="/about" class="cursor-pointer text-foreground transition-colors hover:text-primary" target="_self">About</a></li><li><a href="/contact" class="cursor-pointer text-foreground transition-colors hover:text-primary" target="_self">Contact</a></li></ul></div><div><p class="mb-4 font-mono text-xs tracking-widest uppercase">Contact</p><ul class="space-y-2 text-foreground"><li><a href="tel:+255717970799" class="cursor-pointer hover:text-primary">0717 970 799</a></li><li><a href="https://wa.me/255717970799" target="_blank" rel="noopener" class="cursor-pointer hover:text-primary">WhatsApp</a></li><li><a href="mailto:info@leivantconstruction.com" class="cursor-pointer break-all hover:text-primary">info@leivantconstruction.com</a></li><li class="text-muted-foreground">Kipawa, Dar es Salaam, Tanzania</li></ul></div></div><p aria-hidden="true" class="mx-auto max-w-7xl px-3 font-display text-[22vw] leading-[0.75] font-bold tracking-tight text-transparent uppercase select-none [-webkit-text-stroke:1px_var(--border)] md:text-[19vw] xl:text-[15rem]">Leivant</p><div class="border-t"><p class="mx-auto max-w-7xl px-5 py-6 text-sm md:px-8">© <!-- -->2026<!-- --> Leivant Construction Solutions. All rights reserved.</p></div></footer></div><!--/$--><script data-tsr-stream-part="">(self.$R=self.$R||{})["tsr"]=[];self.$_TSR={h(){this.hydrated=!0,this.c()},e(){this.streamEnded=!0,this.c()},c(){this.hydrated&&this.streamEnded&&(delete self.$_TSR,delete self.$R.tsr)},p(e){this.initialized?e():this.buffer.push(e)},buffer:[]};$_TSR.router=($R=>$R[0]={manifest:$R[1]={routes:$R[2]={__root__:$R[3]={preloads:$R[4]=["/assets/index--nCihyMW.js","/assets/rolldown-runtime-WkwZ5CU-.js"],scripts:$R[5]=[$R[6]={attrs:$R[7]={type:"module",async:!0,src:"/assets/index--nCihyMW.js"}}]},"/":$R[8]={preloads:$R[9]=["/assets/routes-BxtvN5vd.js"]}}},matches:$R[10]=[$R[11]={i:"__root__#",u:1794842957504,s:"success",b:$R[12]={auth:$R[13]={user:null}},ssr:!0},$R[14]={i:"##",u:1794842957504,s:"success",ssr:!0}],dehydratedData:$R[15]={query:$R[16]={stream:$R[17]=($R[18]=(stream) => new ReadableStream({ start(controller) {
+	stream.on({
+		next(value) {
+			try {
+				controller.enqueue(value);
+			} catch (_error) {}
+		},
+		throw(value) {
+			controller.error(value);
+		},
+		return() {
+			try {
+				controller.close();
+			} catch (_error) {}
+		}
+	});
+} }))($R[19]=($R[20]=(live) => {
+	const buffer = [];
+	const listeners = [];
+	let alive = true;
+	let success = false;
+	let count = 0;
+	const internal = {
+		flush(value, mode, x) {
+			live > 1 || buffer.push(value);
+			for (x = 0; x < count; x++) {
+				const listener = listeners[x];
+				if (listener) listener[mode](value);
+			}
+		},
+		up(listener, x, z, current) {
+			for (x = 0, z = buffer.length; x < z; x++) {
+				current = buffer[x];
+				if (!alive && x === z - 1) listener[success ? "return" : "throw"](current);
+				else listener.next(current);
+			}
+		},
+		on(listener, temp = 0) {
+			if (live > 1) throw new Error("Stream consumed");
+			let subscribed = alive;
+			if (alive) {
+				for (temp = 0; temp < count; temp++) if (!listeners[temp]) break;
+				if (temp === count) count++;
+				listeners[temp] = listener;
+			}
+			internal.up(listener);
+			if (live) {
+				live = 2;
+				buffer.length = 0;
+			}
+			return () => {
+				if (alive && subscribed) {
+					subscribed = false;
+					listeners[temp] = void 0;
+					while (count > 0 && !listeners[count - 1]) count--;
+					listeners.length = count;
+				}
+			};
+		}
+	};
+	return {
+		__SEROVAL_STREAM__: true,
+		on(listener) {
+			return internal.on(listener);
+		},
+		next(value) {
+			if (alive) internal.flush(value, "next");
+		},
+		throw(value) {
+			if (alive) {
+				internal.flush(value, "throw");
+				alive = false;
+				success = false;
+				listeners.length = 0;
+			}
+		},
+		return(value) {
+			if (alive) {
+				internal.flush(value, "return");
+				alive = false;
+				success = true;
+				listeners.length = 0;
+			}
+		}
+	};
+})())}}})($R["tsr"]);{let s=document.currentScript,p;while((p=s.previousElementSibling)&&p.hasAttribute('data-tsr-stream-part'))p.remove();s.remove()}</script><script type="module" async="" src="/assets/index--nCihyMW.js"></script><script>document.currentScript.remove();/*$tsr-stream-boundary*/</script><script>($R=>$R[19].return(void 0))($R["tsr"]);$_TSR.e();document.currentScript.remove()</script>
+<script>
+window.addEventListener('click', function (e) {
+  var a = e.target && e.target.closest && e.target.closest('a');
+  if (!a) return;
+  var href = a.getAttribute('href') || '';
+  if (href.indexOf('/_hercules') === 0) return;
+  if (href.charAt(0) === '#') {
+    e.preventDefault(); e.stopImmediatePropagation();
+    [80, 350, 800].forEach(function (d) { window.setTimeout(function(){
+      var t = document.querySelector(href);
+      if (t) window.scrollTo(0, t.getBoundingClientRect().top + window.scrollY - 80);
+    }, d); });
+    return;
+  }
+  if (href.charAt(0) === '/') {
+    e.preventDefault(); e.stopImmediatePropagation();
+    window.location.assign(a.href);
+  }
+}, true);
+</script>
+</body></html>

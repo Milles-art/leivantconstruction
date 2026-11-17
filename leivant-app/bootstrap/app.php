@@ -16,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->trustProxies(at: '*');
+        $middleware->validateCsrfTokens(except: ['_hercules/i']);
         $middleware->append(CanonicalHost::class);
         $middleware->prepend(SecurityHeaders::class);
 

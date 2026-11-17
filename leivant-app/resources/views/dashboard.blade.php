@@ -5,8 +5,12 @@
 @section('canonical', route('dashboard'))
 @section('robots', 'noindex, nofollow')
 
+@push('head')
+<link rel="stylesheet" href="{{ asset('css/hv-system.css') }}?v=20261116">
+@endpush
+
 @section('content')
-<div class="cm-page">
+<div class="hv-page">
     @php
         $user = auth()->user();
         $provider = $user->provider;
@@ -24,12 +28,15 @@
         $completionPercent = count($profileFields) ? (int) round(($completedFields / count($profileFields)) * 100) : 0;
     @endphp
 
-    <section class="proj-hero" aria-label="Account dashboard">
-        <img src="{{ asset('leivant-webp/20260523_142319.jpg.webp') }}" alt="" loading="eager" decoding="async" fetchpriority="high">
-        <div class="ed-wrap proj-hero-inner">
-            <p class="ed-label" style="color:var(--amber);">{{ $user->is_admin ? 'Admin account' : 'Provider account' }}</p>
-            <h1>Welcome, <span class="amber">{{ $user->name }}.</span></h1>
-            <p class="ed-lead">
+    {{-- HERO --}}
+    <section class="hv-hero" aria-label="Account dashboard">
+        <div class="hv-hero__media">
+            <img src="{{ asset('leivant-webp/20260523_142319.jpg.webp') }}" alt="" loading="eager" decoding="async" fetchpriority="high">
+        </div>
+        <div class="hv-hero__inner">
+            <p class="hv-eyebrow">{{ $user->is_admin ? 'Admin account' : 'Provider account' }}</p>
+            <h1 class="hv-hero__title">Welcome, <span class="hv-amber">{{ $user->name }}.</span></h1>
+            <p class="hv-hero__lead">
                 @if ($user->is_admin)
                     Manage Leivant operations, provider reviews, service requests, orders, products, and customer inquiries from one account.
                 @elseif ($approved)
@@ -38,109 +45,121 @@
                     Your provider account has been received. Leivant reviews new profiles before they appear publicly in Discovery.
                 @endif
             </p>
-            <div class="ed-hero-cta">
+            <div class="hv-hero__actions">
                 @if ($user->is_admin)
-                    <a href="{{ route('admin.dashboard') }}" class="ed-btn ed-btn-solid">Open admin panel</a>
+                    <a href="{{ route('admin.dashboard') }}" class="hv-btn">Open admin panel</a>
                 @else
-                    <a href="{{ route('discovery.index') }}" class="ed-btn ed-btn-solid">View Discovery</a>
+                    <a href="{{ route('discovery.index') }}" class="hv-btn">View Discovery</a>
                     @if ($provider)
-                        <a href="{{ route('provider.profile.edit') }}" class="ed-btn ed-btn-ghost">Edit provider profile</a>
+                        <a href="{{ route('provider.profile.edit') }}" class="hv-btn hv-btn--ghost">Edit provider profile</a>
                     @endif
                 @endif
                 <form method="POST" action="{{ route('logout') }}" data-no-loader>
                     @csrf
-                    <button class="ed-btn ed-btn-ghost" type="submit">Logout</button>
+                    <button class="hv-btn hv-btn--ghost" type="submit">Logout</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <section class="cm-section">
-        <div class="cm-wrap cm-dashgrid">
+    {{-- DASHBOARD --}}
+    <section class="hv-section" aria-label="Account overview">
+        <div class="hv-wrap">
             @if ($user->is_admin)
-                <aside class="form-card">
-                    <p class="ed-label">Control center</p>
-                    <h2 style="font-size:26px;margin-top:10px;">Operations shortcuts.</h2>
-                    <p class="cm-muted" style="margin-top:12px;font-size:14px;">Jump into the main admin workspaces without leaving the client-side visual system.</p>
-                </aside>
-                <div class="cm-grid" style="grid-template-columns:repeat(2,minmax(0,1fr));">
-                    @foreach ([
-                        ['Admin Dashboard', route('admin.dashboard'), 'View platform stats and recent activity.'],
-                        ['Providers', route('admin.providers.index'), 'Approve, verify, and manage supplier profiles.'],
-                        ['Orders', route('admin.orders.index'), 'Review checkout and equipment requests.'],
-                        ['Inquiries', route('admin.inquiries.index'), 'Respond to service and contact requests.'],
-                    ] as [$label, $url, $body])
-                        <a href="{{ $url }}" class="cm-card" style="text-decoration:none;">
-                            <span class="cm-tag">{{ $label }}</span>
-                            <p class="cm-muted" style="margin-top:10px;font-size:14px;">{{ $body }}</p>
-                            <span class="ed-link">Open →</span>
-                        </a>
-                    @endforeach
+                <div class="hv-grid hv-grid--2">
+                    <aside class="hv-card">
+                        <p class="hv-eyebrow">Control center</p>
+                        <h3 class="hv-card__title">Operations shortcuts.</h3>
+                        <p class="hv-card__text" style="margin-top:12px;">Jump into the main admin workspaces without leaving the client-side visual system.</p>
+                    </aside>
+                    <div style="display:grid;gap:16px;">
+                        @foreach ([
+                            ['Admin Dashboard', route('admin.dashboard'), 'View platform stats and recent activity.'],
+                            ['Providers', route('admin.providers.index'), 'Approve, verify, and manage supplier profiles.'],
+                            ['Orders', route('admin.orders.index'), 'Review checkout and equipment requests.'],
+                            ['Inquiries', route('admin.inquiries.index'), 'Respond to service and contact requests.'],
+                        ] as [$label, $url, $body])
+                            <a href="{{ $url }}" class="hv-card" style="min-height:0;text-decoration:none;">
+                                <span class="hv-pill">{{ $label }}</span>
+                                <p class="hv-card__text" style="margin-top:10px;">{{ $body }}</p>
+                                <span class="hv-amber hv-mono" style="margin-top:auto;font-size:11px;">Open →</span>
+                            </a>
+                        @endforeach
+                    </div>
                 </div>
             @else
-                <aside class="form-card">
-                    <p class="ed-label">Provider status</p>
-                    <h2 style="font-size:26px;margin-top:10px;">{{ $approved ? 'Approved profile.' : 'Pending Leivant review.' }}</h2>
-                    <p class="cm-muted" style="margin-top:12px;font-size:14px;">{{ $approved ? 'Clients can find your business in Discovery.' : 'Your listing stays private until Leivant completes review.' }}</p>
-                    <div style="margin-top:18px;">
-                        <span class="cm-status {{ $approved ? 'good' : 'waiting' }}">{{ $approved ? 'Visible in Discovery' : 'Not public yet' }}</span>
-                    </div>
-                </aside>
+                <div class="hv-grid hv-grid--2">
+                    <aside class="hv-card">
+                        <p class="hv-eyebrow">Provider status</p>
+                        <h3 class="hv-card__title">{{ $approved ? 'Approved profile.' : 'Pending Leivant review.' }}</h3>
+                        <p class="hv-card__text" style="margin-top:12px;">{{ $approved ? 'Clients can find your business in Discovery.' : 'Your listing stays private until Leivant completes review.' }}</p>
+                        <div style="margin-top:18px;">
+                            <span class="hv-pill">{{ $approved ? 'Visible in Discovery' : 'Not public yet' }}</span>
+                        </div>
+                    </aside>
 
-                <div style="display:grid;gap:16px;">
-                    @if ($provider)
-                        <article class="form-card">
-                            <div style="display:flex;gap:18px;align-items:start;justify-content:space-between;flex-wrap:wrap;">
-                                <div>
-                                    <p class="ed-label">Profile completeness</p>
-                                    <h2 style="font-size:32px;margin-top:10px;">{{ $completionPercent }}% complete</h2>
-                                    <p class="cm-muted" style="margin-top:8px;font-size:14px;">{{ $completedFields }} of {{ count($profileFields) }} details completed.</p>
+                    <div style="display:grid;gap:16px;">
+                        @if ($provider)
+                            <article class="hv-card" style="min-height:0;">
+                                <div style="display:flex;gap:18px;align-items:start;justify-content:space-between;flex-wrap:wrap;">
+                                    <div>
+                                        <p class="hv-eyebrow">Profile completeness</p>
+                                        <h3 class="hv-card__title" style="font-size:clamp(32px,3.5vw,48px);">{{ $completionPercent }}% complete</h3>
+                                        <p class="hv-card__text" style="margin-top:8px;">{{ $completedFields }} of {{ count($profileFields) }} details completed.</p>
+                                    </div>
+                                    <a href="{{ route('provider.profile.edit') }}" class="hv-btn">Update Business Profile</a>
                                 </div>
-                                <a href="{{ route('provider.profile.edit') }}" class="cm-btn" style="text-decoration:none;">Update Business Profile</a>
-                            </div>
-                            <div class="cm-track">
-                                <div class="cm-fill" style="width: {{ $completionPercent }}%"></div>
-                            </div>
-                        </article>
+                                <div style="height:8px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden;margin-top:24px;">
+                                    <div style="width: {{ $completionPercent }}%;height:100%;background:var(--hv-amber);border-radius:999px;"></div>
+                                </div>
+                            </article>
 
-                        <div class="cm-metricrow">
+                            <div class="hv-grid hv-grid--3">
+                                @foreach ([
+                                    ['Business', $provider->name],
+                                    ['Category', $provider->category],
+                                    ['Region', $provider->region?->name],
+                                ] as [$label, $value])
+                                    <article class="hv-card" style="min-height:0;">
+                                        <span class="hv-pill">{{ $label }}</span>
+                                        <h3 class="hv-card__title" style="font-size:22px;margin-top:12px;">{{ $value ?: 'Not Set' }}</h3>
+                                    </article>
+                                @endforeach
+                            </div>
+
+                            <article class="hv-card" style="min-height:0;">
+                                <p class="hv-eyebrow">Profile description</p>
+                                <p class="hv-card__text" style="margin-top:10px;">{{ $provider->description }}</p>
+                                <div style="margin-top:18px;">
+                                    <a href="{{ route('discovery.index', ['search' => $provider->name]) }}" class="hv-btn hv-btn--ghost">Check Discovery Listing</a>
+                                </div>
+                            </article>
+                        @endif
+
+                        <div class="hv-grid hv-grid--3">
                             @foreach ([
-                                ['Business', $provider->name],
-                                ['Category', $provider->category],
-                                ['Region', $provider->region?->name],
-                            ] as [$label, $value])
-                                <article class="cm-metric">
-                                    <span class="cm-tag">{{ $label }}</span>
-                                    <h3 style="margin-top:12px;font-size:22px;">{{ $value ?: 'Not Set' }}</h3>
+                                ['Profile Review', $approved ? 'Complete' : 'Waiting', $approved ? 'Leivant has approved your listing.' : 'Leivant checks provider details before publishing.'],
+                                ['Discovery Visibility', $approved ? 'Active' : 'Hidden', $approved ? 'Clients can find your profile.' : 'Your profile is not shown publicly yet.'],
+                                ['Next Step', $approved ? 'Respond Fast' : 'Keep Contact Ready', $approved ? 'Leivant may connect clients by request.' : 'Leivant may contact you for clarification.'],
+                            ] as [$label, $value, $body])
+                                <article class="hv-card" style="min-height:0;">
+                                    <span class="hv-pill">{{ $label }}</span>
+                                    <h3 class="hv-card__title" style="font-size:24px;margin-top:12px;">{{ $value }}</h3>
+                                    <p class="hv-card__text" style="font-size:14px;margin-top:6px;">{{ $body }}</p>
                                 </article>
                             @endforeach
                         </div>
-
-                        <article class="form-card">
-                            <p class="ed-label">Profile description</p>
-                            <p class="cm-muted" style="margin-top:10px;">{{ $provider->description }}</p>
-                            <div class="cm-actions">
-                                <a href="{{ route('discovery.index', ['search' => $provider->name]) }}" class="cm-btn-outline" style="text-decoration:none;">Check Discovery Listing</a>
-                            </div>
-                        </article>
-                    @endif
-
-                    <div class="cm-grid" style="grid-template-columns:repeat(3,minmax(0,1fr));">
-                        @foreach ([
-                            ['Profile Review', $approved ? 'Complete' : 'Waiting', $approved ? 'Leivant has approved your listing.' : 'Leivant checks provider details before publishing.'],
-                            ['Discovery Visibility', $approved ? 'Active' : 'Hidden', $approved ? 'Clients can find your profile.' : 'Your profile is not shown publicly yet.'],
-                            ['Next Step', $approved ? 'Respond Fast' : 'Keep Contact Ready', $approved ? 'Leivant may connect clients by request.' : 'Leivant may contact you for clarification.'],
-                        ] as [$label, $value, $body])
-                            <article class="cm-card">
-                                <span class="cm-tag">{{ $label }}</span>
-                                <h3 style="margin-top:12px;font-size:24px;">{{ $value }}</h3>
-                                <p class="cm-muted" style="font-size:14px;margin-top:6px;">{{ $body }}</p>
-                            </article>
-                        @endforeach
                     </div>
                 </div>
             @endif
         </div>
+    </section>
+
+    {{-- CLOSING CTA --}}
+    <section class="hv-cta" aria-label="Discovery">
+        <h2 class="hv-cta__title">Explore Leivant Discovery</h2>
+        <p class="hv-cta__text">Browse reviewed construction providers, suppliers, and skilled teams by region and service category across Tanzania.</p>
+        <a href="{{ route('discovery.index') }}" class="hv-btn">View Discovery</a>
     </section>
 </div>
 @endsection

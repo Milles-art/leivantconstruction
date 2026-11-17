@@ -133,53 +133,12 @@
         </script>
     @endif
     @stack('head')
+    <link rel="stylesheet" href="{{ asset('css/hv-chrome.css') }}?v=20261116">
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to main content</a>
     <div class="site-loader" aria-hidden="true"></div>
-    <header class="hub-header site-header" id="site-header">
-        <div class="hub-topbar">
-            <div class="hub-topbar-inner">
-                <span class="hub-topbar-tag">Civil Works &amp; Construction Delivery</span>
-                <div class="hub-topbar-meta">
-                    <a href="tel:+255717970799"><x-nav-icon name="phone" /> {{ $companyPhone }}</a>
-                    <span><x-nav-icon name="map" /> Dar es Salaam, Tanzania</span>
-                </div>
-            </div>
-        </div>
-        <div class="hub-navbar">
-            <div class="hub-navbar-inner">
-                <a href="{{ route('home') }}" class="hub-brand" aria-label="Leivant home">
-                    <span class="brand-mark"><img src="{{ asset('images/leivant-logo-mark.svg') }}" alt="" width="40" height="40"></span>
-                    <span class="brand-text"><strong>Leivant</strong><small>Construction Solutions</small></span>
-                </a>
-                <nav class="hub-nav-links" aria-label="Main navigation">
-                    @foreach ($nav as $item)
-                        <a href="{{ route($item['route']) }}" @class(['is-active' => request()->routeIs(...$item['active'])])>
-                            <span>{{ $item['label'] }}</span>
-                        </a>
-                    @endforeach
-                </nav>
-                <a href="{{ route('cart.index') }}" class="hub-cart-btn" aria-label="Request list">
-                    <x-nav-icon name="cart" />
-                    @if ($cartCount > 0)
-                        <span class="hub-cart-count">{{ $cartCount }}</span>
-                    @endif
-                </a>
-                <details class="hub-mobile mobile-menu" data-mobile-menu>
-                    <summary aria-label="Menu" aria-expanded="false" aria-controls="mobile-panel"><x-nav-icon name="menu" /></summary>
-                    <div class="mobile-panel" id="mobile-panel">
-                        @foreach ($nav as $item)
-                            <a href="{{ route($item['route']) }}" @class(['is-active' => request()->routeIs(...$item['active'])])>
-                                <x-nav-icon :name="$item['icon']" />
-                                <span>{{ $item['label'] }}</span>
-                            </a>
-                        @endforeach
-                    </div>
-                </details>
-            </div>
-        </div>
-    </header>
+    @include('partials.hv-header')
     <main id="main">
         @if (session('success'))
             <div class="container flash-wrap"><div class="notice success">{{ session('success') }}</div></div>
@@ -189,37 +148,9 @@
         @endif
         @yield('content')
     </main>
-    <footer class="hub-footer site-footer">
-        <div class="footer-inner">
-            <div class="footer-grid footer-grid-v2">
-                <div class="footer-brand-col">
-                    <a href="{{ route('home') }}" class="footer-brand">
-                        <span class="footer-mark"><img src="{{ asset('images/leivant-logo-mark.svg') }}" alt="" width="36" height="36"></span>
-                        <span>Leivant Construction</span>
-                    </a>
-                    <p class="footer-tagline">BRELA 626936 · Construction planning, building, and site delivery across Tanzania.</p>
-                </div>
-                <div>
-                    <h3><x-nav-icon name="services" /> Explore</h3>
-                    <a href="{{ route('services.index') }}"><x-nav-icon name="services" /><span>Services</span></a>
-                    <a href="{{ route('projects.index') }}"><x-nav-icon name="projects" /><span>Projects</span></a>
-                    <a href="{{ route('products.index') }}"><x-nav-icon name="resources" /><span>Resources</span></a>
-                    <a href="{{ route('discovery.index') }}"><x-nav-icon name="providers" /><span>Providers</span></a>
-                </div>
-                <div>
-                    <h3><x-nav-icon name="about" /> Company</h3>
-                    <a href="{{ route('about.index') }}"><x-nav-icon name="about" /><span>About</span></a>
-                    <a href="{{ route('contact.index') }}"><x-nav-icon name="contact" /><span>Contact</span></a>
-                    <a href="{{ route('cart.index') }}"><x-nav-icon name="cart" /><span>Request list</span></a>
-                    <a href="{{ route('privacy') }}"><x-nav-icon name="about" /><span>Privacy</span></a>
-                </div>
-            </div>
-            <div class="legal legal-v2">
-                <span>&copy; Leivant Construction Solutions</span>
-                <span>Dar es Salaam, Tanzania</span>
-            </div>
-        </div>
-    </footer>
+    @include('partials.hv-footer')
+    {{-- New cinematic design language, loaded last so it overrides page-level CSS --}}
+    <link rel="stylesheet" href="{{ asset('css/hercules-theme.css') }}?v=20261116">
     <script>
         document.addEventListener('scroll', function () {
             document.getElementById('site-header')?.classList.toggle('is-scrolled', window.scrollY > 8);

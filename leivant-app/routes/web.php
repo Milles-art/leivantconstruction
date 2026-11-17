@@ -1,5 +1,9 @@
 <?php
 
+// The mirrored homepage's Hercules runtime sends a tracking POST to this path
+// on client-side navigation. Answer it locally so navigation never 404s.
+Route::any('/_hercules/i', fn () => response('Invalid analytics payload', 400)->header('Content-Type', 'text/plain; charset=UTF-8'));
+
 use App\Http\Controllers\CartPageController;
 use App\Http\Controllers\CheckoutPageController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;

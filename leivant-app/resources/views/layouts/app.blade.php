@@ -403,6 +403,7 @@
 
     {{-- ─── Page-level head overrides ──────────────────────────────────────── --}}
     @stack('head')
+    <link rel="stylesheet" href="{{ asset('css/hv-chrome.css') }}?v=20261116">
 </head>
 <body>
     {{-- ── Accessibility: skip navigation ──────────────────────────────────── --}}
@@ -412,7 +413,7 @@
     <div class="vant-progress" id="vant-progress" aria-hidden="true"></div>
  
     {{-- ── Site navigation ─────────────────────────────────────────────────── --}}
-    <x-navbar />
+    @include('partials.hv-header')
  
     {{-- ── Main content ─────────────────────────────────────────────────────── --}}
     <main id="vant-page" data-vant-page class="min-h-screen pt-[72px]" tabindex="-1">
@@ -421,8 +422,11 @@
     </main>
  
     {{-- ── Site footer ──────────────────────────────────────────────────────── --}}
-    <x-footer />
+    @include('partials.hv-footer')
  
+    {{-- New cinematic design language, loaded last so it overrides page CSS --}}
+    <link rel="stylesheet" href="{{ asset('css/hercules-theme.css') }}?v=20261116">
+
     {{-- ── Core scripts ─────────────────────────────────────────────────────── --}}
     <script src="{{ asset('js/vant-live-navigation.js') }}" defer></script>
  

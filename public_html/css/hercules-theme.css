@@ -1,0 +1,223 @@
+/* ============================================================
+   LEIVANT — new cinematic design language
+   Carries the homepage's near-black + amber palette across the
+   rest of the public site. Loaded last so it wins over page CSS.
+   ============================================================ */
+
+:root {
+  --hv-ink: #0f1211;
+  --hv-surface: #151917;
+  --hv-surface-2: #1b201d;
+  --hv-line: rgba(255, 255, 255, .13);
+  --hv-text: #eceae5;
+  --hv-dim: #c2c9c2;
+  --hv-amber: #d4a017;
+  --hv-amber-bright: #e7bd62;
+  --hv-display: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  --hv-text-font: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hv-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html { background: var(--hv-ink); }
+
+body,
+.site-loader {
+  background: var(--hv-ink) !important;
+  color: var(--hv-text) !important;
+  font-family: var(--hv-text-font) !important;
+}
+
+/* ---------- header ---------- */
+.hub-navbar {
+  background: rgba(15, 18, 17, .92) !important;
+  border-bottom-color: var(--hv-amber) !important;
+}
+.hub-navbar-inner { min-height: 72px !important; }
+
+.hub-header,
+.hub-header.is-scrolled {
+  background: rgba(15, 18, 17, .88) !important;
+  border-bottom: 1px solid var(--hv-line) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
+.hub-topbar {
+  background: #0b0e0d !important;
+  border-bottom: 1px solid var(--hv-line) !important;
+}
+.hub-topbar-tag,
+.hub-topbar-meta a:hover,
+.hub-nav-links a:hover,
+.hub-nav-links a.is-active {
+  color: var(--hv-amber-bright) !important;
+}
+.hub-topbar-meta a,
+.hub-topbar-meta span { color: var(--hv-dim) !important; }
+.hub-topbar-meta .nav-icon { color: var(--hv-amber) !important; }
+
+.hub-brand .brand-text strong {
+  font-family: var(--hv-display) !important;
+  font-weight: 800 !important;
+  letter-spacing: .04em !important;
+  text-transform: uppercase !important;
+  color: var(--hv-text) !important;
+}
+.hub-brand .brand-text small {
+  font-family: var(--hv-mono) !important;
+  color: var(--hv-dim) !important;
+  letter-spacing: .16em !important;
+  text-transform: uppercase !important;
+}
+.hub-brand .brand-mark {
+  background: var(--hv-amber) !important;
+  border-radius: 0 !important;
+}
+.hub-brand .brand-mark img { filter: none !important; }
+
+.hub-nav-links a { color: var(--hv-dim) !important; font-family: var(--hv-text-font) !important; background: transparent !important; }
+.hub-nav-links a:hover { background: rgba(212, 160, 23, .08) !important; }
+.hub-nav-links a.is-active { background: rgba(212, 160, 23, .10) !important; }
+.hub-nav-links a.is-active::after { background: var(--hv-amber) !important; }
+
+.hub-cart-btn,
+.hub-mobile summary {
+  border-color: var(--hv-line) !important;
+  color: var(--hv-text) !important;
+  background: rgba(255, 255, 255, .04) !important;
+}
+.hub-cart-btn:hover { background: var(--hv-amber) !important; color: #0f1211 !important; }
+.hub-cart-count { background: var(--hv-amber) !important; color: #0f1211 !important; }
+
+.mobile-panel {
+  background: var(--hv-surface) !important;
+  border: 1px solid var(--hv-line) !important;
+}
+.mobile-panel a { color: var(--hv-text) !important; background: transparent !important; }
+.mobile-panel a:hover { background: rgba(212, 160, 23, .08) !important; }
+.mobile-panel a.is-active {
+  background: rgba(212, 160, 23, .12) !important;
+  color: var(--hv-amber-bright) !important;
+  border-left: 3px solid var(--hv-amber) !important;
+}
+
+/* ---------- footer ---------- */
+.hub-footer,
+.hub-footer.site-footer {
+  background: #0b0e0d !important;
+  border-top: 1px solid var(--hv-line) !important;
+  color: var(--hv-dim) !important;
+}
+.hub-footer .footer-brand { color: var(--hv-text) !important; font-family: var(--hv-display) !important; text-transform: uppercase !important; }
+.hub-footer .footer-mark { background: var(--hv-amber) !important; border-radius: 0 !important; }
+.hub-footer .footer-mark img { filter: brightness(0) !important; }
+.hub-footer .footer-tagline { color: var(--hv-dim) !important; font-family: var(--hv-mono) !important; }
+.hub-footer .footer-grid h3 {
+  background: transparent !important;
+  color: var(--hv-amber-bright) !important;
+  font-family: var(--hv-mono) !important;
+  letter-spacing: .16em !important;
+  text-transform: uppercase !important;
+}
+.hub-footer .footer-grid a:not(.footer-brand) { color: var(--hv-dim) !important; }
+.hub-footer .footer-grid a:hover { color: var(--hv-amber-bright) !important; }
+.hub-footer .legal { border-top-color: var(--hv-line) !important; color: #7e8880 !important; font-family: var(--hv-mono) !important; }
+
+/* ---------- page-level `home-v2` views ---------- */
+.home-v2 {
+  --ink: #eceae5;
+  --ink-2: #1b201d;
+  --paper: #0f1211;
+  --concrete: #151917;
+  --concrete-2: #1b201d;
+  --line: rgba(255, 255, 255, .13);
+  --muted: #c2c9c2;
+  --amber: #d4a017;
+  --amber-deep: #b5811a;
+  --amber-light: #e7bd62;
+  --error: #ef7b6b;
+  --display: var(--hv-display);
+  --text: var(--hv-text-font);
+  background: var(--hv-ink) !important;
+  color: var(--hv-text) !important;
+}
+
+.home-v2 h1,
+.home-v2 h2,
+.home-v2 h3,
+.home-v2 h4,
+.home-v2 .font-display,
+.font-display {
+  font-family: var(--hv-display) !important;
+  letter-spacing: -.01em;
+}
+
+.home-v2 .amber,
+.home-v2 [style*="--amber"] { color: var(--hv-amber-bright) !important; }
+
+.home-v2 input:not([type="checkbox"]):not([type="radio"]),
+.home-v2 select,
+.home-v2 textarea,
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  background: var(--hv-surface) !important;
+  color: var(--hv-text) !important;
+  border-color: var(--hv-line) !important;
+}
+.home-v2 input::placeholder,
+input::placeholder { color: #7e8880 !important; }
+
+.home-v2 a,
+.home-v2 button { font-family: var(--hv-text-font) !important; }
+
+/* Buttons and accent surfaces */
+.hub-cta, .ed-btn, .btn-primary,
+.home-v2 .ed-btn,
+.home-v2 .btn,
+.home-v2 button[type="submit"] {
+  background: var(--hv-amber) !important;
+  color: #0f1211 !important;
+  border-color: var(--hv-amber) !important;
+  border-radius: 3px !important;
+  font-family: var(--hv-mono) !important;
+  font-weight: 600 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+}
+
+/* Flash notices */
+.notice.success { background: rgba(212, 160, 23, .14) !important; color: var(--hv-amber-bright) !important; border-color: var(--hv-amber) !important; }
+.notice.danger { background: rgba(239, 123, 107, .12) !important; color: #ef7b6b !important; border-color: #ef7b6b !important; }
+
+/* Small mono labels */
+.ed-label,
+.font-mono { font-family: var(--hv-mono) !important; }
+
+/* Search / filter toolbars and the floating cart bar */
+.cm-toolbar,
+.resources-toolbar {
+  background: var(--hv-surface) !important;
+  border-color: var(--hv-line) !important;
+}
+.cm-toolbar input,
+.resources-toolbar input {
+  background: var(--hv-ink) !important;
+  color: var(--hv-text) !important;
+  border-color: var(--hv-line) !important;
+}
+.market-floating-cart-v2,
+[data-cart-bar] {
+  background: var(--hv-surface-2) !important;
+  color: var(--hv-text) !important;
+  border: 1px solid var(--hv-line) !important;
+}
+.market-floating-cart-v2 em,
+[data-cart-total] { color: var(--hv-amber-bright) !important; }
+
+/* Empty-state cards */
+.cm-empty {
+  background: var(--hv-surface) !important;
+  border: 1px solid var(--hv-line) !important;
+  color: var(--hv-text) !important;
+}
